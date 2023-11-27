@@ -1,6 +1,6 @@
 .sidebar-main {
   width: 15vw;
-  padding: 30px;
+  padding-left: 30px;
   margin: 0 15px 0 0;
   background-color: var(--white);
   height: 100vh;
@@ -15,15 +15,23 @@
   color: var(--dark-gray);
   font-weight: bold;
 }
+.icon-name-wrap-overview {
+  color: var(--green) !important;
+  box-shadow: 0px 15px 10px -20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+}
 
 .overview-text {
   color: var(--green) !important;
+  box-shadow: 0px 15px 10px -20px rgba(0, 0, 0, 0.3);
 }
 
 .icon-name-wrap {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  box-shadow: 0px 15px 10px -20px rgba(0, 0, 0, 0.3);
+  justify-content: flex-start;
 }
