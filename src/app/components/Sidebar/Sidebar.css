@@ -1,0 +1,29 @@
+.sidebar-main {
+  width: 15vw;
+  padding: 30px;
+  margin: 0 15px 0 0;
+  background-color: var(--white);
+  height: 100vh;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  align-items: center;
+}
+
+.sidebar-main p {
+  margin: 0px;
+  padding: var(--padding);
+  font-size: smaller;
+  color: var(--dark-gray);
+  font-weight: bold;
+}
+
+.overview-text {
+  color: var(--green) !important;
+}
+
+.icon-name-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 15px 10px -20px rgba(0, 0, 0, 0.3);
+}
