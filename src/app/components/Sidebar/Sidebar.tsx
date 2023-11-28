@@ -14,58 +14,59 @@ const Sidebar = () => {
 
   return (
     <>
-      {isSidebarOpen && (
-        <div className="sidebar-main ">
-          <div className="icon-name-wrap-overview">
+      <div className={`sidebar-main ${!isSidebarOpen ? "close" : ""}`}>
+        <div className="icon-name-wrap-overview">
+          <Image
+            src="/icons/bars.svg"
+            alt="close navbar"
+            width={25}
+            height={25}
+          />
+          <p className="overview-text">Overview</p>
+          <div
+            className={`close-sidebar ${!isSidebarOpen ? "icon-rotate" : ""}`}
+          >
             <Image
-              src="/icons/bars.svg"
+              src="/icons/open-sidebar-icon.svg"
               alt="close navbar"
               width={25}
               height={25}
+              onClick={handleSideBar}
             />
-            <p className="overview-text">Overview</p>
-            <div className="close-sidebar">
-              <Image
-                src="/icons/open-sidebar-icon.svg"
-                alt="close navbar"
-                width={25}
-                height={25}
-                onClick={handleSideBar}
-              />
-            </div>
-          </div>
-
-          <div className="icon-name-wrap">
-            <Image
-              src="/icons/invoice.svg"
-              alt="close navbar"
-              width={25}
-              height={25}
-            />
-            <p>Invoices</p>
-          </div>
-          <div className="icon-name-wrap">
-            <Image
-              src="/icons/clients.svg"
-              alt="close navbar"
-              width={25}
-              height={25}
-            />
-            <p>Clients</p>
-          </div>
-          <div className="icon-name-wrap">
-            <Image
-              src="/icons/employees.svg"
-              alt="close navbar"
-              width={25}
-              height={25}
-            />
-            <p>Employees</p>
           </div>
         </div>
-      )}
+
+        <div className="icon-name-wrap">
+          <Image
+            src="/icons/invoice.svg"
+            alt="close navbar"
+            width={25}
+            height={25}
+          />
+          <p>Invoices</p>
+        </div>
+        <div className="icon-name-wrap">
+          <Image
+            src="/icons/clients.svg"
+            alt="close navbar"
+            width={25}
+            height={25}
+          />
+          <p>Clients</p>
+        </div>
+        <div className="icon-name-wrap">
+          <Image
+            src="/icons/employees.svg"
+            alt="close navbar"
+            width={25}
+            height={25}
+          />
+          <p>Employees</p>
+        </div>
+      </div>
+
       {!isSidebarOpen && (
-        <div className="sidebar-main-close" onClick={handleSideBar}>
+        <div className="icon-rotate" onClick={handleSideBar}>
           <Image
             src="/icons/close-sidebar-icon.svg"
             alt="close navbar"

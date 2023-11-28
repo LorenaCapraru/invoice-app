@@ -4,14 +4,24 @@
   height: 100vh;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   align-items: center;
-  width: 15vw;
+  width: 220px;
   left: 0%;
+  transition: all 0.7s ease-in-out;
+  overflow: hidden;
+  position: relative;
 }
 
 .close {
-  width: 5vw;
-  left: -90%;
-  transition: all 1s ease;
+  width: 58px;
+  transition: all 0.7s ease-in-out;
+  overflow: hidden;
+}
+
+.icon-rotate {
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(180deg);
+  position: absolute;
+  z-index: 1;
 }
 
 .sidebar-main p {
