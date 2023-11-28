@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const Header = () => {
   return (
-    <>
+    <div className="header-wrapper">
       <Sidebar />
       <div className="header-main">
         <Image
@@ -27,7 +27,7 @@ const Header = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
