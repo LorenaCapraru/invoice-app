@@ -1,9 +1,17 @@
 .sidebar-main {
-  width: 15vw;
+  margin-right: 20px;
   background-color: var(--white);
   height: 100vh;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   align-items: center;
+  width: 15vw;
+  left: 0%;
+}
+
+.close {
+  width: 5vw;
+  left: -90%;
+  transition: all 1s ease;
 }
 
 .sidebar-main p {
@@ -12,9 +20,12 @@
   color: var(--dark-gray);
   font-weight: bold;
 }
+
 .icon-name-wrap:hover {
   background-color: var(--gray);
+  cursor: pointer;
 }
+
 .icon-name-wrap-overview {
   color: var(--green) !important;
   box-shadow: 0px 15px 10px -20px rgba(0, 0, 0, 0.3);
@@ -22,6 +33,12 @@
   flex-direction: row;
   align-items: center;
   padding: 20px;
+  position: relative;
+}
+
+.icon-name-wrap-overview:hover {
+  background-color: var(--gray);
+  cursor: pointer;
 }
 
 .overview-text {
@@ -35,4 +52,25 @@
   justify-content: flex-start;
   padding: 20px;
   margin: 0px;
+}
+
+.close-sidebar {
+  position: absolute;
+  right: 0px;
+}
+
+.sidebar-main-close {
+  margin-right: 20px;
+  padding-top: 40px;
+  padding-left: 5px;
+  height: 100vh;
+  width: 2vw;
+  background-color: var(--white);
+  cursor: pointer;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  animation: 2s fadeIn forwards 0.5s;
+  transition: 500ms;
+}
+.sidebar-main-close:hover {
+  background-color: var(--mid-gray);
 }
