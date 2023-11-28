@@ -65,7 +65,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      {!isSidebarOpen && (
+      {/* {!isSidebarOpen && (
         <div className="icon-rotate" onClick={handleSideBar}>
           <Image
             src="/icons/close-sidebar-icon.svg"
@@ -74,7 +74,7 @@ const Sidebar = () => {
             height={25}
           />
         </div>
-      )}
+      )} */}
     </>
   );
 };

@@ -1,9 +1,8 @@
-import Sidebar from "./components/Sidebar/Sidebar";
-
+import Header from "./components/Header/Header";
 export default function Home() {
   return (
     <main>
-      <Sidebar />
+      <Header />
     </main>
   );
 }

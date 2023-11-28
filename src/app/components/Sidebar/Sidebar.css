@@ -3,9 +3,7 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   height: 10vh;
   width: 100vw;
-
   transition: all 0.7s ease-in-out;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -68,6 +66,7 @@
     width: 220px;
     left: 0%;
     margin-right: 20px;
+    padding-top: 90px;
     align-items: center;
     transition: all 0.7s ease-in-out;
     overflow: hidden;
@@ -86,8 +85,8 @@
   .icon-rotate {
     transition: transform 0.3s ease-in-out;
     transform: rotate(180deg);
-    position: absolute;
     z-index: 1;
+    position: absolute;
   }
 
   .sidebar-main p {
@@ -128,11 +127,15 @@
     justify-content: flex-start;
     padding: 20px;
     margin: 0px;
+    position: relative;
   }
-
+  .close-sidebar {
+    display: inline;
+  }
   .close-sidebar {
     position: absolute;
-    right: 0px;
+    left: 20px;
+    top: -30px;
   }
 
   .sidebar-main-close {
