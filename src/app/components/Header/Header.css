@@ -1,4 +1,28 @@
 .header-main {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  /* gap: 250px; */
+  padding: 20px;
+}
+.user-icon {
+  border-radius: 50%;
+}
+
+.search-icon {
+  background-color: rgba(245, 246, 247, 255);
+  padding: 5px;
+  border-radius: 25px;
+}
+.search-user {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .menu-icon {
+    display: none;
+  }
 }
