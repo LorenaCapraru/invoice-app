@@ -10,7 +10,7 @@
   --lighter-blue: #0092ff;
   --darker-blue: #005eff;
   --green: #00e89d;
-  --yellow: #ffd95ef;
+  --yellow: #ffd95e;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono";
 }
 
@@ -23,5 +23,4 @@ body {
   background-color: var(--gray);
   font-family: "Caveat", cursive;
   font-family: "Nunito", sans-serif;
-  
 }

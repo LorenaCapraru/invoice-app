@@ -1,6 +1,6 @@
 .main-section {
   margin: 25px;
-  padding: 10px 0px;
+  padding: 30px 0px;
 }
 
 .main-section h1 {
@@ -11,4 +11,20 @@
 .main-body {
   background-color: var(--white);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart {
+  width: 300px;
+  padding: 20px 0px;
+  position: relative;
+}
+
+.total-invoices {
+  position: absolute;
+  top: 48%;
+  left: 48%;
 }
