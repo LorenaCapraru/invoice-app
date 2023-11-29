@@ -23,6 +23,7 @@ body {
   background-color: var(--gray);
   font-family: "Caveat", cursive;
   font-family: "Nunito", sans-serif;
+  color: var(--dark-gray);
 }
 
 @media (min-width: 768px) {

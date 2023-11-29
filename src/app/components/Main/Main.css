@@ -25,6 +25,8 @@
 
 .total-invoices {
   position: absolute;
-  top: 48%;
+  top: 46%;
   left: 48%;
+  font-weight: 600;
+  font-size: 20px;
 }
