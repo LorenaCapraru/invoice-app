@@ -5,7 +5,6 @@ const InvoiceBarChart = ({ invoices }) => {
   const [chartOptions, setChartOptions] = useState(null);
 
   useEffect(() => {
-    // Extracting data for chart
     const months = [
       ...new Set(invoices.map((invoice) => invoice.date.split("/")[1])),
     ];
@@ -50,9 +49,9 @@ const InvoiceBarChart = ({ invoices }) => {
 
   return (
     <div>
-      <h1>Invoice Bar Chart</h1>
+      <h1>Monthly Income</h1>
       {chartOptions && (
-        <ReactECharts option={chartOptions} style={{ height: "400px" }} />
+        <ReactECharts option={chartOptions} style={{ height: "350px" }} />
       )}
     </div>
   );
