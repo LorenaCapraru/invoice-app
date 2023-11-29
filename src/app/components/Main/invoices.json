@@ -2,39 +2,57 @@
   "invoices": [
     {
       "invoice_number": "INV-001",
-      "status": "paid"
+      "status": "paid",
+      "date": "20/11/2023",
+      "total": 10345
     },
     {
       "invoice_number": "INV-002",
-      "status": "send"
+      "status": "send",
+      "date": "20/11/2023",
+      "total": 10345
     },
     {
       "invoice_number": "INV-003",
-      "status": "pending"
+      "status": "pending",
+      "date": "20/11/2023",
+      "total": 10345
     },
     {
       "invoice_number": "INV-004",
-      "status": "paid"
+      "status": "paid",
+      "date": "20/11/2023",
+      "total": 10345
     },
     {
       "invoice_number": "INV-005",
-      "status": "pending"
+      "status": "pending",
+      "date": "20/11/2023",
+      "total": 10345
     },
     {
       "invoice_number": "INV-006",
-      "status": "pending"
+      "status": "pending",
+      "date": "20/11/2023",
+      "total": 10345
     },
     {
       "invoice_number": "INV-007",
-      "status": "pending"
+      "status": "pending",
+      "date": "20/11/2023",
+      "total": 10345
     },
     {
       "invoice_number": "INV-008",
-      "status": "paid"
+      "status": "paid",
+      "date": "20/11/2023",
+      "total": 10345
     },
     {
       "invoice_number": "INV-009",
-      "status": "send"
+      "status": "send",
+      "date": "20/11/2023",
+      "total": 10345
     }
   ]
 }

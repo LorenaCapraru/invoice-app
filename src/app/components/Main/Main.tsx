@@ -3,7 +3,7 @@ import "./Main.css";
 import invoicesData from "./invoices.json";
 import React, { useEffect, useState } from "react";
 import Chart from "chart.js";
-
+import InvoiceBarChart from "../InvoiceBarChart/InvoiceBarChart";
 interface Invoice {
   invoice_number: string;
   status: string;
@@ -66,7 +66,11 @@ const Main = () => {
       labels: ["Paid", "Send", "Pending"],
       datasets: [
         {
-          data: [paidPercentage, sendPercentage, pendingPercentage],
+          data: [
+            paidPercentage.toFixed(2),
+            sendPercentage.toFixed(2),
+            pendingPercentage.toFixed(2),
+          ],
           backgroundColor: [gradient, gradient2, gradient3],
         },
       ],
@@ -92,6 +96,7 @@ const Main = () => {
           <p className="total-invoices">{invoicesData.invoices.length}</p>
           <canvas id="percentageChart" width={20} height={20} />
         </div>
+        <InvoiceBarChart invoices={invoicesData.invoices} />
       </div>
     </div>
   );

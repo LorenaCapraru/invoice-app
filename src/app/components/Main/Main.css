@@ -30,3 +30,10 @@
   font-weight: 600;
   font-size: 20px;
 }
+
+@media (min-width: 768px) {
+  .main-body {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
