@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
-
+import "./InvoiceBarChart.css";
 const InvoiceBarChart = ({ invoices }) => {
   const [chartOptions, setChartOptions] = useState(null);
 
@@ -51,7 +51,7 @@ const InvoiceBarChart = ({ invoices }) => {
     <div>
       <h1>Monthly Income</h1>
       {chartOptions && (
-        <ReactECharts option={chartOptions} style={{ height: "350px" }} />
+        <ReactECharts option={chartOptions} className="bar-chart" />
       )}
     </div>
   );
