@@ -1,0 +1,40 @@
+{
+  "invoices": [
+    {
+      "invoice_number": "INV-001",
+      "status": "paid"
+    },
+    {
+      "invoice_number": "INV-002",
+      "status": "send"
+    },
+    {
+      "invoice_number": "INV-003",
+      "status": "pending"
+    },
+    {
+      "invoice_number": "INV-004",
+      "status": "paid"
+    },
+    {
+      "invoice_number": "INV-005",
+      "status": "pending"
+    },
+    {
+      "invoice_number": "INV-006",
+      "status": "pending"
+    },
+    {
+      "invoice_number": "INV-007",
+      "status": "pending"
+    },
+    {
+      "invoice_number": "INV-008",
+      "status": "paid"
+    },
+    {
+      "invoice_number": "INV-009",
+      "status": "send"
+    }
+  ]
+}
