@@ -4,12 +4,17 @@ import invoicesData from "./invoices.json";
 import React, { useEffect, useState } from "react";
 import Chart from "chart.js";
 import InvoiceBarChart from "../InvoiceBarChart/InvoiceBarChart";
+import Image from "../../../../node_modules/next/image";
+
 interface Invoice {
   invoice_number: string;
   status: string;
 }
 
 const Main = () => {
+  const [pieChartOpen, setPieChartOpen] = useState<boolean>(true);
+  const [barChartOpen, setBarChartOpen] = useState<boolean>(true);
+
   const [paid, setPaid] = useState<Invoice[]>([]);
   const [send, setSend] = useState<Invoice[]>([]);
   const [pending, setPending] = useState<Invoice[]>([]);
@@ -22,6 +27,13 @@ const Main = () => {
       },
     ],
   });
+
+  const handlePieChartClick = () => {
+    return setPieChartOpen(!pieChartOpen);
+  };
+  const handleBarChartClick = () => {
+    return setBarChartOpen(!barChartOpen);
+  };
 
   useEffect(() => {
     const filterPaid = invoicesData.invoices.filter(
@@ -48,19 +60,19 @@ const Main = () => {
     //first  gradient
     const gradient = ctx.getContext("2d")!.createLinearGradient(0, 0, 400, 0);
     gradient.addColorStop(0, "#1fdad6"); // start color
-    gradient.addColorStop(0.5, "#29e4cf"); // middle color
+    gradient.addColorStop(0.8, "#29e4cf"); // middle color
     gradient.addColorStop(1, "#33edc9"); // end color
 
     //second  gradient
     const gradient2 = ctx.getContext("2d")!.createLinearGradient(0, 0, 400, 0);
     gradient2.addColorStop(0, "#1cacfa"); // start color
-    gradient2.addColorStop(0.5, "#11c9fb"); // middle color
+    gradient2.addColorStop(0.6, "#11c9fb"); // middle color
     gradient2.addColorStop(1, "#0ccbfc"); // end color
 
     //third  gradient
     const gradient3 = ctx.getContext("2d")!.createLinearGradient(0, 0, 400, 0);
     gradient3.addColorStop(0, "#ffab00"); // start color
-    gradient3.addColorStop(0.5, "#ffc73a"); // middle color
+    gradient3.addColorStop(0.4, "#ffc73a"); // middle color
     gradient3.addColorStop(1, "#ffe27a"); // end color
     setChartData({
       labels: ["Paid", "Send", "Pending"],
@@ -81,10 +93,15 @@ const Main = () => {
     // Create chart
     const ctx = document.getElementById("percentageChart") as HTMLCanvasElement;
     if (ctx) {
-      new Chart(ctx, {
+      const myChart = new Chart(ctx, {
         type: "doughnut",
         data: chartData,
       });
+
+      // Cleanup function
+      return () => {
+        myChart.destroy();
+      };
     }
   }, [chartData]);
 
@@ -92,11 +109,31 @@ const Main = () => {
     <div className="main-section">
       <h1>Invoices</h1>
       <div className="main-body">
-        <div className="chart">
-          <p className="total-invoices">{invoicesData.invoices.length}</p>
-          <canvas id="percentageChart" width={20} height={20} />
+        <div className="charts-icons-wrapper">
+          <Image
+            src="/icons/piechart.svg"
+            alt="pie chart"
+            width={30}
+            height={30}
+            onClick={handlePieChartClick}
+          />
+          <Image
+            src="/icons/barchart.svg"
+            alt="bar chart"
+            width={30}
+            height={30}
+            onClick={handleBarChartClick}
+          />
         </div>
-        <InvoiceBarChart invoices={invoicesData.invoices} />
+
+        {pieChartOpen && (
+          <div className="chart">
+            <p>Invoices Status</p>
+            <p className="total-invoices">{invoicesData.invoices.length}</p>
+            <canvas id="percentageChart" width={20} height={20} />
+          </div>
+        )}
+        {barChartOpen && <InvoiceBarChart invoices={invoicesData.invoices} />}
       </div>
     </div>
   );

@@ -14,6 +14,21 @@ const InvoiceBarChart = ({ invoices }) => {
         .reduce((total, invoice) => total + invoice.total, 0)
     );
 
+    const barColors = [
+      "#1fdad6",
+      "#29e4cf",
+      "#33ecd9",
+      "#1fdad6",
+      "#29e4cf",
+      "#33ecd9",
+      "#1fdad6",
+      "#29e4cf",
+      "#33ecd9",
+      "#1fdad6",
+      "#29e4cf",
+      "#33ecd9",
+    ];
+
     const options = {
       tooltip: {
         trigger: "axis",
@@ -40,6 +55,10 @@ const InvoiceBarChart = ({ invoices }) => {
           type: "bar",
           barWidth: "60%",
           data: totalByMonth,
+          itemStyle: {
+            // Apply color only to the first bar, you can customize it according to your needs
+            color: (params) => barColors[params.dataIndex],
+          },
         },
       ],
     };
@@ -49,7 +68,7 @@ const InvoiceBarChart = ({ invoices }) => {
 
   return (
     <div>
-      <h1>Monthly Income</h1>
+      <p>Monthly Income</p>
       {chartOptions && (
         <ReactECharts option={chartOptions} className="bar-chart" />
       )}

@@ -1,8 +1,14 @@
 .chart-main {
   border: 1px solid var(--mid-gray);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+p {
+  text-align: center;
+}
 .bar-chart {
-  width: 350px;
+  width: 300px;
 }

@@ -23,12 +23,26 @@
   position: relative;
 }
 
+.chart p {
+  text-align: center;
+}
+
 .total-invoices {
   position: absolute;
-  top: 46%;
+  top: 50%;
   left: 48%;
   font-weight: 600;
   font-size: 20px;
+}
+
+.charts-icons-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 150px;
+  padding: 10px;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
