@@ -1,0 +1,14 @@
+.main-section {
+  margin: 25px;
+  padding: 10px 0px;
+}
+
+.main-section h1 {
+  font-size: larger;
+  font-weight: 500;
+}
+
+.main-body {
+  background-color: var(--white);
+  border-radius: 10px;
+}
