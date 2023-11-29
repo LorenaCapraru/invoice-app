@@ -4,8 +4,11 @@ import Main from "./components/Main/Main";
 export default function Home() {
   return (
     <main>
-      <Header />
-      <Main />
+      <Sidebar />
+      <div className="home-body">
+        <Header />
+        <Main />
+      </div>
     </main>
   );
 }

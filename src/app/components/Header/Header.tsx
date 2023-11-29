@@ -1,5 +1,4 @@
 "use client";
-import Sidebar from "../Sidebar/Sidebar";
 import "./Header.css";
 import Image from "../../../../node_modules/next/image";
 import { useState } from "react";
@@ -7,7 +6,6 @@ import { useState } from "react";
 const Header = () => {
   return (
     <div className="header-wrapper">
-      <Sidebar />
       <div className="header-main">
         <Image
           src="/icons/search.svg"

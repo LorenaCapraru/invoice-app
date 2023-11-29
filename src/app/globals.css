@@ -24,3 +24,16 @@ body {
   font-family: "Caveat", cursive;
   font-family: "Nunito", sans-serif;
 }
+
+@media (min-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+  }
+  .home-body {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+  }
+}
