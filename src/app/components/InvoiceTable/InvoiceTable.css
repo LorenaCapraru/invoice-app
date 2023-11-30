@@ -2,11 +2,10 @@
   margin-top: 30px;
   background-color: var(--white);
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 350px;
+  padding: 20px 0px;
 }
 table {
   width: 100%;
@@ -35,7 +34,6 @@ thead th {
 }
 .table-body tr:hover {
   background-color: var(--gray);
-  /* background-color: transparent; */
 }
 
 .td-client {
@@ -72,4 +70,12 @@ thead th {
 .sum {
   font-size: 10px;
   color: gray;
+}
+
+@media (min-width: 768px) {
+  .table-main {
+    overflow-y: auto;
+    max-height: 280px;
+    padding: 20px 0px;
+  }
 }
