@@ -67,7 +67,16 @@
 
 @media (min-width: 768px) {
   .main-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .charts-icons-wrapper {
+    gap: 60vw;
+  }
+  .charts-display {
+    display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    gap: 20vw;
   }
 }

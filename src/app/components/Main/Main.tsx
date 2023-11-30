@@ -85,10 +85,15 @@ const Main = () => {
           >
             <p>Invoices Status</p>
             <Image
-              src="/icons/piechart.svg"
+              src={
+                pieChartOpen
+                  ? "/icons/piechart-color.svg"
+                  : "/icons/piechart.svg"
+              }
               alt="pie chart"
               width={30}
               height={30}
+              className="pie-chart-icon"
             />
           </div>
           <div
@@ -97,22 +102,28 @@ const Main = () => {
           >
             <p>Monthly Income</p>
             <Image
-              src="/icons/barchart.svg"
+              src={
+                barChartOpen
+                  ? "/icons/barchart-color.svg"
+                  : "/icons/barchart.svg"
+              }
               alt="bar chart"
               width={30}
               height={30}
+              className="pie-chart-icon"
             />
           </div>
         </div>
-
-        {pieChartOpen && (
-          <div className="chart">
-            {chartOptions && (
-              <ReactECharts option={chartOptions} className="pie-chart" />
-            )}
-          </div>
-        )}
-        {barChartOpen && <InvoiceBarChart invoices={invoicesData.invoices} />}
+        <div className="charts-display">
+          {pieChartOpen && (
+            <div className="chart">
+              {chartOptions && (
+                <ReactECharts option={chartOptions} className="pie-chart" />
+              )}
+            </div>
+          )}
+          {barChartOpen && <InvoiceBarChart invoices={invoicesData.invoices} />}
+        </div>
       </div>
     </div>
   );
