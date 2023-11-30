@@ -68,7 +68,6 @@ const InvoiceBarChart = ({ invoices }) => {
 
   return (
     <div>
-      <p>Monthly Income</p>
       {chartOptions && (
         <ReactECharts option={chartOptions} className="bar-chart" />
       )}

@@ -2,7 +2,7 @@
 import "./Main.css";
 import invoicesData from "./invoices.json";
 import React, { useEffect, useState } from "react";
-import Chart from "chart.js";
+import ReactECharts from "echarts-for-react"; // Import echarts-for-react
 import InvoiceBarChart from "../InvoiceBarChart/InvoiceBarChart";
 import Image from "../../../../node_modules/next/image";
 
@@ -15,122 +15,101 @@ const Main = () => {
   const [pieChartOpen, setPieChartOpen] = useState<boolean>(true);
   const [barChartOpen, setBarChartOpen] = useState<boolean>(true);
 
-  const [paid, setPaid] = useState<Invoice[]>([]);
-  const [send, setSend] = useState<Invoice[]>([]);
-  const [pending, setPending] = useState<Invoice[]>([]);
-  const [chartData, setChartData] = useState<Chart.ChartData>({
-    labels: ["Paid", "Send", "Pending"],
-    datasets: [
-      {
-        data: [0, 0, 0],
-        backgroundColor: ["#36A2EB", "#FFCE56", "#FF6384"],
-      },
-    ],
-  });
-
-  const handlePieChartClick = () => {
-    return setPieChartOpen(!pieChartOpen);
-  };
-  const handleBarChartClick = () => {
-    return setBarChartOpen(!barChartOpen);
-  };
+  const [chartOptions, setChartOptions] = useState(null);
 
   useEffect(() => {
-    const filterPaid = invoicesData.invoices.filter(
-      (el) => el.status === "paid"
+    const statuses = [
+      ...new Set(invoicesData.invoices.map((invoice) => invoice.status)),
+    ];
+    const totalByStatus = statuses.map((status) =>
+      invoicesData.invoices
+        .filter((invoice) => invoice.status === status)
+        .reduce((total, invoice) => total + invoice.total, 0)
     );
-    const filterSend = invoicesData.invoices.filter(
-      (el) => el.status === "send"
-    );
-    const filterPending = invoicesData.invoices.filter(
-      (el) => el.status === "pending"
-    );
 
-    setPaid(filterPaid);
-    setSend(filterSend);
-    setPending(filterPending);
+    const pieColors = ["#1fdad6", "#dfe3e69b", "#0092ff"];
 
-    const totalInvoices = invoicesData.invoices.length;
-    const paidPercentage = (filterPaid.length / totalInvoices) * 100;
-    const sendPercentage = (filterSend.length / totalInvoices) * 100;
-    const pendingPercentage = (filterPending.length / totalInvoices) * 100;
-
-    const ctx = document.getElementById("percentageChart") as HTMLCanvasElement;
-
-    //first  gradient
-    const gradient = ctx.getContext("2d")!.createLinearGradient(0, 0, 400, 0);
-    gradient.addColorStop(0, "#1fdad6"); // start color
-    gradient.addColorStop(0.8, "#29e4cf"); // middle color
-    gradient.addColorStop(1, "#33edc9"); // end color
-
-    //second  gradient
-    const gradient2 = ctx.getContext("2d")!.createLinearGradient(0, 0, 400, 0);
-    gradient2.addColorStop(0, "#1cacfa"); // start color
-    gradient2.addColorStop(0.6, "#11c9fb"); // middle color
-    gradient2.addColorStop(1, "#0ccbfc"); // end color
-
-    //third  gradient
-    const gradient3 = ctx.getContext("2d")!.createLinearGradient(0, 0, 400, 0);
-    gradient3.addColorStop(0, "#ffab00"); // start color
-    gradient3.addColorStop(0.4, "#ffc73a"); // middle color
-    gradient3.addColorStop(1, "#ffe27a"); // end color
-    setChartData({
-      labels: ["Paid", "Send", "Pending"],
-      datasets: [
+    const options = {
+      tooltip: {
+        trigger: "item",
+        formatter: "{a} <br/>{b}: {c} ({d}%)",
+      },
+      legend: {
+        orient: "vertical",
+        left: 10,
+        data: statuses,
+      },
+      series: [
         {
-          data: [
-            paidPercentage.toFixed(2),
-            sendPercentage.toFixed(2),
-            pendingPercentage.toFixed(2),
-          ],
-          backgroundColor: [gradient, gradient2, gradient3],
+          name: "Total Invoices",
+          type: "pie",
+          radius: "50%",
+          center: ["50%", "60%"],
+          avoidLabelOverlap: false,
+          label: {
+            show: false,
+            position: "center",
+          },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: "20",
+              fontWeight: "bold",
+            },
+          },
+          labelLine: {
+            show: false,
+          },
+          data: statuses.map((status, index) => ({
+            value: totalByStatus[index],
+            name: status,
+            itemStyle: {
+              color: pieColors[index],
+            },
+          })),
         },
       ],
-    });
-  }, []);
+    };
 
-  useEffect(() => {
-    // Create chart
-    const ctx = document.getElementById("percentageChart") as HTMLCanvasElement;
-    if (ctx) {
-      const myChart = new Chart(ctx, {
-        type: "doughnut",
-        data: chartData,
-      });
-
-      // Cleanup function
-      return () => {
-        myChart.destroy();
-      };
-    }
-  }, [chartData]);
+    setChartOptions(options);
+  }, [invoicesData.invoices]);
 
   return (
     <div className="main-section">
       <h1>Invoices</h1>
       <div className="main-body">
         <div className="charts-icons-wrapper">
-          <Image
-            src="/icons/piechart.svg"
-            alt="pie chart"
-            width={30}
-            height={30}
-            onClick={handlePieChartClick}
-          />
-          <Image
-            src="/icons/barchart.svg"
-            alt="bar chart"
-            width={30}
-            height={30}
-            onClick={handleBarChartClick}
-          />
+          <div
+            className="icon-title"
+            onClick={() => setPieChartOpen(!pieChartOpen)}
+          >
+            <p>Invoices Status</p>
+            <Image
+              src="/icons/piechart.svg"
+              alt="pie chart"
+              width={30}
+              height={30}
+            />
+          </div>
+          <div
+            className="icon-title"
+            onClick={() => setBarChartOpen(!barChartOpen)}
+          >
+            <p>Monthly Income</p>
+            <Image
+              src="/icons/barchart.svg"
+              alt="bar chart"
+              width={30}
+              height={30}
+            />
+          </div>
         </div>
 
         {pieChartOpen && (
           <div className="chart">
-            <p>Invoices Status</p>
-            <p className="total-invoices">{invoicesData.invoices.length}</p>
-            <canvas id="percentageChart" width={20} height={20} />
+            {chartOptions && (
+              <ReactECharts option={chartOptions} className="pie-chart" />
+            )}
           </div>
         )}
         {barChartOpen && <InvoiceBarChart invoices={invoicesData.invoices} />}
