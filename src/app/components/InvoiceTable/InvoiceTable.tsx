@@ -1,17 +1,30 @@
-"use client";
-import "./InvoiceTable.css";
-import Image from "../../../../node_modules/next/image";
-import { useState } from "react";
+import React, { useState } from "react";
+import Image from "next/image";
 
-const InvoiceTable = ({ invoicesData }) => {
-  const [updatedInvoices, setUpdatedInvoices] = useState(invoicesData.invoices);
+interface Invoice {
+  client: string;
+  invoice_number: string;
+  total: number;
+  status: string;
+}
+
+interface Props {
+  invoicesData: {
+    invoices: Invoice[];
+  };
+}
+
+const InvoiceTable: React.FC<Props> = ({ invoicesData }) => {
+  const [updatedInvoices, setUpdatedInvoices] = useState<Invoice[]>(
+    invoicesData.invoices
+  );
 
   const formattedNumber: string = new Intl.NumberFormat("en-GB", {
     style: "currency",
     currency: "GBP",
-  });
+  }).format(0);
 
-  const toggleStatus = (status) => {
+  const toggleStatus = (status: string): string => {
     switch (status) {
       case "paid":
         return "send";
@@ -24,10 +37,10 @@ const InvoiceTable = ({ invoicesData }) => {
     }
   };
 
-  const handleStatusClick = (index) => {
-    const updatedStatus = toggleStatus(updatedInvoices[index].status);
+  const handleStatusClick = (index: number): void => {
+    const updatedStatus: string = toggleStatus(updatedInvoices[index].status);
 
-    const newInvoices = [...updatedInvoices];
+    const newInvoices: Invoice[] = [...updatedInvoices];
     newInvoices[index].status = updatedStatus;
 
     setUpdatedInvoices(newInvoices);
@@ -44,13 +57,13 @@ const InvoiceTable = ({ invoicesData }) => {
           </tr>
         </thead>
         <tbody className="table-body">
-          {invoicesData.invoices.map((el, index) => (
+          {invoicesData.invoices.map((el: Invoice, index: number) => (
             <tr key={index}>
               <td className="client-invoiceNo">
                 <span className="td-client">{el.client}</span>
                 <span className="td-invoice-no">{el.invoice_number}</span>
               </td>
-              <td className="sum">{formattedNumber.format(el.total)}</td>
+              <td className="sum">{formattedNumber}</td>
               <td
                 className={
                   el.status === "pending"

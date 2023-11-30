@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import "./InvoiceBarChart.css";
-const InvoiceBarChart = ({ invoices }) => {
-  const [chartOptions, setChartOptions] = useState(null);
+
+interface Invoice {
+  date: string;
+  total: number;
+}
+
+interface Props {
+  invoices: Invoice[];
+}
+
+const InvoiceBarChart: React.FC<Props> = ({ invoices }) => {
+  const [chartOptions, setChartOptions] = useState<any>(null);
 
   useEffect(() => {
-    const months = [
-      ...new Set(invoices.map((invoice) => invoice.date.split("/")[1])),
-    ];
+    const months = Array.from(
+      new Set(invoices.map((invoice) => invoice.date.split("/")[1]))
+    );
     const totalByMonth = months.map((month) =>
       invoices
         .filter((invoice) => invoice.date.split("/")[1] === month)
@@ -56,8 +66,7 @@ const InvoiceBarChart = ({ invoices }) => {
           barWidth: "60%",
           data: totalByMonth,
           itemStyle: {
-            // Apply color only to the first bar, you can customize it according to your needs
-            color: (params) => barColors[params.dataIndex],
+            color: (params: any) => barColors[params.dataIndex],
           },
         },
       ],
