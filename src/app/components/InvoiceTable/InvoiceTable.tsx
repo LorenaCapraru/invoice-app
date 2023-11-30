@@ -1,12 +1,37 @@
 "use client";
 import "./InvoiceTable.css";
 import Image from "../../../../node_modules/next/image";
+import { useState } from "react";
+
 const InvoiceTable = ({ invoicesData }) => {
-  console.log(invoicesData);
+  const [updatedInvoices, setUpdatedInvoices] = useState(invoicesData.invoices);
+
   const formattedNumber: string = new Intl.NumberFormat("en-GB", {
     style: "currency",
     currency: "GBP",
   });
+
+  const toggleStatus = (status) => {
+    switch (status) {
+      case "paid":
+        return "send";
+      case "send":
+        return "pending";
+      case "pending":
+        return "paid";
+      default:
+        return status;
+    }
+  };
+
+  const handleStatusClick = (index) => {
+    const updatedStatus = toggleStatus(updatedInvoices[index].status);
+
+    const newInvoices = [...updatedInvoices];
+    newInvoices[index].status = updatedStatus;
+
+    setUpdatedInvoices(newInvoices);
+  };
 
   return (
     <div className="table-main">
@@ -26,7 +51,9 @@ const InvoiceTable = ({ invoicesData }) => {
                 <span className="td-invoice-no">{el.invoice_number}</span>
               </td>
               <td className="sum">{formattedNumber.format(el.total)}</td>
-              <td className="status">{el.status}</td>
+              <td className="status" onClick={() => handleStatusClick(index)}>
+                {el.status}
+              </td>
               <td>
                 <Image
                   src="./icons/ellipsis.svg"
