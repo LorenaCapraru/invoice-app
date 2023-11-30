@@ -72,11 +72,13 @@
   width: 170px;
   cursor: pointer;
   border: 2px solid #c0ced8;
+  transition: all 0.2s ease-in-out;
 }
 
 .search-bar:hover input,
 .search-bar:valid input {
   display: block;
+  transition: all 0.2s ease-in-out;
 }
 
 @media (min-width: 768px) {
@@ -111,5 +113,6 @@
   .search-bar:hover,
   .search-bar:valid {
     width: 500px;
+    transition: all 0.8s ease-in-out;
   }
 }

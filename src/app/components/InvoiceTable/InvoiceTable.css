@@ -34,6 +34,8 @@ thead th {
 }
 .table-body tr:hover {
   background-color: var(--gray);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .td-client {
@@ -77,5 +79,20 @@ thead th {
     overflow-y: auto;
     max-height: 280px;
     padding: 20px 0px;
+  }
+  thead th {
+    font-size: 16px;
+  }
+  .td-client {
+    font-size: 14px;
+  }
+  .td-invoice-no {
+    font-size: 12px;
+  }
+  .sum,
+  .status-pending,
+  .status-sent,
+  .status-paid {
+    font-size: 14px;
   }
 }

@@ -24,8 +24,8 @@ const InvoiceTable: React.FC<Props> = ({ invoicesData }) => {
   const toggleStatus = (status: string): string => {
     switch (status) {
       case "paid":
-        return "send";
-      case "send":
+        return "sent";
+      case "sent":
         return "pending";
       case "pending":
         return "paid";
@@ -70,7 +70,7 @@ const InvoiceTable: React.FC<Props> = ({ invoicesData }) => {
                 className={
                   el.status === "pending"
                     ? "status-pending"
-                    : el.status === "send"
+                    : el.status === "sent"
                     ? "status-sent"
                     : "status-paid"
                 }

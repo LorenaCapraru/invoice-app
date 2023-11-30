@@ -9,7 +9,7 @@
     },
     {
       "invoice_number": "INV-002",
-      "status": "send",
+      "status": "sent",
       "date": "20/02/2023",
       "total": 7345,
       "client": "FAST TRACK"
@@ -58,7 +58,7 @@
     },
     {
       "invoice_number": "INV-009",
-      "status": "send",
+      "status": "sent",
       "date": "20/09/2023",
       "total": 11345,
       "client": "FAST TRACK"
@@ -72,7 +72,7 @@
     },
     {
       "invoice_number": "INV-002",
-      "status": "send",
+      "status": "sent",
       "date": "20/02/2023",
       "total": 7345,
       "client": "FAST TRACK"
@@ -121,7 +121,7 @@
     },
     {
       "invoice_number": "INV-009",
-      "status": "send",
+      "status": "sent",
       "date": "20/09/2023",
       "total": 11345,
       "client": "FAST TRACK"
