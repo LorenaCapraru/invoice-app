@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react"; // Import echarts-for-react
 import InvoiceBarChart from "../InvoiceBarChart/InvoiceBarChart";
 import Image from "../../../../node_modules/next/image";
+import InvoiceTable from "../InvoiceTable/InvoiceTable";
 
 interface Invoice {
   invoice_number: string;
@@ -76,7 +77,7 @@ const Main = () => {
 
   return (
     <div className="main-section">
-      <h1>Invoices</h1>
+      <h1>Invoices Overview</h1>
       <div className="main-body">
         <div className="charts-icons-wrapper">
           <div
@@ -125,6 +126,7 @@ const Main = () => {
           {barChartOpen && <InvoiceBarChart invoices={invoicesData.invoices} />}
         </div>
       </div>
+      <InvoiceTable invoicesData={invoicesData} />
     </div>
   );
 };

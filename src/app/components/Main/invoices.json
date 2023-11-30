@@ -4,55 +4,64 @@
       "invoice_number": "INV-001",
       "status": "paid",
       "date": "20/01/2023",
-      "total": 2345
+      "total": 2345,
+      "client": "TRU GROUP"
     },
     {
       "invoice_number": "INV-002",
       "status": "send",
       "date": "20/02/2023",
-      "total": 7345
+      "total": 7345,
+      "client": "FAST TRACK"
     },
     {
       "invoice_number": "INV-003",
       "status": "pending",
       "date": "20/03/2023",
-      "total": 8345
+      "total": 8345,
+      "client": "TRU GROUP"
     },
     {
       "invoice_number": "INV-004",
       "status": "paid",
       "date": "20/04/2023",
-      "total": 11345
+      "total": 11345,
+      "client": "TRU GROUP"
     },
     {
       "invoice_number": "INV-005",
       "status": "pending",
       "date": "20/05/2023",
-      "total": 4125
+      "total": 4125,
+      "client": "TRU GROUP"
     },
     {
       "invoice_number": "INV-006",
       "status": "pending",
       "date": "20/06/2023",
-      "total": 3245
+      "total": 3245,
+      "client": "TRU GROUP"
     },
     {
       "invoice_number": "INV-007",
       "status": "pending",
       "date": "20/07/2023",
-      "total": 1045
+      "total": 1045,
+      "client": "TRU GROUP"
     },
     {
       "invoice_number": "INV-008",
       "status": "paid",
       "date": "20/08/2023",
-      "total": 21345
+      "total": 21345,
+      "client": "FAST TRACK"
     },
     {
       "invoice_number": "INV-009",
       "status": "send",
       "date": "20/09/2023",
-      "total": 11345
+      "total": 11345,
+      "client": "FAST TRACK"
     }
   ]
 }

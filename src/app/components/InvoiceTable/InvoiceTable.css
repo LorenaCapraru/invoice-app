@@ -1,0 +1,47 @@
+.table-main {
+  margin-top: 10px;
+  background-color: var(--white);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.1);
+}
+table {
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.table-body {
+  font-size: 12px;
+  color: var(--dark-gray);
+}
+
+.client-invoiceNo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+thead th {
+  text-align: left;
+  font-size: 14px;
+}
+
+.table-body td {
+  padding: 20px 0px;
+  border-top: 1px solid var(--mid-gray);
+}
+.table-body tr:hover {
+  background-color: var(--mid-gray);
+}
+
+.td-client {
+  font-size: 12px;
+  font-weight: 600;
+}
+.td-invoice-no {
+  font-size: 10px;
+  color: gray;
+}
