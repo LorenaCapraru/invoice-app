@@ -84,7 +84,7 @@ const Main: React.FC = () => {
             className="icon-title"
             onClick={() => setPieChartOpen(!pieChartOpen)}
           >
-            <p>Invoices Status</p>
+            <p className="invoices-status">Invoices Status</p>
             <Image
               src={
                 pieChartOpen
@@ -101,7 +101,7 @@ const Main: React.FC = () => {
             className="icon-title"
             onClick={() => setBarChartOpen(!barChartOpen)}
           >
-            <p>Monthly Income</p>
+            <p className="monthly-income">Monthly Income</p>
             <Image
               src={
                 barChartOpen

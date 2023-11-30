@@ -62,7 +62,7 @@
   .sidebar-main {
     top: 0;
     height: 100vh;
-    width: 220px;
+    width: 300px;
     left: 0%;
     margin-right: 20px;
     padding-top: 90px;
@@ -78,7 +78,7 @@
     padding-top: 70px;
   }
   .close {
-    width: 69px;
+    width: 60px;
     transition: all 0.7s ease-in-out;
     overflow: hidden;
   }
@@ -108,8 +108,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 20px;
+    padding: 10px 0px 10px 10px;
     position: relative;
+    width: 300px;
   }
 
   .icon-name-wrap-overview:hover {
@@ -126,9 +127,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: 25px;
+    padding: 10px 0px 10px 10px;
     margin: 0px;
     position: relative;
+    width: 300px;
   }
   .close-sidebar {
     display: inline;
