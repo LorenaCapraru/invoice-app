@@ -1,5 +1,5 @@
 .table-main {
-  margin-top: 10px;
+  margin-top: 30px;
   background-color: var(--white);
   border-radius: 10px;
   display: flex;
@@ -34,7 +34,8 @@ thead th {
   border-top: 1px solid var(--mid-gray);
 }
 .table-body tr:hover {
-  background-color: var(--mid-gray);
+  background-color: var(--gray);
+  /* background-color: transparent; */
 }
 
 .td-client {
@@ -42,6 +43,33 @@ thead th {
   font-weight: 600;
 }
 .td-invoice-no {
+  font-size: 10px;
+  color: gray;
+}
+
+.status-pending span {
+  color: var(--lighter-blue);
+  border: 1px solid var(--lighter-blue);
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-weight: bolder;
+}
+.status-sent span {
+  color: var(--test1);
+  border: 1px solid var(--test1);
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-weight: bolder;
+}
+.status-paid span {
+  color: var(--green);
+  border: 1px solid var(--green);
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-weight: bolder;
+}
+
+.sum {
   font-size: 10px;
   color: gray;
 }

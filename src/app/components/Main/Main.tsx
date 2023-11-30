@@ -1,27 +1,27 @@
 "use client";
-import "./Main.css";
-import invoicesData from "./invoices.json";
 import React, { useEffect, useState } from "react";
-import ReactECharts from "echarts-for-react"; // Import echarts-for-react
-import InvoiceBarChart from "../InvoiceBarChart/InvoiceBarChart";
+import ReactECharts from "echarts-for-react";
 import Image from "../../../../node_modules/next/image";
+import InvoiceBarChart from "../InvoiceBarChart/InvoiceBarChart";
 import InvoiceTable from "../InvoiceTable/InvoiceTable";
+import invoicesData from "./invoices.json";
+import "./Main.css";
 
 interface Invoice {
   invoice_number: string;
   status: string;
+  total: number;
 }
 
-const Main = () => {
-  const [pieChartOpen, setPieChartOpen] = useState<boolean>(true);
-  const [barChartOpen, setBarChartOpen] = useState<boolean>(true);
-
-  const [chartOptions, setChartOptions] = useState(null);
+const Main: React.FC = () => {
+  const [pieChartOpen, setPieChartOpen] = useState<boolean>(false);
+  const [barChartOpen, setBarChartOpen] = useState<boolean>(false);
+  const [chartOptions, setChartOptions] = useState<any>(null);
 
   useEffect(() => {
-    const statuses = [
-      ...new Set(invoicesData.invoices.map((invoice) => invoice.status)),
-    ];
+    const statuses = Array.from(
+      new Set(invoicesData.invoices.map((invoice) => invoice.status))
+    );
     const totalByStatus = statuses.map((status) =>
       invoicesData.invoices
         .filter((invoice) => invoice.status === status)
@@ -73,7 +73,7 @@ const Main = () => {
     };
 
     setChartOptions(options);
-  }, [invoicesData.invoices]);
+  }, []);
 
   return (
     <div className="main-section">
@@ -92,8 +92,8 @@ const Main = () => {
                   : "/icons/piechart.svg"
               }
               alt="pie chart"
-              width={30}
-              height={30}
+              width={20}
+              height={20}
               className="pie-chart-icon"
             />
           </div>
@@ -109,8 +109,8 @@ const Main = () => {
                   : "/icons/barchart.svg"
               }
               alt="bar chart"
-              width={30}
-              height={30}
+              width={20}
+              height={20}
               className="pie-chart-icon"
             />
           </div>

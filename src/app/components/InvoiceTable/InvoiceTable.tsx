@@ -51,8 +51,17 @@ const InvoiceTable = ({ invoicesData }) => {
                 <span className="td-invoice-no">{el.invoice_number}</span>
               </td>
               <td className="sum">{formattedNumber.format(el.total)}</td>
-              <td className="status" onClick={() => handleStatusClick(index)}>
-                {el.status}
+              <td
+                className={
+                  el.status === "pending"
+                    ? "status-pending"
+                    : el.status === "send"
+                    ? "status-sent"
+                    : "status-paid"
+                }
+                onClick={() => handleStatusClick(index)}
+              >
+                <span>{el.status}</span>
               </td>
               <td>
                 <Image

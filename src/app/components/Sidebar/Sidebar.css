@@ -8,7 +8,7 @@
   justify-content: space-evenly;
   flex-direction: row;
   position: absolute;
-  bottom: -50%;
+  bottom: -100%;
 }
 
 .sidebar-main p {

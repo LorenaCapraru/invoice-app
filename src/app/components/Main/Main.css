@@ -19,7 +19,6 @@
 
 .chart {
   width: 300px;
-  padding: 20px 0px;
   position: relative;
 }
 
@@ -40,7 +39,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  gap: 150px;
+  gap: 90px;
   padding: 10px;
   margin-bottom: 20px;
   cursor: pointer;
@@ -49,9 +48,10 @@
 
 .icon-title {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
+  gap: 5px;
 }
 
 .icon-title p {
