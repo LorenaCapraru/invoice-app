@@ -1,5 +1,7 @@
+"use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import "./InvoiceTable.css";
 
 interface Invoice {
   client: string;
@@ -18,11 +20,6 @@ const InvoiceTable: React.FC<Props> = ({ invoicesData }) => {
   const [updatedInvoices, setUpdatedInvoices] = useState<Invoice[]>(
     invoicesData.invoices
   );
-
-  const formattedNumber: string = new Intl.NumberFormat("en-GB", {
-    style: "currency",
-    currency: "GBP",
-  }).format(0);
 
   const toggleStatus = (status: string): string => {
     switch (status) {
@@ -63,7 +60,12 @@ const InvoiceTable: React.FC<Props> = ({ invoicesData }) => {
                 <span className="td-client">{el.client}</span>
                 <span className="td-invoice-no">{el.invoice_number}</span>
               </td>
-              <td className="sum">{formattedNumber}</td>
+              <td className="sum">
+                {new Intl.NumberFormat("en-GB", {
+                  style: "currency",
+                  currency: "GBP",
+                }).format(el.total)}
+              </td>
               <td
                 className={
                   el.status === "pending"
