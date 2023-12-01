@@ -1,0 +1,22 @@
+.invoice-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.invoice-header img {
+  cursor: pointer;
+}
+
+.invoice-header-number {
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0px;
+}
+
+.invoice-header-company {
+  font-size: 10px;
+  color: gray;
+  margin: 0px;
+}
