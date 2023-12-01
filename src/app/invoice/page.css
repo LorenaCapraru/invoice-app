@@ -37,15 +37,6 @@
   border: 2px solid var(--mid-gray);
 }
 
-/* .week-start div,
-.week-end div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-} */
-
 .calendar-icon {
   display: flex;
   flex-direction: row;

@@ -4,6 +4,7 @@ import "./page.css";
 import Image from "../../../node_modules/next/image";
 import DateSelector from "./components/DateSelector/DateSelector";
 import { useState } from "react";
+import Link from "../../../node_modules/next/link";
 
 const Invoice = () => {
   const [startWeekClick, seStartWeekClick] = useState<boolean | null>(false);
@@ -29,12 +30,14 @@ const Invoice = () => {
     <div>
       <Sidebar />
       <div className="invoice-header">
-        <Image
-          src="./icons/cross.svg"
-          alt="cross to close"
-          width={20}
-          height={20}
-        />
+        <Link href="/">
+          <Image
+            src="./icons/cross.svg"
+            alt="cross to close"
+            width={20}
+            height={20}
+          />
+        </Link>
         <div>
           <p className="invoice-header-number">Invoice01</p>
           <p className="invoice-header-company">TRU GROUP</p>

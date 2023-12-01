@@ -16,6 +16,9 @@
   color: var(--dark-gray);
   font-weight: bold;
 }
+.sidebar-main a {
+  text-decoration: none;
+}
 
 .icon-name-wrap:hover {
   background-color: var(--gray);
