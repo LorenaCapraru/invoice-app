@@ -43,4 +43,14 @@
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .invoice-main {
+    display: flex;
+    flex-direction: row;
+  }
+  .invoice-body {
+    width: 100%;
+  }
 }
