@@ -3,16 +3,22 @@ import DatePicker from "react-datepicker";
 import "./DateSelector.css";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DateSelector: React.FC = ({ weekStart, handleDateChange }) => {
+interface DateSelectorProps {
+  weekStart: Date | null;
+  handleDateChange: (date: Date | null) => void;
+}
+
+const DateSelector: React.FC<DateSelectorProps> = ({
+  weekStart,
+  handleDateChange,
+}) => {
   return (
     <div>
-      {
-        <DatePicker
-          selected={weekStart}
-          onChange={handleDateChange}
-          showPopperArrow={true}
-        />
-      }
+      <DatePicker
+        selected={weekStart}
+        onChange={handleDateChange}
+        showPopperArrow={true}
+      />
     </div>
   );
 };
