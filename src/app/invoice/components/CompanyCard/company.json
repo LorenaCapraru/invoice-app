@@ -1,0 +1,14 @@
+{
+  "company": [
+    {
+      "id": 1,
+      "name": "Fastrack Drylining Ltd",
+      "address": "Field House Farm, Dunnings Lane, West Horndon, Brentwood, Essex CM13 3HE"
+    },
+    {
+      "id": 2,
+      "name": "TRU CARPENTRY LTD",
+      "address": "181-183 Station Lane, Hornchurch, United Kingdom, RM12 6LL"
+    }
+  ]
+}

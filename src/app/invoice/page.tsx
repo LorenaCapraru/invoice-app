@@ -5,6 +5,7 @@ import Image from "../../../node_modules/next/image";
 import DateSelector from "./components/DateSelector/DateSelector";
 import { useState } from "react";
 import Link from "../../../node_modules/next/link";
+import CompanyCard from "./components/CompanyCard/CompanyCard";
 
 const Invoice = () => {
   const [startWeekClick, seStartWeekClick] = useState<boolean | null>(false);
@@ -36,7 +37,7 @@ const Invoice = () => {
               src="./icons/cross.svg"
               alt="cross to close"
               width={20}
-              height={20}
+              height={15}
             />
           </Link>
           <div>
@@ -88,7 +89,10 @@ const Invoice = () => {
             )}
           </div>
         </div>
-        <div>invoiceee</div>
+        <div className="invoice-to">
+          <p className="plain-text">INVOICE TO</p>
+          <CompanyCard />
+        </div>
       </div>
     </div>
   );

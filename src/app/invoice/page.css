@@ -27,7 +27,7 @@
   flex-direction: row;
   background-color: var(--white);
   color: gray;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 4px 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .week-start,
@@ -45,12 +45,30 @@
   gap: 10px;
   cursor: pointer;
 }
+.plain-text {
+  font-size: 10px;
+  color: gray;
+  font-weight: 700;
+}
+.invoice-to {
+  margin: 10px;
+}
+
 @media (min-width: 768px) {
   .invoice-main {
     display: flex;
     flex-direction: row;
   }
+
   .invoice-body {
     width: 100%;
+  }
+  .invoice-header-number {
+    font-size: 20px;
+  }
+  .invoice-header-company {
+    font-size: 14px;
+  }
+  .invoice-date {
   }
 }

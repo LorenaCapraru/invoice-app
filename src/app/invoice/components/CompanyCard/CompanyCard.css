@@ -1,0 +1,28 @@
+.company-card-main {
+  background-color: var(--white);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  color: var(--dark-gray);
+}
+
+.initials {
+  background-color: var(--blue);
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+}
+.address {
+  font-size: 8px;
+  color: gray;
+  font-weight: 200;
+  margin: 0px;
+}
+
+.name {
+  font-weight: 500;
+  font-size: smaller;
+}
