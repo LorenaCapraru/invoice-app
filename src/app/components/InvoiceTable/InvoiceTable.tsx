@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import "./InvoiceTable.css";
+import { useRecoilState } from "recoil";
+import { searchState } from "@/app/recoil/atoms";
 
 interface Invoice {
   client: string;
@@ -17,6 +19,8 @@ interface Props {
 }
 
 const InvoiceTable: React.FC<Props> = ({ invoicesData }) => {
+  const [search, setSearch] = useRecoilState(searchState);
+
   const [updatedInvoices, setUpdatedInvoices] = useState<Invoice[]>(
     invoicesData.invoices
   );
@@ -54,40 +58,50 @@ const InvoiceTable: React.FC<Props> = ({ invoicesData }) => {
           </tr>
         </thead>
         <tbody className="table-body">
-          {invoicesData.invoices.map((el: Invoice, index: number) => (
-            <tr key={index}>
-              <td className="client-invoiceNo">
-                <span className="td-client">{el.client}</span>
-                <span className="td-invoice-no">{el.invoice_number}</span>
-              </td>
-              <td className="sum">
-                {new Intl.NumberFormat("en-GB", {
-                  style: "currency",
-                  currency: "GBP",
-                }).format(el.total)}
-              </td>
-              <td
-                className={
-                  el.status === "pending"
-                    ? "status-pending"
-                    : el.status === "sent"
-                    ? "status-sent"
-                    : "status-paid"
-                }
-                onClick={() => handleStatusClick(index)}
-              >
-                <span>{el.status}</span>
-              </td>
-              <td>
-                <Image
-                  src="./icons/ellipsis.svg"
-                  width={15}
-                  height={15}
-                  alt="ellipsis options icon"
-                />
-              </td>
-            </tr>
-          ))}
+          {invoicesData.invoices
+            .filter(
+              (el: Invoice) =>
+                el.invoice_number
+                  .toLowerCase()
+                  .includes(search.toLowerCase()) ||
+                el.client
+                  .toLocaleLowerCase()
+                  .includes(search.toLocaleLowerCase())
+            )
+            .map((el: Invoice, index: number) => (
+              <tr key={index}>
+                <td className="client-invoiceNo">
+                  <span className="td-client">{el.client}</span>
+                  <span className="td-invoice-no">{el.invoice_number}</span>
+                </td>
+                <td className="sum">
+                  {new Intl.NumberFormat("en-GB", {
+                    style: "currency",
+                    currency: "GBP",
+                  }).format(el.total)}
+                </td>
+                <td
+                  className={
+                    el.status === "pending"
+                      ? "status-pending"
+                      : el.status === "sent"
+                      ? "status-sent"
+                      : "status-paid"
+                  }
+                  onClick={() => handleStatusClick(index)}
+                >
+                  <span>{el.status}</span>
+                </td>
+                <td>
+                  <Image
+                    src="./icons/ellipsis.svg"
+                    width={15}
+                    height={15}
+                    alt="ellipsis options icon"
+                  />
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

@@ -1,7 +1,7 @@
 "use client";
 import "./Header.css";
 import Image from "../../../../node_modules/next/image";
-import { useState, ChangeEvent } from "react";
+import { ChangeEvent } from "react";
 import { useRecoilState } from "recoil";
 import { searchState } from "@/app/recoil/atoms";
 
