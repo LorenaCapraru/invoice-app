@@ -6,6 +6,7 @@ import DateSelector from "./components/DateSelector/DateSelector";
 import { useState } from "react";
 import Link from "../../../node_modules/next/link";
 import CompanyCard from "./components/CompanyCard/CompanyCard";
+import SelectClient from "./components/SelectClient/SelectClient";
 
 const Invoice = () => {
   const [startWeekClick, seStartWeekClick] = useState<boolean | null>(false);
@@ -91,7 +92,7 @@ const Invoice = () => {
         </div>
         <div className="invoice-to">
           <p className="plain-text">INVOICE TO</p>
-          <CompanyCard />
+          <SelectClient />
         </div>
       </div>
     </div>

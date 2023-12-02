@@ -1,8 +1,7 @@
 import "./CompanyCard.css";
 import company from "./company.json";
-import { stringify } from "querystring";
 
-const CompanyCard = () => {
+const CompanyCard = ({ el }) => {
   console.log(company);
   const takeInitials = (input: string) => {
     const initials = input.split(" ");
@@ -10,10 +9,10 @@ const CompanyCard = () => {
   };
   return (
     <div className="company-card-main">
-      <p className="initials">{takeInitials(company.company[0].name)}</p>
+      <p className="initials">{takeInitials(el.name)}</p>
       <div>
-        <p className="name">{company.company[0].name}</p>
-        <p className="address">{company.company[0].address}</p>
+        <p className="name">{el.name}</p>
+        <p className="address">{el.address}</p>
       </div>
     </div>
   );

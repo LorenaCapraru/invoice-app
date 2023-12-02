@@ -1,0 +1,17 @@
+.select-menu {
+  border: none;
+  border-bottom: 2px solid var(--blue);
+  background-color: var(--gray);
+  padding: 5px;
+  width: 160px;
+  font-size: 9px;
+  font-weight: 300;
+  color: gray;
+  text-align: left;
+}
+
+.option {
+  background-color: red; /* Background color of each option */
+  color: #333; /* Text color of each option */
+  padding: 8px; /* Padding inside each option */
+}
