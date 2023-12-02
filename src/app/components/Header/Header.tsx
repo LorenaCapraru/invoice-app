@@ -2,13 +2,16 @@
 import "./Header.css";
 import Image from "../../../../node_modules/next/image";
 import { useState, ChangeEvent } from "react";
+import { useRecoilState } from "recoil";
+import { searchState } from "@/app/recoil/atoms";
 
 const Header = () => {
-  const [search, setSearch] = useState<string | undefined>("");
+  const [search, setSearch] = useRecoilState(searchState);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
+  console.log(search);
   return (
     <div className="header-wrapper">
       <div className="header-main">
