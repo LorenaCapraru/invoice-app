@@ -31,15 +31,20 @@
 
 @media (min-width: 768px) {
   .company-card-main {
-    padding: 0px 20px;
+    padding: 7px 0px;
+    background-color: transparent;
+    box-shadow: none;
   }
   .name {
+    display: none;
     font-size: 18px;
   }
   .address {
-    font-size: 14px;
+    font-size: 12px;
+    max-width: 300px;
   }
   .initials {
+    display: none;
     font-size: 30px;
   }
 }
