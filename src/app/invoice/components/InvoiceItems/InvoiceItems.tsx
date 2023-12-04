@@ -6,7 +6,7 @@ const InvoiceItems = () => {
       <p className="plain-text">INVOICE LINE ITEMS</p>
       <table>
         <thead>
-          <tr>
+          <tr className="items-table">
             <th>Item</th>
             <th>Qty</th>
             <th>Unit</th>
@@ -14,8 +14,8 @@ const InvoiceItems = () => {
             <th>Amount</th>
           </tr>
         </thead>
-        <tbody className="table-body">
-          <tr>
+        <tbody>
+          <tr className="items-table">
             <td>Item</td>
             <td>Qty</td>
             <td>Unit</td>

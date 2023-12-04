@@ -104,15 +104,16 @@
   }
   .week-start,
   .week-end {
-    width: 170px;
     padding: 0px 20px;
     border: none;
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    min-width: 350px;
+    justify-content: space-between;
+    min-width: 280px;
     font-size: 12px;
     gap: 10px;
+    color: var(--dark-gray);
   }
   .week-start input,
   .week-end input {
