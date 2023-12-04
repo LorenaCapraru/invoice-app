@@ -18,15 +18,16 @@
 
 .invoice-header-company {
   font-size: 10px;
-  color: gray;
+  color: var(--text-gray);
   margin: 0px;
+  padding: 10px 0px;
 }
 
 .invoice-date {
   display: flex;
   flex-direction: row;
   background-color: var(--white);
-  color: gray;
+  color: var(--text-gray);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -47,7 +48,7 @@
 }
 .plain-text {
   font-size: 10px;
-  color: gray;
+  color: var(--dark-gray);
   font-weight: 700;
 }
 .invoice-to {
@@ -60,9 +61,11 @@
     flex-direction: row;
   }
   .invoice-to {
-    margin: 0px;
+    text-align: left;
+    margin: 80px 0px;
   }
   .plain-text {
+    text-align: left;
     font-size: 16px;
     font-weight: 500;
     margin: 30px 0px;
@@ -72,9 +75,47 @@
     width: 100%;
   }
   .invoice-header-number {
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: 400;
   }
   .invoice-header-company {
-    font-size: 14px;
+    font-size: 12px;
+    color: #b2bad5;
+  }
+
+  .invoice-header {
+    background-color: transparent;
+    display: inline;
+  }
+  .invoice-header img {
+    display: none;
+  }
+  .date-client {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .invoice-date {
+    background-color: transparent;
+    box-shadow: none;
+    height: 80px;
+    flex-direction: column;
+  }
+  .week-start,
+  .week-end {
+    width: 170px;
+    padding: 0px 20px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    min-width: 350px;
+    font-size: 12px;
+    gap: 10px;
+  }
+  .week-start input,
+  .week-end input {
+    background-color: transparent;
   }
 }

@@ -6,3 +6,9 @@ input {
   font-weight: 400;
   font-size: 12px;
 }
+
+@media (min-width: 768px) {
+  input {
+    font-size: 16px;
+  }
+}

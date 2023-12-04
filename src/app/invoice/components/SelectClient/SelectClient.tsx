@@ -26,7 +26,9 @@ const SelectClient: React.FC = () => {
           onChange={handleSelectChange}
           className="select-menu"
         >
-          <option value="" className="option"></option>
+          <option value="" className="option">
+            Select a client
+          </option>
           {company.company.map((el: Company, index: number) => (
             <option key={index} value={el.id.toString()}>
               {el.name}
