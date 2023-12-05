@@ -14,29 +14,31 @@ const Sidebar = () => {
   return (
     <>
       <div className={`sidebar-main ${!isSidebarOpen ? "close" : ""}`}>
-        <Link href="/">
-          <div className="icon-name-wrap-overview">
-            <Image
-              src="/icons/bars.svg"
-              alt="close navbar"
-              width={25}
-              height={25}
-            />
-            <p className="overview-text">Overview</p>
-
-            <div
-              className={`close-sidebar ${!isSidebarOpen ? "icon-rotate" : ""}`}
-            >
+        <div className="icon-name-wrap-overview">
+          <Link href="/">
+            <div className="icon-name-wrap-overview">
               <Image
-                src="/icons/open-sidebar-icon.svg"
+                src="/icons/bars.svg"
                 alt="close navbar"
                 width={25}
                 height={25}
-                onClick={handleSideBar}
               />
+              <p className="overview-text">Overview</p>
             </div>
+          </Link>
+
+          <div
+            className={`close-sidebar ${!isSidebarOpen ? "icon-rotate" : ""}`}
+          >
+            <Image
+              src="/icons/open-sidebar-icon.svg"
+              alt="close navbar"
+              width={25}
+              height={25}
+              onClick={handleSideBar}
+            />
           </div>
-        </Link>
+        </div>
         <Link href="/invoice">
           <div className="icon-name-wrap">
             <Image
