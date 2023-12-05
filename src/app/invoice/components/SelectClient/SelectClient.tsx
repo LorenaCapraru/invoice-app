@@ -18,7 +18,6 @@ const SelectClient: React.FC = () => {
 
   return (
     <div>
-      <p className="address">Client</p>
       <div>
         <select
           id="selectOption"

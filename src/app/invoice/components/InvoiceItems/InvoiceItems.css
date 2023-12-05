@@ -1,6 +1,21 @@
 .invoice-items-main {
+  text-align: left;
+  margin: 0px 10px;
+}
+.items-table-header {
+  font-size: 11px;
+  color: #b2bad5;
+}
+
+.items-table {
+  font-size: 11px;
+}
+
+.table-invoice-items {
   background-color: white;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 768px) {

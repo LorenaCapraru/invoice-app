@@ -93,13 +93,12 @@ const Invoice = () => {
             </div>
           </div>
           <div className="invoice-to">
-            <p className="plain-text">INVOICE TO</p>
+            <p className="plain-text">BILL TO</p>
             <SelectClient />
           </div>
         </div>
         <InvoiceItems />
       </div>
-    
     </div>
   );
 };

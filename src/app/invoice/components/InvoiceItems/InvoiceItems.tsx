@@ -8,19 +8,23 @@ const InvoiceItems = () => {
         <thead className="items-header">
           <tr className="items-table-header">
             <th>NAME</th>
-            <th>QTY</th>
-            <th>UNIT</th>
+
             <th>PRICE</th>
             <th>AMOUNT</th>
           </tr>
         </thead>
         <tbody>
           <tr className="items-table">
-            <td>Item</td>
-            <td>Qty</td>
-            <td>Unit</td>
-            <td>Price</td>
-            <td>Amount</td>
+            <td>
+              <span>Metal Frame</span>
+              <div>
+                <span>33</span>
+                <span>m2</span>
+              </div>
+            </td>
+
+            <td>£3.5</td>
+            <td>{33 * 3.5}</td>
           </tr>
         </tbody>
       </table>

@@ -2,9 +2,9 @@
   border: none;
   border-bottom: 2px solid var(--blue);
   background-color: var(--gray);
-  padding: 5px;
+  padding: 5px 0px;
   width: 160px;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 300;
   color: gray;
   text-align: left;

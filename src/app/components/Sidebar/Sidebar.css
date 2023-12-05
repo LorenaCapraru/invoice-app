@@ -78,7 +78,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: 5px;
-    padding-top: 70px;
+    padding-top: 100px;
   }
   .close {
     width: 60px;
@@ -141,7 +141,7 @@
   .close-sidebar {
     position: absolute;
     left: 20px;
-    top: -30px;
+    top: -70px;
   }
 
   .sidebar-main-close {
