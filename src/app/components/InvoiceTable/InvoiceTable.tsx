@@ -49,7 +49,7 @@ const InvoiceTable: React.FC<Props> = ({ invoicesData }) => {
 
   return (
     <div className="table-main">
-      <table>
+      <table className="table">
         <thead>
           <tr>
             <th>Client</th>

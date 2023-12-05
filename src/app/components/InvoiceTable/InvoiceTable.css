@@ -7,7 +7,7 @@
   max-height: 350px;
   padding: 20px 0px;
 }
-table {
+.table {
   width: 100%;
   padding: 5px 10px;
 }
@@ -23,7 +23,7 @@ table {
   align-items: flex-start;
 }
 
-thead th {
+.table thead th {
   text-align: left;
   font-size: 14px;
 }
@@ -80,7 +80,7 @@ thead th {
     max-height: 280px;
     padding: 20px 0px;
   }
-  thead th {
+  .table thead th {
     font-size: 16px;
   }
   .td-client {

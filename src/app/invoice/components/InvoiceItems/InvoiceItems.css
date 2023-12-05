@@ -2,11 +2,30 @@
   background-color: white;
   border-radius: 10px;
 }
-table {
-  width: 100%;
-}
-.items-table {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+
+@media (min-width: 768px) {
+  .invoice-items-main {
+    padding: 0px 20px;
+  }
+
+  .table-invoice-items {
+    width: 100%;
+    text-align: left;
+  }
+  th {
+    padding: 20px 0px;
+  }
+  td {
+    border-top: 2px solid var(--mid-gray);
+    padding: 10px 0px;
+  }
+
+  .items-table-header {
+    color: #b2bad5;
+    font-weight: 500 !important;
+    font-size: 12px;
+  }
+  .items-table {
+    font-size: 15px;
+  }
 }
