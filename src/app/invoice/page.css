@@ -62,7 +62,7 @@
   }
   .invoice-to {
     text-align: left;
-    margin: 80px 0px;
+    margin: 30px 0px;
   }
   .plain-text {
     text-align: left;
@@ -77,10 +77,12 @@
   .invoice-header-number {
     font-size: 24px;
     font-weight: 400;
+    text-align: left;
   }
   .invoice-header-company {
     font-size: 12px;
     color: #b2bad5;
+    text-align: left;
   }
 
   .invoice-header {

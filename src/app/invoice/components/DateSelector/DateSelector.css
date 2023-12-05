@@ -1,7 +1,7 @@
 input {
   border: none;
-  border-bottom: 2px solid var(--green);
-  color: gray;
+  border-bottom: 2px solid var(--blue);
+  color: var(--dark-gray);
   text-align: start;
   font-weight: 400;
   font-size: 12px;
