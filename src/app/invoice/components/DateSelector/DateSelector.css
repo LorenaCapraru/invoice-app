@@ -1,4 +1,4 @@
-input {
+.date-picker input {
   border: none;
   border-bottom: 2px solid var(--blue);
   color: var(--dark-gray);
@@ -6,9 +6,12 @@ input {
   font-weight: 400;
   font-size: 12px;
 }
+.date-picker {
+  padding: 0px;
+}
 
 @media (min-width: 768px) {
-  input {
+  .date-picker input {
     font-size: 16px;
   }
 }

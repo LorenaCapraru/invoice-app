@@ -13,7 +13,7 @@ const DateSelector: React.FC<DateSelectorProps> = ({
   handleDateChange,
 }) => {
   return (
-    <div>
+    <div className="date-picker">
       <DatePicker
         selected={weekStart}
         onChange={handleDateChange}
