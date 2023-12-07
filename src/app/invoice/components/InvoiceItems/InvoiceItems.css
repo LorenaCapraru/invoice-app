@@ -19,10 +19,6 @@
 }
 
 @media (min-width: 768px) {
-  .invoice-items-main {
-    padding: 0px 20px;
-  }
-
   .table-invoice-items {
     width: 100%;
     text-align: left;
