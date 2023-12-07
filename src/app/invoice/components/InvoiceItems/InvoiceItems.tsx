@@ -1,34 +1,70 @@
+import React, { ChangeEvent, useState } from "react";
 import "./InvoiceItems.css";
-import { ChangeEvent, useState } from "react";
 
-const InvoiceItems = () => {
-  let [noOfClicks, setNoOfClicks] = useState<number>(0);
-  const [price, setPrice] = useState<number>(0);
-  const [qty, setQty] = useState<number>(0);
+interface InvoiceItem {
+  name: string;
+  qty: number;
+  price: number;
+}
+
+const InvoiceItems: React.FC = () => {
+  const [rows, setRows] = useState<InvoiceItem[]>([]);
+  const [noOfClicks, setNoOfClicks] = useState<number>(0);
 
   const handleNoOfClicks = () => {
+    setRows((prevRows) => [...prevRows, { name: "", qty: 0, price: 0 }]);
     setNoOfClicks(noOfClicks + 1);
   };
 
-  const handleChangePrice = (e: ChangeEvent<HTMLInputElement>) => {
-    setPrice(parseFloat(e.target.value) || 0);
-  };
-  const handleChangeQty = (e: ChangeEvent<HTMLInputElement>) => {
-    setQty(parseFloat(e.target.value) || 0);
+  const handleChangePrice = (
+    index: number,
+    e: ChangeEvent<HTMLInputElement>
+  ) => {
+    setRows((prevRows) => {
+      const updatedRows = [...prevRows];
+      updatedRows[index].price = parseFloat(e.target.value) || 0;
+      return updatedRows;
+    });
   };
 
-  console.log("no of clicks", noOfClicks);
+  const handleChangeQty = (index: number, e: ChangeEvent<HTMLInputElement>) => {
+    setRows((prevRows) => {
+      const updatedRows = [...prevRows];
+      updatedRows[index].qty = parseFloat(e.target.value) || 0;
+      return updatedRows;
+    });
+  };
 
-  const repeatedDivs = Array.from({ length: noOfClicks }, (_, index) => (
+  const handleChangeName = (
+    index: number,
+    e: ChangeEvent<HTMLInputElement>
+  ) => {
+    setRows((prevRows) => {
+      const updatedRows = [...prevRows];
+      updatedRows[index].name = e.target.value;
+      return updatedRows;
+    });
+  };
+
+  const repeatedDivs = rows.map((row, index) => (
     <div key={index} className="repeated-row">
       <div className="empty-header-check-box">
         <input type="checkbox" className="check-box" />
       </div>
       <div className="name-b">
-        <input type="text" />
+        <input
+          type="text"
+          placeholder="Add Item"
+          value={row.name}
+          onChange={(e) => handleChangeName(index, e)}
+        />
       </div>
       <div className="qty-b">
-        <input type="number" onChange={handleChangeQty} />
+        <input
+          type="number"
+          onChange={(e) => handleChangeQty(index, e)}
+          placeholder="0"
+        />
       </div>
       <div className="unit-b">
         <select>
@@ -42,13 +78,17 @@ const InvoiceItems = () => {
         </select>
       </div>
       <div className="price-b">
-        <input type="number" onChange={handleChangePrice} />
+        <input
+          type="number"
+          onChange={(e) => handleChangePrice(index, e)}
+          placeholder="0"
+        />
       </div>
       <div className="amount-b">
         {new Intl.NumberFormat("en-GB", {
           style: "currency",
           currency: "GBP",
-        }).format(price * qty)}
+        }).format(row.price * row.qty)}
       </div>
     </div>
   ));
