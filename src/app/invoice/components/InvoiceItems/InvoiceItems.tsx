@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
+import Image from "next/image";
 import "./InvoiceItems.css";
 
 interface InvoiceItem {
@@ -22,7 +23,7 @@ const InvoiceItems: React.FC = () => {
       const updatedRows = prevRows.filter(
         (_, index) => !checkedRows.includes(index)
       );
-      setCheckedRows([]); // Reset checkedRows after deletion
+      setCheckedRows([]);
       return updatedRows;
     });
   };
@@ -61,10 +62,8 @@ const InvoiceItems: React.FC = () => {
     setCheckedRows((prevCheckedRows) => {
       const isChecked = prevCheckedRows.includes(index);
       if (isChecked) {
-        // If already checked, remove from the array
         return prevCheckedRows.filter((item) => item !== index);
       } else {
-        // If not checked, add to the array
         return [...prevCheckedRows, index];
       }
     });
@@ -80,6 +79,7 @@ const InvoiceItems: React.FC = () => {
           onChange={() => handleCheckboxChange(index)}
         />
       </div>
+
       <div className="name-b">
         <input
           type="text"
@@ -130,18 +130,32 @@ const InvoiceItems: React.FC = () => {
           <input type="checkbox" className="check-box" />
         </div>
         <div className="name-h">NAME</div>
-        <div className="qty">QUANTITY</div>
+        <div className="qty">QTY</div>
         <div className="unit">UNIT</div>
         <div className="price">PRICE</div>
         <div className="amount">AMOUNT</div>
       </div>
       {repeatedDivs}
-      <button className="add-new-line" onClick={handleNoOfClicks}>
-        Add new line
-      </button>
-      <button className="delete-a-line" onClick={handleDeleteRow}>
-        Delete line
-      </button>
+      <div className="buttons">
+        <button className="add-new-line" onClick={handleNoOfClicks}>
+          <Image
+            src={"./icons/add.svg"}
+            alt="add line"
+            width={20}
+            height={20}
+          />
+          Add new line
+        </button>
+        <button className="delete-a-line" onClick={handleDeleteRow}>
+          <Image
+            src={"./icons/delete.svg"}
+            alt="add line"
+            width={20}
+            height={20}
+          />
+          Delete line
+        </button>
+      </div>
     </div>
   );
 };
