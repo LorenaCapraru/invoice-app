@@ -132,6 +132,12 @@
   width: 100%;
 }
 
+.qty-b input,
+.price-b input,
+.unit-b select {
+  background-color: var(--white);
+}
+
 @media (min-width: 768px) {
   .repeated-row {
     display: flex;
