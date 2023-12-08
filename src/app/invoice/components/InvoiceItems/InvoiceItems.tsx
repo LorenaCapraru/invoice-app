@@ -10,10 +10,21 @@ interface InvoiceItem {
 const InvoiceItems: React.FC = () => {
   const [rows, setRows] = useState<InvoiceItem[]>([]);
   const [noOfClicks, setNoOfClicks] = useState<number>(0);
+  const [checkedRows, setCheckedRows] = useState<number[]>([]);
 
   const handleNoOfClicks = () => {
     setRows((prevRows) => [...prevRows, { name: "", qty: 0, price: 0 }]);
     setNoOfClicks(noOfClicks + 1);
+  };
+
+  const handleDeleteRow = () => {
+    setRows((prevRows) => {
+      const updatedRows = prevRows.filter(
+        (_, index) => !checkedRows.includes(index)
+      );
+      setCheckedRows([]); // Reset checkedRows after deletion
+      return updatedRows;
+    });
   };
 
   const handleChangePrice = (
@@ -46,10 +57,28 @@ const InvoiceItems: React.FC = () => {
     });
   };
 
+  const handleCheckboxChange = (index: number) => {
+    setCheckedRows((prevCheckedRows) => {
+      const isChecked = prevCheckedRows.includes(index);
+      if (isChecked) {
+        // If already checked, remove from the array
+        return prevCheckedRows.filter((item) => item !== index);
+      } else {
+        // If not checked, add to the array
+        return [...prevCheckedRows, index];
+      }
+    });
+  };
+
   const repeatedDivs = rows.map((row, index) => (
     <div key={index} className="repeated-row">
       <div className="empty-header-check-box">
-        <input type="checkbox" className="check-box" />
+        <input
+          type="checkbox"
+          className="check-box"
+          checked={checkedRows.includes(index)}
+          onChange={() => handleCheckboxChange(index)}
+        />
       </div>
       <div className="name-b">
         <input
@@ -109,6 +138,9 @@ const InvoiceItems: React.FC = () => {
       {repeatedDivs}
       <button className="add-new-line" onClick={handleNoOfClicks}>
         Add new line
+      </button>
+      <button className="delete-a-line" onClick={handleDeleteRow}>
+        Delete line
       </button>
     </div>
   );
