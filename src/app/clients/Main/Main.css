@@ -14,6 +14,30 @@
   border-bottom: 2px solid var(--green);
 }
 
+.add-new-client {
+  padding: 10px 15px;
+  color: var(--white);
+  background-color: var(--green);
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  margin: 10px 0px;
+  border: 2px solid var(--green);
+  width: 150px;
+  cursor: pointer;
+}
+.add-new-client:hover {
+  padding: 10px 15px;
+  color: var(--lighter-blue);
+  background-color: var(--white);
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 2px solid var(--mid-gray);
+  box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.1);
+}
+
 .clients-header {
   font-size: 24px;
   font-weight: 400;

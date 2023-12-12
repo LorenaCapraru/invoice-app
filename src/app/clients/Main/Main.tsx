@@ -16,7 +16,7 @@ const Main = () => {
           <Card el={el} key={index} />
         ))}
       </div>
-      <button className="add-new-line">Add new Client</button>
+      <button className="add-new-client">Add new Client</button>
     </div>
   );
 };
