@@ -10,6 +10,8 @@
   justify-content: center;
   width: 100%;
   gap: 30px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid var(--green);
 }
 
 .clients-header {
