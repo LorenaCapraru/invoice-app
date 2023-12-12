@@ -1,11 +1,7 @@
 import "./Card.css";
 import Image from "next/image";
 
-type Client = {
-  id: number;
-  name: string;
-  address: string;
-};
+
 
 const Card = ({ el }: { el: Client }) => {
   const takeInitials = (input: string): string => {
