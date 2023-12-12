@@ -1,4 +1,6 @@
 import "./Card.css";
+import Image from "next/image";
+
 type Client = {
   id: number;
   name: string;
@@ -13,10 +15,21 @@ const Card = ({ el }: { el: Client }) => {
 
   return (
     <div className="card-main">
-      <p className="initials">{takeInitials(el.name)}</p>
-      <div>
-        <div className="card-name">{el.name}</div>
-        <div className="card-address">{el.address}</div>
+      <div className="card-details">
+        <p className="initials">{takeInitials(el.name)}</p>
+        <div>
+          <div className="card-name">{el.name}</div>
+          <div className="card-address">{el.address}</div>
+        </div>
+      </div>
+      <div className="icon-wrapper">
+        <Image src="/icons/bin.svg" alt="close navbar" width={30} height={30} />
+        <Image
+          src="/icons/edit.svg"
+          alt="close navbar"
+          width={30}
+          height={30}
+        />
       </div>
     </div>
   );
