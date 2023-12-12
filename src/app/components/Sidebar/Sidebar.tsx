@@ -72,6 +72,17 @@ const Sidebar = () => {
             <p>Employees</p>
           </div>
         </Link>
+        <Link href="/price-list">
+          <div className="icon-name-wrap">
+            <Image
+              src="/icons/price-list.svg"
+              alt="close navbar"
+              width={25}
+              height={25}
+            />
+            <p>Price List</p>
+          </div>
+        </Link>
       </div>
 
       {/* {!isSidebarOpen && (
