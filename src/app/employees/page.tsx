@@ -1,12 +1,17 @@
 import Sidebar from "../components/Sidebar/Sidebar";
+import Header from "../components/Header/Header";
+import Main from "./Main/Main";
 import "./page.css";
 
 const Employees = () => {
   return (
-    <div className="employees-main">
+    <main>
       <Sidebar />
-      <div>employees</div>
-    </div>
+      <div className="home-body">
+        <Header />
+        <Main />
+      </div>
+    </main>
   );
 };
 

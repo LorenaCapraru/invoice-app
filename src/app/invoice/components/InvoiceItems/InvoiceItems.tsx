@@ -101,7 +101,7 @@ const InvoiceItems: React.FC = () => {
           <option>
             m <sup>{"\u00B2"}</sup>
           </option>
-          <option>ml</option>
+          <option>lm</option>
           <option>pcs</option>
           <option>days</option>
         </select>
