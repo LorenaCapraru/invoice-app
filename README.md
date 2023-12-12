@@ -1,3 +1,3 @@
 ## Database Structure
 
-![cgm drawio](https://github.com/LorenaCapraru/invoice-app/assets/108892538/9c5e61e7-37cc-4c98-bde7-143a1537b54a)
+![cgm drawio (1)](https://github.com/LorenaCapraru/invoice-app/assets/108892538/2e8df0b5-e9d9-4106-88fd-a8fbc8d3628f)
