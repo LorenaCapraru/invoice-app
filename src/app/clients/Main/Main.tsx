@@ -3,7 +3,7 @@ import Card from "./components/Card/Card";
 import "./Main.css";
 import { useRecoilState } from "recoil";
 import { clientsState } from "@/app/recoil/atoms";
-import CompanyCard from "@/app/invoice/components/CompanyCard/CompanyCard";
+import Image from "next/image";
 
 const Main = () => {
   const [client, setClient] = useRecoilState(clientsState);
@@ -16,7 +16,10 @@ const Main = () => {
           <Card el={el} key={index} />
         ))}
       </div>
-      <button className="add-new-client">Add new Client</button>
+      <button className="add-new-client">
+        <Image src="/icons/add.svg" alt="close navbar" width={17} height={17} />
+        Add new Client
+      </button>
     </div>
   );
 };
