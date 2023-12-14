@@ -1,0 +1,54 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "dob": "1990-05-15",
+      "email": "john.doe@example.com",
+      "UTR": "ABC1234567",
+      "NINO": "AB123456C",
+      "address": "123 Main Street, Cityville, USA",
+      "phone_no": "+1 (555) 123-4567"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "dob": "1985-09-22",
+      "email": "jane.smith@example.com",
+      "UTR": "XYZ9876543",
+      "NINO": "XY987654A",
+      "address": "456 Oak Avenue, Townsville, USA",
+      "phone_no": "+1 (555) 987-6543"
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "dob": "1978-03-10",
+      "email": "bob.johnson@example.com",
+      "UTR": "DEF4567890",
+      "NINO": "DE456789B",
+      "address": "789 Pine Road, Villageland, USA",
+      "phone_no": "+1 (555) 789-0123"
+    },
+    {
+      "id": 4,
+      "name": "Alice Brown",
+      "dob": "1982-11-18",
+      "email": "alice.brown@example.com",
+      "UTR": "GHI9876543",
+      "NINO": "GH987654D",
+      "address": "101 Cedar Street, Hamletville, USA",
+      "phone_no": "+1 (555) 234-5678"
+    },
+    {
+      "id": 5,
+      "name": "Charlie White",
+      "dob": "1995-07-05",
+      "email": "charlie.white@example.com",
+      "UTR": "JKL1234567",
+      "NINO": "JK123456F",
+      "address": "202 Elm Lane, Boroughburg, USA",
+      "phone_no": "+1 (555) 345-6789"
+    }
+  ]
+}
