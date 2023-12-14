@@ -14,8 +14,8 @@ interface Invoice {
 }
 
 const Main: React.FC = () => {
-  const [pieChartOpen, setPieChartOpen] = useState<boolean>(false);
-  const [barChartOpen, setBarChartOpen] = useState<boolean>(false);
+  const [pieChartOpen, setPieChartOpen] = useState<boolean>(true);
+  const [barChartOpen, setBarChartOpen] = useState<boolean>(true);
   const [chartOptions, setChartOptions] = useState<any>(null);
 
   useEffect(() => {
