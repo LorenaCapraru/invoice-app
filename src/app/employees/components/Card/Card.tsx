@@ -71,7 +71,7 @@ const Card = ({ el }: { el: Employee }) => {
         </span>
         <span>
           <Image
-            src="/icons/nino.svg"
+            src="/icons/utr.svg"
             alt="close navbar"
             width={20}
             height={20}

@@ -2,7 +2,8 @@
 import "./Main.css";
 import Card from "../components/Card/Card";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { employeeState } from "@/app/recoil/atoms";
+import { employeeState, searchState } from "@/app/recoil/atoms";
+import Image from "next/image";
 
 type Employee = {
   id: number;
@@ -17,12 +18,28 @@ type Employee = {
 
 const Main = () => {
   const [employee, setEmployee] = useRecoilState(employeeState);
+  const search = useRecoilValue(searchState);
 
   return (
-    <div className="main-employees">
-      {employee.map((el: Employee) => (
-        <Card el={el} key={el.id} />
-      ))}
+    <div>
+      <button className="add-new-employee">
+        <Image src="/icons/add.svg" alt="close navbar" width={17} height={17} />
+        Add new Client
+      </button>
+
+      <div className="main-employees">
+        {employee
+          .filter(
+            (el: Employee) =>
+              el.name.toLowerCase().includes(search.toLowerCase()) ||
+              el.address
+                .toLocaleLowerCase()
+                .includes(search.toLocaleLowerCase())
+          )
+          .map((el: Employee) => (
+            <Card el={el} key={el.id} />
+          ))}
+      </div>
     </div>
   );
 };
