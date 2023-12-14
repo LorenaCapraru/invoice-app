@@ -9,6 +9,11 @@
       "id": 1,
       "name": "Fastrack Drylining Ltd",
       "address": "Field House Farm, Dunnings Lane, West Horndon, Brentwood, Essex CM13 3HE"
+    },
+    {
+      "id": 2,
+      "name": "WFDB",
+      "address": "223 Away Lane, Greenfield, London"
     }
   ]
 }
