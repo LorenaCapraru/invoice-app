@@ -1,21 +1,44 @@
 import "./Card.css";
 import Image from "next/image";
+import { useRecoilState } from "recoil";
+import { siteState } from "@/app/recoil/atoms";
 
-
+type Client = {
+  id: number;
+  name: string;
+  address: string;
+};
+type Site = {
+  id: number;
+  client_id: number;
+  site: string;
+};
 
 const Card = ({ el }: { el: Client }) => {
   const takeInitials = (input: string): string => {
     const initials = input.split(" ");
     return initials[0][0] + (initials[1] ? initials[1][0] : "");
   };
+  const [site, SetSite] = useRecoilState<Site[]>(siteState);
 
   return (
     <div className="card-main">
       <div className="card-details">
         <p className="initials">{takeInitials(el.name)}</p>
-        <div>
+        <div className="card-info">
           <div className="card-name">{el.name}</div>
           <div className="card-address">{el.address}</div>
+          <div className="card-site">
+            <span>Jobs: </span>
+            {site
+              .filter((site) => site.client_id === el.id)
+              .map((siteEl, index, site) => (
+                <span key={siteEl.id}>
+                  {siteEl.site}
+                  {index < site.length - 1 ? ", " : ""}
+                </span>
+              ))}
+          </div>
         </div>
       </div>
       <div className="icon-wrapper">

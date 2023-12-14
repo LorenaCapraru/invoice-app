@@ -23,7 +23,7 @@
 
 .initials {
   color: var(--white);
-  background-color: var(--green);
+  background-color: var(--lighter-blue);
   font-size: 30px;
   border-radius: 50%;
   padding: 20px;
@@ -44,5 +44,16 @@
   font-size: 20px;
 }
 .card-address {
+  color: var(--text-gray);
+}
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card-site {
+  font-weight: 500;
+  font-size: large;
   color: var(--text-gray);
 }
