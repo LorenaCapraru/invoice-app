@@ -24,7 +24,7 @@ const Main = () => {
     <div>
       <button className="add-new-employee">
         <Image src="/icons/add.svg" alt="close navbar" width={17} height={17} />
-        Add new Client
+        Add new Employee
       </button>
 
       <div className="main-employees">

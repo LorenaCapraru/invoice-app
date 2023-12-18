@@ -18,7 +18,7 @@
   border: none;
   margin: 20px;
   border: 2px solid var(--lighter-blue);
-  width: 170px;
+  min-width: 170px;
   cursor: pointer;
   display: flex;
   flex-direction: row;
