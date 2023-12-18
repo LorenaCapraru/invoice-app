@@ -103,7 +103,8 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: baseline;
+    margin: 0px 20px;
   }
   .invoice-date {
     background-color: transparent;
@@ -113,19 +114,20 @@
   }
   .week-start,
   .week-end {
-    padding: 0px 20px;
+    padding: 0px;
     border: none;
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     min-width: 280px;
     font-size: 12px;
-    gap: 10px;
+    gap: 0px;
     color: var(--dark-gray);
   }
   .week-start input,
   .week-end input {
     background-color: transparent;
+    font-size: 12px !important;
   }
 }
