@@ -24,9 +24,9 @@ const Card = ({ el }: { el: Client }) => {
   return (
     <div className="card-main">
       <div className="card-details">
-        <p className="initials">{takeInitials(el.name)}</p>
+        <p className="initials-client">{takeInitials(el.name)}</p>
         <div className="card-info">
-          <div className="card-name">{el.name}</div>
+          <div className="card-name-client">{el.name}</div>
           <div className="card-address">{el.address}</div>
           <div className="card-site">
             <span>Jobs: </span>

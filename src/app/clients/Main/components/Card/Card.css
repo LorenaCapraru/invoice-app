@@ -21,7 +21,7 @@
   gap: 40px;
 }
 
-.initials {
+.initials-client {
   color: var(--white);
   background-color: var(--lighter-blue);
   font-size: 30px;
@@ -39,7 +39,7 @@
   cursor: pointer;
 }
 
-.card-name {
+.card-name-client {
   font-weight: 600;
   font-size: 20px;
 }
