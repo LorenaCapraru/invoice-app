@@ -1,0 +1,15 @@
+{
+  "company": [
+    {
+      "id": 1,
+      "name": "CGM Drylining Ltd",
+      "address": "123 Main Street",
+      "postcode": "ABC 123",
+      "company_registration_number": "ABC123456",
+      "utr": 1234567890,
+      "vat_reg_no": "GB123456789",
+      "sort_code": "12-34-56",
+      "account_number": 12345678
+    }
+  ]
+}
