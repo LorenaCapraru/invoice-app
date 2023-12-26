@@ -53,7 +53,7 @@ const Invoice = () => {
   return (
     <div className="invoice-main">
       <Sidebar />
-      <div className="invoice-body" id="pdfContent">
+      <div className="invoice-body" id="pdfContentToExport">
         <div className="invoice-header">
           <Link href="/">
             <Image
