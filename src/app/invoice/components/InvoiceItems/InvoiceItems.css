@@ -2,7 +2,8 @@
   text-align: left;
   margin: 0px 20px;
   border-bottom: 2px solid var(--green);
-  max-height: 300px;
+  max-height: 500px;
+  overflow-y: auto; /* Add this line to enable vertical scrolling */
 }
 
 .table-invoice-items {

@@ -9,6 +9,8 @@ import CompanyCard from "./components/CompanyCard/CompanyCard";
 import SelectClient from "./components/SelectClient/SelectClient";
 import InvoiceItems from "./components/InvoiceItems/InvoiceItems";
 import CompanyData from "./components/CompanyData/CompanyData";
+import html2pdf from "html2pdf.js";
+import html2canvas from "html2canvas";
 
 const Invoice = () => {
   const [startWeekClick, seStartWeekClick] = useState<boolean | null>(false);
@@ -29,11 +31,29 @@ const Invoice = () => {
   const handleEndWeekClick = () => {
     seEndWeekClick(!endWeekClick);
   };
+  const generatePDF = async () => {
+    const element = document.getElementById("pdfContentToExport"); // Use a new ID for the content you want to export
+
+    if (element) {
+      const canvas = await html2canvas(element);
+      const pdf = new html2pdf(element, {
+        margin: 10,
+        filename: "exported-page.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2, logging: true },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      });
+
+      pdf.fromCanvas(canvas);
+    } else {
+      console.error("Element not found");
+    }
+  };
 
   return (
     <div className="invoice-main">
       <Sidebar />
-      <div className="invoice-body">
+      <div className="invoice-body" id="pdfContent">
         <div className="invoice-header">
           <Link href="/">
             <Image
@@ -57,44 +77,6 @@ const Invoice = () => {
           />
         </div>
         <div className="date-client">
-          {/* <div className="invoice-date">
-            <div className="week-start">
-              <div className="calendar-icon">
-                <Image
-                  src="./icons/calendar.svg"
-                  alt="calendar"
-                  width={20}
-                  height={20}
-                  onClick={handleStartWeekClick}
-                />
-                <p>Week Start</p>
-              </div>
-              {startWeekClick && (
-                <DateSelector
-                  weekStart={weekStart}
-                  handleDateChange={handleDateChangeStart}
-                />
-              )}
-            </div>
-            <div className="week-end">
-              <div className="calendar-icon">
-                <Image
-                  src="./icons/calendar.svg"
-                  alt="calendar"
-                  width={20}
-                  height={20}
-                  onClick={handleEndWeekClick}
-                />
-                <p>Week End</p>
-              </div>
-              {endWeekClick && (
-                <DateSelector
-                  weekStart={weekEnd}
-                  handleDateChange={handleDateChangeEnd}
-                />
-              )}
-            </div>
-          </div> */}
           <div className="invoice-to">
             <p className="plain-text">BILL TO</p>
             <SelectClient />
@@ -139,9 +121,12 @@ const Invoice = () => {
           </div>
           <CompanyData />
         </div>
-
-        <InvoiceItems />
+        <div id="pdfContentToExport">
+          <InvoiceItems />
+        </div>
       </div>
+
+      <button onClick={generatePDF}>Export as PDF</button>
     </div>
   );
 };
