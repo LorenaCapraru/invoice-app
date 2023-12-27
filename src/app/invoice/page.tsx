@@ -36,19 +36,18 @@ const Invoice = () => {
     setClickExport(true);
   };
 
-  const generatePDF = async () => {
-    const element = document.getElementById("pdfContentToExport");
-
+  const generatePDF = async (): Promise<void> => {
+    const element: HTMLElement | null =
+      document.getElementById("pdfContentToExport");
     if (element) {
-      const canvas = await html2canvas(element);
-      const pdf = new html2pdf(element, {
+      const canvas: HTMLCanvasElement = await html2canvas(element);
+      const pdf: any = new html2pdf(element, {
         margin: 10,
-        filename: "exported-page.pdf",
-        image: { type: "jpeg", quality: 0.98 },
+        filename: "Invoice_CGM.pdf",
+        image: { type: "pdf", quality: 0.98 },
         html2canvas: { scale: 2, logging: true },
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
       });
-
       pdf.fromCanvas(canvas);
     } else {
       console.error("Element not found");
@@ -60,7 +59,7 @@ const Invoice = () => {
       generatePDF();
     }
     setClickExport(false);
-  }, [clickExport]);
+  }, [clickExport, setClickExport]);
 
   return (
     <div className="invoice-main">
@@ -77,7 +76,7 @@ const Invoice = () => {
           </Link>
           <div className="invoice-name-date">
             <div>
-              <p className="invoice-header-number">Invoice#001</p>
+              <p className="invoice-header-number">Invoice#02</p>
               <p className="invoice-header-company">#001 TRU GROUP </p>
             </div>
           </div>
@@ -134,11 +133,9 @@ const Invoice = () => {
           <CompanyData />
         </div>
         <div id="pdfContentToExport">
-          <InvoiceItems />
+          <InvoiceItems handleClickExport={handleClickExport} />
         </div>
       </div>
-
-      <button onClick={handleClickExport}>Export as PDF</button>
     </div>
   );
 };

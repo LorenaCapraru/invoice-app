@@ -8,7 +8,10 @@ interface InvoiceItem {
   price: number;
 }
 
-const InvoiceItems: React.FC = () => {
+interface InvoiceItemsProps {
+  handleClickExport: () => void;
+}
+const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
   const [rows, setRows] = useState<InvoiceItem[]>([]);
   const [noOfClicks, setNoOfClicks] = useState<number>(0);
   const [checkedRows, setCheckedRows] = useState<number[]>([]);
@@ -137,23 +140,34 @@ const InvoiceItems: React.FC = () => {
       </div>
       {repeatedDivs}
       <div className="buttons">
-        <button className="add-new-line" onClick={handleNoOfClicks}>
+        <div>
+          <button className="add-new-line" onClick={handleNoOfClicks}>
+            <Image
+              src={"./icons/add.svg"}
+              alt="add line"
+              width={20}
+              height={20}
+            />
+            Add new line
+          </button>
+          <button className="add-new-line" onClick={handleDeleteRow}>
+            <Image
+              src={"./icons/delete.svg"}
+              alt="add line"
+              width={20}
+              height={20}
+            />
+            Delete line
+          </button>
+        </div>
+        <button className="export-pdf" onClick={handleClickExport}>
           <Image
-            src={"./icons/add.svg"}
+            src={"./icons/pdf.svg"}
             alt="add line"
             width={20}
             height={20}
           />
-          Add new line
-        </button>
-        <button className="delete-a-line" onClick={handleDeleteRow}>
-          <Image
-            src={"./icons/delete.svg"}
-            alt="add line"
-            width={20}
-            height={20}
-          />
-          Delete line
+          Export as PDF
         </button>
       </div>
     </div>

@@ -1,1 +1,3 @@
-declare module "html2pdf.js";
+if (typeof window !== "undefined") {
+  declare module "html2pdf.js";
+}
