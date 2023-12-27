@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import "./page.css";
 import Image from "../../../node_modules/next/image";
 import DateSelector from "./components/DateSelector/DateSelector";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "../../../node_modules/next/link";
 import CompanyCard from "./components/CompanyCard/CompanyCard";
 import SelectClient from "./components/SelectClient/SelectClient";
@@ -18,6 +18,7 @@ const Invoice = () => {
 
   const [weekStart, setWeekStart] = useState<Date | null>(null);
   const [weekEnd, setWeekEnd] = useState<Date | null>(null);
+  const [clickExport, setClickExport] = useState<boolean | null>(false);
 
   const handleDateChangeStart = (date: Date | null) => {
     setWeekStart(date);
@@ -31,8 +32,12 @@ const Invoice = () => {
   const handleEndWeekClick = () => {
     seEndWeekClick(!endWeekClick);
   };
+  const handleClickExport = () => {
+    setClickExport(true);
+  };
+
   const generatePDF = async () => {
-    const element = document.getElementById("pdfContentToExport"); // Use a new ID for the content you want to export
+    const element = document.getElementById("pdfContentToExport");
 
     if (element) {
       const canvas = await html2canvas(element);
@@ -49,6 +54,13 @@ const Invoice = () => {
       console.error("Element not found");
     }
   };
+
+  useEffect(() => {
+    if (process.browser && clickExport === true) {
+      generatePDF();
+    }
+    setClickExport(false);
+  }, [clickExport]);
 
   return (
     <div className="invoice-main">
@@ -126,7 +138,7 @@ const Invoice = () => {
         </div>
       </div>
 
-      <button onClick={generatePDF}>Export as PDF</button>
+      <button onClick={handleClickExport}>Export as PDF</button>
     </div>
   );
 };
