@@ -11,6 +11,7 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "github:fortawesome/react-fontawesome",
+    "@react-pdf/renderer": "^3.1.14",
     "@types/react-datepicker": "^4.19.3",
     "chart": "^0.1.2",
     "chart.js": "^2.9.4",
