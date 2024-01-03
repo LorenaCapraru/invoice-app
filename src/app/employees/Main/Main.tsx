@@ -1,6 +1,6 @@
 "use client";
 import "./Main.css";
-import Card from "../components/Card/Card";
+import Card from "../components/CardEmployees/Card";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { employeeState, searchState } from "@/app/recoil/atoms";
 import Image from "next/image";

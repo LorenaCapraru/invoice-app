@@ -31,14 +31,20 @@
 }
 
 .card-name {
-  font-size: 28px !important;
+  font-size: 24px !important;
   letter-spacing: 5px;
   font-weight: 500;
   color: var(--text-gray);
+  text-align: center;
 }
 .copy {
   position: absolute;
-  left: 93%;
+  right: 93%;
+  top: 0;
+}
+.ellipsis {
+  position: absolute;
+  left: 98%;
   top: 0;
 }
 

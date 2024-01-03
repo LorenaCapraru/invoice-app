@@ -1,17 +1,18 @@
 .client-main {
   display: flex;
   flex-direction: column;
-  margin: 25px;
+  margin-right: 40px;
 }
 .cards-main {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: start;
   justify-content: center;
+  justify-content: space-between;
+  margin: 0px 20px;
   width: 100%;
-  gap: 30px;
+  gap: 10px;
   padding-bottom: 40px;
-  border-bottom: 2px solid var(--green);
 }
 
 .add-new-client {
@@ -22,7 +23,7 @@
   font-weight: 600;
   font-size: 16px;
   border: none;
-  margin: 10px 0px;
+  margin: 20px;
   border: 2px solid var(--lighter-blue);
   width: 170px;
   cursor: pointer;
