@@ -35,11 +35,21 @@ const Tax: React.FC<TaxProps> = ({ rows }) => {
 
   return (
     <div>
-      <div className="name-tax">Subtotal {formatPrice(subtotal())}</div>
-      <div className="name-tax">TAX {formatPrice(tax())}</div>
-      <div className="name-tax">VAT {formatPrice(tax())}</div>
-      <div className="name-tax">VAT Reverse Charge {formatPrice(tax())}</div>
-      <div className="name-tax">TOTAL {formatPrice(total())}</div>
+      <div className="name-tax">
+        Subtotal <span>{formatPrice(subtotal())}</span>
+      </div>
+      <div className="name-tax">
+        TAX <span>{formatPrice(tax())}</span>
+      </div>
+      <div className="name-tax">
+        VAT <span>{formatPrice(tax())}</span>
+      </div>
+      <div className="name-tax">
+        VAT Reverse Charge <span>{formatPrice(tax())}</span>
+      </div>
+      <div className="name-tax total">
+        TOTAL <span>{formatPrice(total())}</span>
+      </div>
     </div>
   );
 };
