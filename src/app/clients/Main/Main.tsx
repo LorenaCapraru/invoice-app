@@ -4,7 +4,8 @@ import "./Main.css";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { clientsState, searchState } from "@/app/recoil/atoms";
 import Image from "next/image";
-
+import { useState } from "react";
+import Form from "./components/Form/Form";
 type Client = {
   id: number;
   name: string;
@@ -13,16 +14,26 @@ type Client = {
 
 const Main = () => {
   const [client, setClient] = useRecoilState(clientsState);
+  const [addClient, setAddClient] = useState<boolean>(false);
   const search = useRecoilValue(searchState);
 
-  console.log("lala", search);
+  const clickAddClient = () => {
+    return setAddClient(!addClient);
+  };
+
   return (
     <div className="client-main">
-      <button className="add-new-client">
+      <button className="add-new-client" onClick={clickAddClient}>
         <Image src="/icons/add.svg" alt="close navbar" width={17} height={17} />
         Add new Client
       </button>
-      <div className="cards-main">
+      {addClient === true && (
+        <div className="add-client-form">
+          <Form />
+        </div>
+      )}
+
+      <div className={addClient === true ? "cards-main opacity" : "cards-main"}>
         {client
           .filter(
             (el: Client) =>

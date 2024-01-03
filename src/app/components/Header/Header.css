@@ -68,7 +68,6 @@
 
 .search-bar:hover,
 .search-bar:valid {
-  /* left: 20px; */
   width: 170px;
   cursor: pointer;
   border: 2px solid #c0ced8;
@@ -107,7 +106,7 @@
   }
 
   .search-bar {
-    width: 200px;
+    width: 390px;
   }
 
   .search-bar:hover,
