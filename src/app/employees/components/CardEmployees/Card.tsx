@@ -1,5 +1,6 @@
 import "./Card.css";
 import Image from "next/image";
+import { useState } from "react";
 
 type Employee = {
   id: number;
@@ -13,13 +14,17 @@ type Employee = {
 };
 
 const Card = ({ el }: { el: Employee }) => {
+  const [ellipsisClick, setEllipsisClick] = useState<boolean>(false);
+
   const handleCopyClick = () => {
     const detailsToCopy = `Name: ${el.name}\nDOB: ${el.dob}\nEmail: ${el.email}\nUTR: ${el.UTR}\nNINO: ${el.NINO}\nAddress: ${el.address}\nPhone: ${el.phone_no}`;
-
-    // Use navigator.clipboard.writeText to copy details to the clipboard
     navigator.clipboard.writeText(detailsToCopy).then(() => {
       alert("Details copied to clipboard!");
     });
+  };
+
+  const handleEllipsisClick = () => {
+    setEllipsisClick(!ellipsisClick);
   };
   return (
     <div className="card-container">
@@ -37,10 +42,33 @@ const Card = ({ el }: { el: Employee }) => {
           <Image
             src="/icons/ellipsis.svg"
             alt="ellipsis"
-            width={5}
+            width={25}
             height={25}
+            onClick={handleEllipsisClick}
           />
         </div>
+        {ellipsisClick === true && (
+          <div className="ellipsis-pop-up">
+            <span>
+              edit
+              <Image
+                src="/icons/edit.svg"
+                alt="close navbar"
+                width={15}
+                height={15}
+              />
+            </span>
+            <span>
+              delete{" "}
+              <Image
+                src="/icons/trash.svg"
+                alt="close navbar"
+                width={15}
+                height={15}
+              />
+            </span>
+          </div>
+        )}
         <Image
           src="/icons/construction1.svg"
           alt="close navbar"
