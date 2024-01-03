@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import Image from "next/image";
 import "./InvoiceItems.css";
+import Tax from "../Tax/Tax";
 
 interface InvoiceItem {
   name: string;
@@ -20,6 +21,10 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
     setRows((prevRows) => [...prevRows, { name: "", qty: 0, price: 0 }]);
     setNoOfClicks(noOfClicks + 1);
   };
+  console.log(
+    "rows",
+    rows.reduce((sum, el) => sum + el.price * el.qty, 0)
+  );
 
   const handleDeleteRow = () => {
     setRows((prevRows) => {
@@ -139,6 +144,9 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
         <div className="amount">AMOUNT</div>
       </div>
       {repeatedDivs}
+      <div className="tax-container">
+        <Tax rows={rows} />
+      </div>
       <div className="buttons">
         <div>
           <button className="add-new-line" onClick={handleNoOfClicks}>
