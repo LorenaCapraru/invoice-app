@@ -31,7 +31,7 @@ const Form: React.FC = () => {
     return setAddClient(!addClient);
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} >
       <div className="input">
         <label htmlFor="nameInput">Name: </label>
         <input
