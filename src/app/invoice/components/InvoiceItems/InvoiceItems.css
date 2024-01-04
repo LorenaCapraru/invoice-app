@@ -259,4 +259,13 @@
     justify-content: flex-start;
     align-items: flex-end;
   }
+  .section-input {
+    width: 100%;
+    text-align: center;
+    padding: 20px 10px;
+    border: none;
+    font-size: large;
+    font-weight: 500;
+    color: var(--dark-gray);
+  }
 }

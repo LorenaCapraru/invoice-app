@@ -17,9 +17,18 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
   const [noOfClicks, setNoOfClicks] = useState<number>(0);
   const [checkedRows, setCheckedRows] = useState<number[]>([]);
 
+  const [noOfClicksSection, setNoOfClicksSection] = useState<number>(0);
+  const [clickSection, setClickSection] = useState<boolean>(false);
+
   const handleNoOfClicks = () => {
     setRows((prevRows) => [...prevRows, { name: "", qty: 0, price: 0 }]);
     setNoOfClicks(noOfClicks + 1);
+  };
+
+  const handleAddSection = () => {
+    setClickSection(true);
+    setNoOfClicksSection(noOfClicksSection + 1);
+    setClickSection(false);
   };
   console.log(
     "rows",
@@ -129,7 +138,6 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
       </div>
     </div>
   ));
-
   return (
     <div className="invoice-items-main">
       <p className="plain-text">INVOICE LINE ITEMS</p>
@@ -144,6 +152,13 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
         <div className="amount">AMOUNT</div>
       </div>
       {repeatedDivs}
+      <div className="section">
+        <input
+          className="section-input"
+          type="text"
+          placeholder="Insert Section"
+        />
+      </div>
       <div className="tax-container">
         <Tax rows={rows} />
       </div>
@@ -166,6 +181,15 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
               height={20}
             />
             Delete line
+          </button>
+          <button className="add-new-line" onClick={handleAddSection}>
+            <Image
+              src={"./icons/add.svg"}
+              alt="add line"
+              width={20}
+              height={20}
+            />
+            Add new section
           </button>
         </div>
         <button className="export-pdf" onClick={handleClickExport}>
