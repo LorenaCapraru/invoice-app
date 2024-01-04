@@ -2,9 +2,14 @@
 import "./Main.css";
 import Card from "../components/CardEmployees/Card";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { employeeState, searchState } from "@/app/recoil/atoms";
+import {
+  addEmployeeState,
+  employeeState,
+  searchState,
+} from "@/app/recoil/atoms";
 import Image from "next/image";
-
+import { useState } from "react";
+import Form from "../components/Form/Form";
 type Employee = {
   id: number;
   name: string;
@@ -18,16 +23,32 @@ type Employee = {
 
 const Main = () => {
   const [employee, setEmployee] = useRecoilState(employeeState);
+  const [addEmployee, setAddEmployee] = useRecoilState(addEmployeeState);
+
   const search = useRecoilValue(searchState);
 
+  const clickAddEmployee = () => {
+    return setAddEmployee(!addEmployee);
+  };
+
   return (
-    <div>
-      <button className="add-new-employee">
+    <div className="employees">
+      <button className="add-new-employee" onClick={clickAddEmployee}>
         <Image src="/icons/add.svg" alt="close navbar" width={17} height={17} />
         Add new Employee
       </button>
 
-      <div className="main-employees">
+      {addEmployee === true && (
+        <div className="add-employee-form">
+          <Form addEmployee={addEmployee} setAddEmployee={setAddEmployee} />
+        </div>
+      )}
+
+      <div
+        className={
+          addEmployee === true ? "main-employees opacity" : "main-employees"
+        }
+      >
         {employee
           .filter(
             (el: Employee) =>

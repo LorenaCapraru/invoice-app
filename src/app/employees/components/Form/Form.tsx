@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import "../Form/Form.css";
+import Image from "next/image";
 interface FormData {
   name: string;
   address: string;
 }
+import { useRecoilState } from "recoil";
+import { addEmployeeState } from "@/app/recoil/atoms";
 
 const Form: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     address: "",
   });
+
+  const [addEmployee, setAddEmployee] = useRecoilState(addEmployeeState);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setFormData({
@@ -21,6 +26,10 @@ const Form: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     console.log("Form Data:", formData);
+  };
+
+  const clickAddEmployee = () => {
+    return setAddEmployee(!addEmployee);
   };
   console.log(formData);
   return (
@@ -36,6 +45,14 @@ const Form: React.FC = () => {
           placeholder="Enter company's name"
           required
           className="input-field"
+        />
+      </div>
+      <div className="close-page" onClick={clickAddEmployee}>
+        <Image
+          src="/icons/cross.svg"
+          alt="close navbar"
+          width={20}
+          height={20}
         />
       </div>
 

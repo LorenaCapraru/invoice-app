@@ -54,3 +54,8 @@ export const companyState = atom<Company>({
   default: company.company[0],
 });
 export const searchState = atom<string>({ key: "searchState", default: "" });
+
+export const addEmployeeState = atom<boolean>({
+  key: "addEmployeeState",
+  default: false,
+});
