@@ -5,8 +5,8 @@ import Tax from "../Tax/Tax";
 
 interface InvoiceItem {
   name: string;
-  qty: number;
-  price: number;
+  qty?: number;
+  price?: number;
 }
 
 interface InvoiceItemsProps {
@@ -88,14 +88,16 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
 
   const repeatedDivs = rows.map((row, index) => (
     <div key={index} className="repeated-row">
-      <div className="empty-header-check-box">
-        <input
-          type="checkbox"
-          className="check-box"
-          checked={checkedRows.includes(index)}
-          onChange={() => handleCheckboxChange(index)}
-        />
-      </div>
+      {!row.name.includes("Flat") && (
+        <div className="empty-header-check-box">
+          <input
+            type="checkbox"
+            className="check-box"
+            checked={checkedRows.includes(index)}
+            onChange={() => handleCheckboxChange(index)}
+          />
+        </div>
+      )}
 
       <div className="name-b">
         <input
@@ -105,37 +107,45 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
           onChange={(e) => handleChangeName(index, e)}
         />
       </div>
-      <div className="qty-b">
-        <input
-          type="number"
-          onChange={(e) => handleChangeQty(index, e)}
-          placeholder="0"
-        />
-      </div>
-      <div className="unit-b">
-        <select>
-          <option>select unit...</option>
-          <option>
-            m <sup>{"\u00B2"}</sup>
-          </option>
-          <option>lm</option>
-          <option>pcs</option>
-          <option>days</option>
-        </select>
-      </div>
-      <div className="price-b">
-        <input
-          type="number"
-          onChange={(e) => handleChangePrice(index, e)}
-          placeholder="0"
-        />
-      </div>
-      <div className="amount-b">
-        {new Intl.NumberFormat("en-GB", {
-          style: "currency",
-          currency: "GBP",
-        }).format(row.price * row.qty)}
-      </div>
+      {!row.name.includes("Flat") && (
+        <div className="qty-b">
+          <input
+            type="number"
+            onChange={(e) => handleChangeQty(index, e)}
+            placeholder="0"
+          />
+        </div>
+      )}
+      {!row.name.includes("Flat") && (
+        <div className="unit-b">
+          <select>
+            <option>select unit...</option>
+            <option>
+              m <sup>{"\u00B2"}</sup>
+            </option>
+            <option>lm</option>
+            <option>pcs</option>
+            <option>days</option>
+          </select>
+        </div>
+      )}
+      {!row.name.includes("Flat") && (
+        <div className="price-b">
+          <input
+            type="number"
+            onChange={(e) => handleChangePrice(index, e)}
+            placeholder="0"
+          />
+        </div>
+      )}
+      {!row.name.includes("Flat") && (
+        <div className="amount-b">
+          {new Intl.NumberFormat("en-GB", {
+            style: "currency",
+            currency: "GBP",
+          }).format(row.price * row.qty)}
+        </div>
+      )}
     </div>
   ));
   return (
@@ -152,13 +162,7 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
         <div className="amount">AMOUNT</div>
       </div>
       {repeatedDivs}
-      <div className="section">
-        <input
-          className="section-input"
-          type="text"
-          placeholder="Insert Section"
-        />
-      </div>
+
       <div className="tax-container">
         <Tax rows={rows} />
       </div>
