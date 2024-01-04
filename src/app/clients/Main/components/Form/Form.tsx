@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import "../Form/Form.css";
+import { useRecoilState } from "recoil";
+import { addClientState } from "@/app/recoil/atoms";
+import Image from "next/image";
+
 interface FormData {
   name: string;
   address: string;
@@ -22,7 +26,10 @@ const Form: React.FC = () => {
     e.preventDefault();
     console.log("Form Data:", formData);
   };
-  console.log(formData);
+  const [addClient, setAddClient] = useRecoilState(addClientState);
+  const clickAddClient = () => {
+    return setAddClient(!addClient);
+  };
   return (
     <form onSubmit={handleSubmit}>
       <div className="input">
@@ -36,6 +43,14 @@ const Form: React.FC = () => {
           placeholder="Enter company's name"
           required
           className="input-field"
+        />
+      </div>
+      <div className="close-page" onClick={clickAddClient}>
+        <Image
+          src="/icons/cross.svg"
+          alt="close navbar"
+          width={20}
+          height={20}
         />
       </div>
 

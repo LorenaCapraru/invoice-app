@@ -31,7 +31,6 @@ const Form: React.FC = () => {
   const clickAddEmployee = () => {
     return setAddEmployee(!addEmployee);
   };
-  console.log(formData);
   return (
     <form onSubmit={handleSubmit}>
       <div className="input">

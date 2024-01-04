@@ -2,7 +2,7 @@
 import Card from "@/app/employees/components/CardEmployees/Card";
 import "./Main.css";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { clientsState, searchState } from "@/app/recoil/atoms";
+import { clientsState, searchState, addClientState } from "@/app/recoil/atoms";
 import Image from "next/image";
 import { useState } from "react";
 import Form from "./components/Form/Form";
@@ -14,7 +14,8 @@ type Client = {
 
 const Main = () => {
   const [client, setClient] = useRecoilState(clientsState);
-  const [addClient, setAddClient] = useState<boolean>(false);
+  const [addClient, setAddClient] = useRecoilState(addClientState);
+
   const search = useRecoilValue(searchState);
 
   const clickAddClient = () => {

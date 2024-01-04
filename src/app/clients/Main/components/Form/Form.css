@@ -40,6 +40,12 @@ form {
   border: 2px solid var(--green);
   width: 150px;
 }
+.close-page {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
 .submit-form:hover {
   padding: 10px 15px;
   color: var(--green);

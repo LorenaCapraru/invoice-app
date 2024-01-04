@@ -59,3 +59,7 @@ export const addEmployeeState = atom<boolean>({
   key: "addEmployeeState",
   default: false,
 });
+export const addClientState = atom<boolean>({
+  key: "addClientState",
+  default: false,
+});
