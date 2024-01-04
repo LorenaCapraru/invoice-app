@@ -33,7 +33,7 @@
 .input-field-b {
   border: none;
   padding: 10px;
-  border-bottom: 2px solid var(--green);
+  border-bottom: 0.5px solid var(--green);
   font-size: 18px;
   width: 60%;
   text-align: center;

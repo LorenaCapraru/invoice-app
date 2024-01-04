@@ -27,13 +27,6 @@ const Form: React.FC = () => {
 
   const [addEmployee, setAddEmployee] = useRecoilState(addEmployeeState);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     console.log("Form Data:", formData);
@@ -48,13 +41,9 @@ const Form: React.FC = () => {
         Add <span>New</span> Employee
       </p>
       <div className="input-b">
-        <label htmlFor="nameInput">Name: </label>
+        Name:
         <input
           type="text"
-          id="nameInput"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
           placeholder="Enter company's name"
           required
           className="input-field-b"
@@ -70,13 +59,9 @@ const Form: React.FC = () => {
       </div>
 
       <div className="input-b">
-        <label htmlFor="addressInput">Date of birth: </label>
+        Date of birth:
         <input
           type="text"
-          id="addressInput"
-          name="address"
-          value={formData.dob}
-          onChange={handleChange}
           placeholder="Enter date of birth"
           className="input-field-b"
           required
@@ -84,65 +69,45 @@ const Form: React.FC = () => {
       </div>
 
       <div className="input-b">
-        <label htmlFor="addressInput">Email: </label>
+        Email:
         <input
           type="text"
-          id="addressInput"
-          name="address"
-          value={formData.email}
-          onChange={handleChange}
           placeholder="Enter email"
           className="input-field-b"
           required
         />
       </div>
       <div className="input-b">
-        <label htmlFor="addressInput">UTR: </label>
+        UTR:
         <input
           type="text"
-          id="addressInput"
-          name="address"
-          value={formData.UTR}
-          onChange={handleChange}
           placeholder="Enter UTR"
           className="input-field-b"
           required
         />
       </div>
       <div className="input-b">
-        <label htmlFor="addressInput">NINO: </label>
+        NINO:
         <input
           type="text"
-          id="addressInput"
-          name="address"
-          value={formData.NINO}
-          onChange={handleChange}
           placeholder="Enter NINO"
           className="input-field-b"
           required
         />
       </div>
       <div className="input-b">
-        <label htmlFor="addressInput">Address: </label>
+        Address:
         <input
           type="text"
-          id="addressInput"
-          name="address"
-          value={formData.address}
-          onChange={handleChange}
           placeholder="Enter address"
           className="input-field-b"
           required
         />
       </div>
       <div className="input-b">
-        <label htmlFor="addressInput">Phone number: </label>
+        Phone number:
         <input
           type="text"
-          id="addressInput"
-          name="address"
-          value={formData.phone_no}
-          onChange={handleChange}
           placeholder="Enter phone number"
           className="input-field-b"
           required
