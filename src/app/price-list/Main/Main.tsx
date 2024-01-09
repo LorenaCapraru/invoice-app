@@ -5,7 +5,6 @@ import PriceList from "../components/PriceList/PriceList";
 const Main = () => {
   return (
     <div>
-      main price list
       <PriceList />
     </div>
   );

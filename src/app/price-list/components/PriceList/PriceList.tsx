@@ -159,7 +159,7 @@ const PriceList = () => {
   ));
   return (
     <div className="invoice-items-main">
-      <p className="plain-text">INVOICE LINE ITEMS</p>
+      <p className="plain-text">PRICE LIST ITEMS</p>
       <div className="table-invoice-items">
         <div className="empty-header-check-box">
           <input type="checkbox" className="check-box" />
