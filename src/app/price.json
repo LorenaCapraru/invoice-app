@@ -1,16 +1,19 @@
 {
   "price": [
     {
+      "id": 0,
       "name": "Single Deflection Head",
       "price": 2.5,
       "unit": "lm"
     },
     {
+      "id": 1,
       "name": "Plasterboard ",
       "price": 3,
       "unit": "m2"
     },
     {
+      "id": 2,
       "name": "SVP Box 2 Sides",
       "price": 40,
       "unit": "pcs"

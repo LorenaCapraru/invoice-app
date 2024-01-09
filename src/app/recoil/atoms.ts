@@ -3,11 +3,18 @@ import clients from "../clients.json";
 import sites from "../site.json";
 import employees from "../employees.json";
 import company from "../company.json";
+import price from "../price.json";
 
 type Client = {
   id: number;
   name: string;
   address: string;
+};
+export type Price = {
+  id: number;
+  name: string;
+  price: number;
+  unit: string;
 };
 
 type Site = {
@@ -40,6 +47,11 @@ type Company = {
 export const clientsState = atom<Client[]>({
   key: "clientsState",
   default: clients.clients,
+});
+
+export const pricesState = atom<Price[]>({
+  key: "pricesState",
+  default: price.price,
 });
 export const siteState = atom<Site[]>({
   key: "siteState",

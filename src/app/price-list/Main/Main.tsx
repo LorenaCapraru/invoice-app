@@ -1,16 +1,12 @@
 "use client";
 import "./Main.css";
-import InvoiceItems from "@/app/invoice/components/InvoiceItems/InvoiceItems";
 import { useState } from "react";
+import PriceList from "../components/PriceList/PriceList";
 const Main = () => {
-  const [clickExport, setClickExport] = useState<boolean | null>(false);
-  const handleClickExport = () => {
-    setClickExport(true);
-  };
   return (
     <div>
-      main price list 
-      <InvoiceItems handleClickExport={handleClickExport} />
+      main price list
+      <PriceList />
     </div>
   );
 };
