@@ -9,7 +9,8 @@ const Main = () => {
   };
   return (
     <div>
-      main price list <InvoiceItems handleClickExport={handleClickExport} />
+      main price list 
+      <InvoiceItems handleClickExport={handleClickExport} />
     </div>
   );
 };
