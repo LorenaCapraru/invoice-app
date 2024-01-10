@@ -16,6 +16,7 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
   const [rows, setRows] = useState<InvoiceItem[]>([]);
   const [noOfClicks, setNoOfClicks] = useState<number>(0);
   const [checkedRows, setCheckedRows] = useState<number[]>([]);
+  const [selectAll, setSelectAll] = useState<boolean>(false);
 
   const [noOfClicksSection, setNoOfClicksSection] = useState<number>(0);
 
@@ -73,6 +74,16 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
         return [...prevCheckedRows, index];
       }
     });
+  };
+
+  const handleHeaderCheckboxChange = () => {
+    if (!selectAll) {
+      const allRowsIndexes = rows.map((_, index) => index);
+      setCheckedRows(allRowsIndexes);
+    } else {
+      setCheckedRows([]);
+    }
+    setSelectAll(!selectAll);
   };
 
   const repeatedDivs = rows.map((row, index) => (
@@ -142,7 +153,12 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
       <p className="plain-text">INVOICE LINE ITEMS</p>
       <div className="table-invoice-items">
         <div className="empty-header-check-box">
-          <input type="checkbox" className="check-box" />
+          <input
+            type="checkbox"
+            className="check-box"
+            checked={selectAll}
+            onChange={handleHeaderCheckboxChange}
+          />
         </div>
         <div className="name-h">NAME</div>
         <div className="qty">QTY</div>
@@ -150,11 +166,17 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
         <div className="price">PRICE</div>
         <div className="amount">AMOUNT</div>
       </div>
-      {repeatedDivs}
+      {repeatedDivs.length === 0 ? (
+        <div className="empty-table">No items in the table</div>
+      ) : (
+        repeatedDivs
+      )}
 
-      <div className="tax-container">
-        <Tax rows={rows} />
-      </div>
+      {repeatedDivs.length > 0 && (
+        <div className="tax-container">
+          <Tax rows={rows} />
+        </div>
+      )}
       <div className="buttons">
         <div>
           <button className="add-new-line" onClick={handleNoOfClicks}>
