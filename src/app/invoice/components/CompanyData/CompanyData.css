@@ -5,3 +5,8 @@
 .subcontractor-data {
   margin: 0px 20px;
 }
+@media (min-width: 768px) {
+  .subcontractor-data {
+    margin: 0px;
+  }
+}

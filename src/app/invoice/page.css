@@ -40,7 +40,6 @@
 .week-start,
 .week-end {
   width: 50%;
-  padding: 0px 20px;
   border: 2px solid var(--mid-gray);
 }
 
@@ -60,7 +59,7 @@
 }
 
 .invoice-to {
-  margin: 50px 10px;
+  margin: 50px 20px;
 }
 .invoice-main {
   position: relative;
@@ -69,6 +68,15 @@
 @media (min-width: 768px) {
   .invoice-name-date {
     margin: 0px 20px;
+  }
+  .invoice-number {
+    border: none;
+    width: 50px;
+    text-align: center;
+    color: var(--dark-gray);
+    font-size: 24px;
+    font-weight: 400;
+    background-color: var(--gray);
   }
   .invoice-main {
     display: flex;

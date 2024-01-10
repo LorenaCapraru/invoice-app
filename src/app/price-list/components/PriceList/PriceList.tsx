@@ -16,7 +16,29 @@ const PriceList = () => {
   const [noOfClicks, setNoOfClicks] = useState<number>(0);
   const [checkedRows, setCheckedRows] = useState<number[]>([]);
   const [clickExport, setClickExport] = useState<boolean | null>(false);
+  const [selectAll, setSelectAll] = useState<boolean>(false);
+
   const search = useRecoilValue(searchState);
+
+  const handleCheckboxChange = (index: number) => {
+    setCheckedRows((prevCheckedRows) => {
+      const isChecked = prevCheckedRows.includes(index);
+      if (isChecked) {
+        return prevCheckedRows.filter((item) => item !== index);
+      } else {
+        return [...prevCheckedRows, index];
+      }
+    });
+  };
+  const handleHeaderCheckboxChange = () => {
+    if (!selectAll) {
+      const allRowsIndexes = rows.map((_, index) => index);
+      setCheckedRows(allRowsIndexes);
+    } else {
+      setCheckedRows([]);
+    }
+    setSelectAll(!selectAll);
+  };
 
   const handleClickExport = () => {
     setClickExport(true);
@@ -73,17 +95,6 @@ const PriceList = () => {
       const updatedRows = [...prevRows];
       updatedRows[index].name = e.target.value;
       return updatedRows;
-    });
-  };
-
-  const handleCheckboxChange = (index: number) => {
-    setCheckedRows((prevCheckedRows) => {
-      const isChecked = prevCheckedRows.includes(index);
-      if (isChecked) {
-        return prevCheckedRows.filter((item) => item !== index);
-      } else {
-        return [...prevCheckedRows, index];
-      }
     });
   };
 
@@ -176,13 +187,22 @@ const PriceList = () => {
         <p className="plain-text">PRICE LIST ITEMS</p>
         <div className="table-invoice-items">
           <div className="empty-header-check-box">
-            <input type="checkbox" className="check-box" />
+            <input
+              type="checkbox"
+              className="check-box"
+              checked={selectAll}
+              onChange={handleHeaderCheckboxChange}
+            />
           </div>
           <div className="name-h">NAME</div>
           <div className="unit">UNIT</div>
           <div className="price">PRICE</div>
         </div>
-        {repeatedDivs}
+        {repeatedDivs.length > 0 ? (
+          repeatedDivs
+        ) : (
+          <div className="empty-table">No items in the list</div>
+        )}
       </div>
       <div className="buttons">
         <div>

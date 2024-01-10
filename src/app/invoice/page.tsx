@@ -13,28 +13,24 @@ import CompanyData from "./components/CompanyData/CompanyData";
 const Invoice = () => {
   const [startWeekClick, seStartWeekClick] = useState<boolean | null>(false);
   const [endWeekClick, seEndWeekClick] = useState<boolean | null>(false);
-
   const [weekStart, setWeekStart] = useState<Date | null>(null);
   const [weekEnd, setWeekEnd] = useState<Date | null>(null);
   const [clickExport, setClickExport] = useState<boolean | null>(false);
-
+  const [invoiceNumber, setInvoiceNumber] = useState<number | undefined>(0);
   const handleDateChangeStart = (date: Date | null) => {
     setWeekStart(date);
   };
   const handleDateChangeEnd = (date: Date | null) => {
     setWeekEnd(date);
   };
-  const handleStartWeekClick = () => {
-    seStartWeekClick(!startWeekClick);
-  };
-  const handleEndWeekClick = () => {
-    seEndWeekClick(!endWeekClick);
-  };
+
   const handleClickExport = () => {
     setClickExport(true);
   };
 
-  const [map, setMap] = useState(null);
+  const updateInvoiceNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInvoiceNumber(Number(e.target.value));
+  };
 
   useEffect(() => {
     const generatePDF = async (): Promise<void> => {
@@ -90,7 +86,15 @@ const Invoice = () => {
           </Link>
           <div className="invoice-name-date">
             <div>
-              <p className="invoice-header-number">Invoice#02</p>
+              <p className="invoice-header-number">
+                Invoice
+                <input
+                  type="number"
+                  defaultValue={0}
+                  className="invoice-number"
+                  onChange={updateInvoiceNumber}
+                />
+              </p>
               <p className="invoice-header-company">#001 TRU GROUP </p>
             </div>
           </div>
