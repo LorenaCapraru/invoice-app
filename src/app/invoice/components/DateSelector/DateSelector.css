@@ -2,7 +2,7 @@
   border: none;
   border-bottom: 2px solid var(--blue);
   color: var(--dark-gray);
-  text-align: start;
+  text-align: center;
   font-weight: 400;
   font-size: 12px;
 }
@@ -14,5 +14,6 @@
   .date-picker input {
     font-size: 16px;
     width: 180px;
+    text-align: center;
   }
 }
