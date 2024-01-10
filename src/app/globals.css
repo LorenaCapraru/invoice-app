@@ -29,7 +29,9 @@ body {
   font-family: "Nunito", sans-serif;
   color: var(--dark-gray);
 }
-
+main {
+  position: relative;
+}
 @media (min-width: 768px) {
   main {
     display: flex;
