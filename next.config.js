@@ -1,9 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    // domains: ["www.gravatar.com"],
-    domains: ["api.dicebear.com"],
-  },
-};
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   images: {
+//     remotePatterns: [
+//       {
+//         domain: "example.com",
+//       },
+//     ],
+//   },
+// };
 
-module.exports = nextConfig;
+// module.exports = nextConfig;
