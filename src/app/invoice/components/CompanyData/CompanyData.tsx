@@ -16,7 +16,6 @@ type Company = {
 
 const CompanyData = () => {
   const [company, setCompany] = useRecoilState<Company>(companyState);
-  console.log(company);
   return (
     <div>
       <p className="plain-text">SUBCONTRACTOR</p>

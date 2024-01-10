@@ -1,8 +1,8 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState, useEffect } from "react";
 import Image from "next/image";
 import "./PriceList.css";
-import { useRecoilState } from "recoil";
-import { pricesState } from "@/app/recoil/atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { pricesState, searchState } from "@/app/recoil/atoms";
 interface PriceList {
   id: number;
   name: string;
@@ -16,6 +16,8 @@ const PriceList = () => {
   const [noOfClicks, setNoOfClicks] = useState<number>(0);
   const [checkedRows, setCheckedRows] = useState<number[]>([]);
   const [clickExport, setClickExport] = useState<boolean | null>(false);
+  const search = useRecoilValue(searchState);
+
   const handleClickExport = () => {
     setClickExport(true);
   };
@@ -54,11 +56,13 @@ const PriceList = () => {
     index: number,
     e: ChangeEvent<HTMLInputElement>
   ) => {
-    setRows((prevRows) => {
-      const updatedRows = [...prevRows];
-      updatedRows[index].price = parseFloat(e.target.value) || 0;
-      return updatedRows;
+    const updatedRows = rows.map((row, rowIndex) => {
+      if (rowIndex === index) {
+        return { ...row, price: Number(e.target.value) };
+      }
+      return row;
     });
+    setRows(updatedRows);
   };
 
   const handleChangeName = (
@@ -82,95 +86,104 @@ const PriceList = () => {
       }
     });
   };
-  // const dbPrices = price.map((row, index) => (
-  //   <div key={index} className="repeated-row">
-  //     <div className="empty-header-check-box">
-  //       <input
-  //         type="checkbox"
-  //         className="check-box"
-  //         checked={checkedRows.includes(index)}
-  //         onChange={() => handleCheckboxChange(index)}
-  //       />
-  //     </div>
 
-  //     <div className="name-b">
-  //       <input
-  //         type="text"
-  //         placeholder="Add Item"
-  //         value={row.name}
-  //         onChange={(e) => handleChangeName(index, e)}
-  //       />
-  //     </div>
+  useEffect(() => {
+    const generatePDF = async (): Promise<void> => {
+      const element: HTMLElement | null =
+        document.getElementById("pdfContentToExport");
+      try {
+        if (element) {
+          const html2canvas = await import("html2canvas");
+          const html2pdf = await import("html2pdf.js");
 
-  //     <div className="unit-b">{row.unit}</div>
+          const canvas: HTMLCanvasElement = await html2canvas.default(element);
+          console.log("Canvas generated:", canvas);
 
-  //     <div className="price-b">
-  //       <input
-  //         type="number"
-  //         value={row.price}
-  //         onChange={(e) => handleChangePrice(index, e)}
-  //         placeholder="0"
-  //       />
-  //     </div>
-  //   </div>
-  // ));
+          if (canvas) {
+            const pdf: any = new html2pdf.default(element, {
+              margin: 10,
+              filename: "Invoice_CGM.pdf",
+              image: { type: "pdf", quality: 0.98 },
+              html2canvas: { scale: 2, logging: true },
+              jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+            });
 
-  const repeatedDivs = rows.map((row, index) => (
-    <div key={index} className="repeated-row">
-      <div className="empty-header-check-box">
-        <input
-          type="checkbox"
-          className="check-box"
-          checked={checkedRows.includes(index)}
-          onChange={() => handleCheckboxChange(index)}
-        />
+            pdf.fromCanvas(canvas);
+          } else {
+            console.error("Canvas not generated");
+          }
+        } else {
+          console.error("Element not found");
+        }
+      } catch (error) {
+        console.error("Error occurred while generating PDF:", error);
+      }
+    };
+
+    if (clickExport) {
+      generatePDF();
+      setClickExport(false);
+    }
+  }, [clickExport]);
+
+  const repeatedDivs = rows
+    .filter((el: PriceList) =>
+      el.name.toLowerCase().includes(search.toLowerCase())
+    )
+    .map((row, index) => (
+      <div key={index} className="repeated-row">
+        <div className="empty-header-check-box">
+          <input
+            type="checkbox"
+            className="check-box"
+            checked={checkedRows.includes(index)}
+            onChange={() => handleCheckboxChange(index)}
+          />
+        </div>
+
+        <div className="name-b">
+          <input
+            type="text"
+            placeholder="Add Item"
+            value={row.name}
+            onChange={(e) => handleChangeName(index, e)}
+          />
+        </div>
+
+        <div className="unit-b">
+          <select defaultValue={row.unit}>
+            <option value="">select unit...</option>
+            <option value="m2">m2</option>
+            <option value="lm">lm</option>
+            <option value="pcs">pcs</option>
+            <option value="days">days</option>
+          </select>
+        </div>
+
+        <div className="price-b">
+          <input
+            defaultValue={row.price}
+            type="number"
+            onChange={(e) => handleChangePrice(index, e)}
+            placeholder="0"
+          />
+        </div>
       </div>
-
-      <div className="name-b">
-        <input
-          type="text"
-          placeholder="Add Item"
-          value={row.name}
-          onChange={(e) => handleChangeName(index, e)}
-        />
-      </div>
-
-      <div className="unit-b">
-        <select value={row.unit} onChange={(e) => handleChangeUnit(index, e)}>
-          <option value="">select unit...</option>
-          <option value="m²">
-            m <sup>{"\u00B2"}</sup>
-          </option>
-          <option value="lm">lm</option>
-          <option value="pcs">pcs</option>
-          <option value="days">days</option>
-        </select>
-      </div>
-
-      <div className="price-b">
-        <input
-          value={row.price}
-          type="number"
-          onChange={(e) => handleChangePrice(index, e)}
-          placeholder="0"
-        />
-      </div>
-    </div>
-  ));
+    ));
   return (
     <div className="invoice-items-main">
-      <p className="plain-text">PRICE LIST ITEMS</p>
-      <div className="table-invoice-items">
-        <div className="empty-header-check-box">
-          <input type="checkbox" className="check-box" />
+      <div id="pdfContentToExport">
+        <p className="plain-text">PRICE LIST ITEMS</p>
+        <div className="table-invoice-items">
+          <div className="empty-header-check-box">
+            <input type="checkbox" className="check-box" />
+          </div>
+          <div className="name-h">NAME</div>
+          <div className="unit">UNIT</div>
+          <div className="price">PRICE</div>
         </div>
-        <div className="name-h">NAME</div>
-        <div className="unit">UNIT</div>
-        <div className="price">PRICE</div>
+        {repeatedDivs}
       </div>
-      {/* {dbPrices} */}
-      {repeatedDivs}
-
       <div className="buttons">
         <div>
           <button className="add-new-line" onClick={handleNoOfClicks}>
