@@ -108,39 +108,21 @@ const Invoice = () => {
             <div className="invoice-date">
               <div className="week-start">
                 <div className="calendar-icon">
-                  <Image
-                    src="./icons/calendar.svg"
-                    alt="calendar"
-                    width={20}
-                    height={20}
-                    onClick={handleStartWeekClick}
-                  />
                   <p>Week Start</p>
-                </div>
-                {startWeekClick && (
                   <DateSelector
                     weekStart={weekStart}
                     handleDateChange={handleDateChangeStart}
                   />
-                )}
+                </div>
               </div>
               <div className="week-end">
                 <div className="calendar-icon">
-                  <Image
-                    src="./icons/calendar.svg"
-                    alt="calendar"
-                    width={20}
-                    height={20}
-                    onClick={handleEndWeekClick}
-                  />
                   <p>Week End</p>
-                </div>
-                {endWeekClick && (
                   <DateSelector
                     weekStart={weekEnd}
                     handleDateChange={handleDateChangeEnd}
                   />
-                )}
+                </div>
               </div>
             </div>
           </div>

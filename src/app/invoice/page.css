@@ -45,11 +45,12 @@
 }
 
 .calendar-icon {
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
+  justify-content: space-between;
+
   cursor: pointer;
 }
 .plain-text {
@@ -61,8 +62,14 @@
 .invoice-to {
   margin: 50px 10px;
 }
+.invoice-main {
+  position: relative;
+}
 
 @media (min-width: 768px) {
+  .invoice-name-date {
+    margin: 0px 20px;
+  }
   .invoice-main {
     display: flex;
     flex-direction: row;
@@ -129,5 +136,14 @@
   .week-end input {
     background-color: transparent;
     font-size: 12px !important;
+  }
+  .calendar-icon {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
   }
 }
