@@ -55,6 +55,12 @@ const InvoiceBarChart: React.FC<Props> = ({ invoices }) => {
       xAxis: {
         type: "category",
         data: months,
+        axisLabel: {
+          // Set the rotation angle for the labels to 0 degrees (horizontal)
+          rotate: 0,
+          interval: 0, // Show all labels
+          formatter: (value: string) => value, // Optional formatter if needed
+        },
       },
       yAxis: {
         type: "value",
@@ -71,7 +77,6 @@ const InvoiceBarChart: React.FC<Props> = ({ invoices }) => {
         },
       ],
     };
-
     setChartOptions(options);
   }, [invoices]);
 

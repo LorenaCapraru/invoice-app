@@ -30,14 +30,55 @@ const Main: React.FC = () => {
 
     const pieColors = ["#1fdad6", "#dfe3e69b", "#0092ff"];
 
+    // const options = {
+    //   tooltip: {
+    //     trigger: "item",
+    //     formatter: "{a} <br/>{b}:{c} ({d}%)",
+    //   },
+    //   legend: {
+    //     orient: "vertical",
+    //     left: 10,
+    //     data: statuses,
+    //   },
+    //   series: [
+    //     {
+    //       name: "Total Invoices",
+    //       type: "pie",
+    //       radius: "50%",
+    //       center: ["50%", "60%"],
+    //       avoidLabelOverlap: false,
+    //       label: {
+    //         show: false,
+    //         position: "center",
+    //       },
+    //       emphasis: {
+    //         label: {
+    //           show: true,
+    //           fontSize: "20",
+    //           fontWeight: "bold",
+    //         },
+    //       },
+    //       labelLine: {
+    //         show: false,
+    //       },
+    //       data: statuses.map((status, index) => ({
+    //         value: totalByStatus[index],
+    //         name: status,
+    //         itemStyle: {
+    //           color: pieColors[index],
+    //         },
+    //       })),
+    //     },
+    //   ],
+    // };
     const options = {
       tooltip: {
         trigger: "item",
         formatter: "{a} <br/>{b}:{c} ({d}%)",
       },
       legend: {
-        orient: "vertical",
-        left: 10,
+        orient: "horizontal", // Change orient to horizontal
+        top: 10, // Adjust the position if needed
         data: statuses,
       },
       series: [

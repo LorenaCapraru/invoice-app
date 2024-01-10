@@ -24,7 +24,9 @@
     "react": "^18",
     "react-datepicker": "^4.24.0",
     "react-dom": "^18",
-    "recoil": "^0.7.7"
+    "recharts": "^2.10.4",
+    "recoil": "^0.7.7",
+    "victory": "^36.8.1"
   },
   "devDependencies": {
     "@types/gravatar": "^1.8.6",
