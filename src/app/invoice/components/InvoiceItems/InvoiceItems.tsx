@@ -138,14 +138,16 @@ const InvoiceItems: React.FC<InvoiceItemsProps> = ({ handleClickExport }) => {
           />
         </div>
       )}
-      {!row.name.includes("Flat") && (
-        <div className="amount-b">
-          {new Intl.NumberFormat("en-GB", {
-            style: "currency",
-            currency: "GBP",
-          }).format(row.price * row.qty)}
-        </div>
-      )}
+      {!row.name.includes("Flat") &&
+        row.price !== undefined &&
+        row.qty !== undefined && (
+          <div className="amount-b">
+            {new Intl.NumberFormat("en-GB", {
+              style: "currency",
+              currency: "GBP",
+            }).format((row.price || 0) * (row.qty || 0))}
+          </div>
+        )}
     </div>
   ));
   return (

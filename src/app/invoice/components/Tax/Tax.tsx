@@ -2,18 +2,19 @@ import "./Tax.css";
 
 interface InvoiceItem {
   name: string;
-  qty: number;
-  price: number;
+  qty?: number;
+  price?: number;
 }
 interface TaxProps {
   rows: InvoiceItem[];
 }
 const Tax: React.FC<TaxProps> = ({ rows }) => {
-  const subtotal = () => {
-    return rows.reduce(
-      (sum: number, el: InvoiceItem) => sum + el.price * el.qty,
-      0
-    );
+  const subtotal = (): number => {
+    return rows.reduce((sum: number, el: InvoiceItem) => {
+      const itemPrice = el.price || 0;
+      const itemQty = el.qty || 0;
+      return sum + itemPrice * itemQty;
+    }, 0);
   };
 
   const tax = () => {
