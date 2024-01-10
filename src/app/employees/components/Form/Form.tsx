@@ -14,7 +14,7 @@ interface FormData {
 import { useRecoilState } from "recoil";
 import { addEmployeeState } from "@/app/recoil/atoms";
 
-const Form: React.FC = () => {
+const Form = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     dob: "",

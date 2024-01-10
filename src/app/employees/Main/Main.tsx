@@ -40,7 +40,7 @@ const Main = () => {
 
       {addEmployee === true && (
         <div className="add-employee-form">
-          <Form addEmployee={addEmployee} setAddEmployee={setAddEmployee} />
+          <Form />
         </div>
       )}
 
