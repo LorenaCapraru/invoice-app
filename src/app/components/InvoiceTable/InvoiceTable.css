@@ -4,7 +4,7 @@
   border-radius: 10px;
   box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
-  min-height: 350px;
+  height: 350px;
   padding: 20px 0px;
 }
 .table {
@@ -77,8 +77,7 @@
 @media (min-width: 768px) {
   .table-main {
     overflow-y: auto;
-    max-height: 200px;
-    /* max-height: 10%; */
+    height: 350px;
     padding: 20px 0px;
   }
   .table thead th {
