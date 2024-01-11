@@ -93,6 +93,15 @@
   text-align: left;
 }
 
+.empty-table {
+  background-color: white;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  color: var(--text-gray);
+  width: 100%;
+}
+
 .qty,
 .price,
 .qty-b,

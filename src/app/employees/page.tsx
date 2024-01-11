@@ -1,6 +1,6 @@
 import Sidebar from "../components/Sidebar/Sidebar";
 import Header from "../components/Header/Header";
-import Main from "./Main/Main";
+import Main from "./components/Main/Main";
 import "./page.css";
 
 const Employees = () => {

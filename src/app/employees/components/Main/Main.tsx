@@ -1,6 +1,6 @@
 "use client";
 import "./Main.css";
-import Card from "../components/CardEmployees/Card";
+import Card from "../CardEmployees/Card";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
   addEmployeeState,
@@ -9,7 +9,7 @@ import {
 } from "@/app/recoil/atoms";
 import Image from "next/image";
 import { useState } from "react";
-import Form from "../components/Form/Form";
+import Form from "../Form/Form";
 type Employee = {
   id: number;
   name: string;
