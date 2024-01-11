@@ -24,7 +24,6 @@ type Employee = {
 const Main = () => {
   const [employee, setEmployee] = useRecoilState(employeeState);
   const [addEmployee, setAddEmployee] = useRecoilState(addEmployeeState);
-
   const search = useRecoilValue(searchState);
 
   const clickAddEmployee = () => {
@@ -49,17 +48,19 @@ const Main = () => {
           addEmployee === true ? "main-employees opacity" : "main-employees"
         }
       >
-        {employee
-          .filter(
-            (el: Employee) =>
-              el.name.toLowerCase().includes(search.toLowerCase()) ||
-              el.address
-                .toLocaleLowerCase()
-                .includes(search.toLocaleLowerCase())
-          )
-          .map((el: Employee) => (
-            <Card el={el} key={el.id} />
-          ))}
+        {employee.length > 0 ? (
+          employee
+            .filter(
+              (el: Employee) =>
+                el.name.toLowerCase().includes(search.toLowerCase()) ||
+                el.address
+                  .toLocaleLowerCase()
+                  .includes(search.toLocaleLowerCase())
+            )
+            .map((el: Employee) => <Card el={el} key={el.id} />)
+        ) : (
+          <div className="empty-table">No registered employees</div>
+        )}
       </div>
     </div>
   );

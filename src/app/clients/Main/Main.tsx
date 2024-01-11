@@ -13,9 +13,8 @@ type Client = {
 };
 
 const Main = () => {
-  // const [client, setClient] = useRecoilState(clientsState);
+  const [client, setClient] = useRecoilState(clientsState);
   const [addClient, setAddClient] = useRecoilState(addClientState);
-  const [client, setClient] = useState([]);
   const search = useRecoilValue(searchState);
 
   const clickAddClient = () => {
@@ -46,7 +45,7 @@ const Main = () => {
             )
             .map((el, index) => <Card el={el} key={index} />)
         ) : (
-          <div className="empty-table">No clients in the database</div>
+          <div className="empty-table">No registered clients</div>
         )}
       </div>
     </div>
