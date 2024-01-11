@@ -13,9 +13,9 @@ type Client = {
 };
 
 const Main = () => {
-  const [client, setClient] = useRecoilState(clientsState);
+  // const [client, setClient] = useRecoilState(clientsState);
   const [addClient, setAddClient] = useRecoilState(addClientState);
-
+  const [client, setClient] = useState([]);
   const search = useRecoilValue(searchState);
 
   const clickAddClient = () => {
@@ -35,17 +35,19 @@ const Main = () => {
       )}
 
       <div className={addClient === true ? "cards-main opacity" : "cards-main"}>
-        {client
-          .filter(
-            (el: Client) =>
-              el.name.toLowerCase().includes(search.toLowerCase()) ||
-              el.address
-                .toLocaleLowerCase()
-                .includes(search.toLocaleLowerCase())
-          )
-          .map((el, index) => (
-            <Card el={el} key={index} />
-          ))}
+        {client.length > 0 ? (
+          client
+            .filter(
+              (el: Client) =>
+                el.name.toLowerCase().includes(search.toLowerCase()) ||
+                el.address
+                  .toLocaleLowerCase()
+                  .includes(search.toLocaleLowerCase())
+            )
+            .map((el, index) => <Card el={el} key={index} />)
+        ) : (
+          <div className="empty-table">No clients in the database</div>
+        )}
       </div>
     </div>
   );

@@ -20,7 +20,9 @@
 .opacity {
   opacity: 0.5;
 }
-
+.empty-table {
+  width: 100%;
+}
 .add-new-client {
   padding: 10px 15px;
   color: var(--white);
