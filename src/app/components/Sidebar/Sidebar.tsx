@@ -83,18 +83,13 @@ const Sidebar = () => {
             <p>Price List</p>
           </div>
         </Link>
-      </div>
-
-      {/* {!isSidebarOpen && (
-        <div className="icon-rotate" onClick={handleSideBar}>
-          <Image
-            src="/icons/close-sidebar-icon.svg"
-            alt="close navbar"
-            width={25}
-            height={25}
-          />
+        <div className="switch">
+          <label className="theme-switch">
+            <input type="checkbox" />
+            <div className="slider round"></div>
+          </label>
         </div>
-      )} */}
+      </div>
     </>
   );
 };
