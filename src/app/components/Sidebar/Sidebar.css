@@ -164,10 +164,16 @@
   .sidebar-main-close:hover {
     background-color: var(--mid-gray);
   }
-  .switch {
+  .dark-light-mode {
     height: 100px;
     position: absolute;
-    top: 660px;
+    left: 15px;
+    top: 750px;
+    width: 200px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .theme-switch {

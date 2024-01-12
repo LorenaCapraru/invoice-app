@@ -5,11 +5,16 @@ import { useState } from "react";
 import Link from "../../../../node_modules/next/link";
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
+  const [isSliderClicked, setIsSliderClicked] = useState<boolean>(false);
 
   const handleSideBar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-  console.log(isSidebarOpen);
+
+  const handleSliderClick = () => {
+    setIsSliderClicked(!isSliderClicked);
+  };
+  console.log("slider", isSliderClicked);
 
   return (
     <>
@@ -83,11 +88,43 @@ const Sidebar = () => {
             <p>Price List</p>
           </div>
         </Link>
-        <div className="switch">
-          <label className="theme-switch">
-            <input type="checkbox" />
-            <div className="slider round"></div>
-          </label>
+        <div className="dark-light-mode">
+          {isSliderClicked === true ? (
+            <Image
+              src="/icons/sun.svg"
+              alt="close navbar"
+              width={25}
+              height={25}
+            />
+          ) : (
+            <Image
+              src="/icons/sun-2.svg"
+              alt="close navbar"
+              width={25}
+              height={25}
+            />
+          )}
+          <div className="switch">
+            <label className="theme-switch">
+              <input type="checkbox" onClick={handleSliderClick} />
+              <div className="slider round"></div>
+            </label>
+          </div>
+          {isSliderClicked === false ? (
+            <Image
+              src="/icons/moon.svg"
+              alt="close navbar"
+              width={25}
+              height={25}
+            />
+          ) : (
+            <Image
+              src="/icons/moon-2.svg"
+              alt="close navbar"
+              width={25}
+              height={25}
+            />
+          )}
         </div>
       </div>
     </>
