@@ -1,7 +1,9 @@
 import React, { ChangeEvent, useState } from "react";
 import CompanyCard from "../CompanyCard/CompanyCard";
 import "./SelectClient.css";
-import company from "../CompanyCard/company.json";
+import { useRecoilState } from "recoil";
+import { clientsState, siteState } from "@/app/recoilData/atoms";
+import { Site } from "@/app/recoilData/atoms";
 
 interface Company {
   id: number;
@@ -11,7 +13,8 @@ interface Company {
 
 const SelectClient: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>("");
-
+  const [client, setClient] = useRecoilState<Company[]>(clientsState);
+  const [site, setSite] = useRecoilState<Site[]>(siteState);
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
   };
@@ -28,7 +31,7 @@ const SelectClient: React.FC = () => {
           <option value="" className="option">
             Select a client
           </option>
-          {company.company.map((el: Company, index: number) => (
+          {client.map((el: Company, index: number) => (
             <option key={index} value={el.id.toString()}>
               {el.name}
             </option>
@@ -38,12 +41,28 @@ const SelectClient: React.FC = () => {
       {selectedOption && (
         <CompanyCard
           el={
-            company.company.find(
-              (el: Company) => el.id.toString() === selectedOption
-            )!
+            client.find((el: Company) => el.id.toString() === selectedOption)!
           }
         />
       )}
+      <div>
+        Job
+        <select
+          id="selectOption"
+          value={selectedOption}
+          onChange={handleSelectChange}
+          className="job-selector"
+        >
+          <option value="" className="option">
+            Select a job
+          </option>
+          {site.map((el: Site, index: number) => (
+            <option key={index} value={el.id.toString()}>
+              {el.site}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

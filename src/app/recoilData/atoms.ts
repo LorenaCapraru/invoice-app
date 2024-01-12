@@ -17,7 +17,7 @@ export type Price = {
   unit: string;
 };
 
-type Site = {
+export type Site = {
   id: number;
   client_id: number;
   site: string;

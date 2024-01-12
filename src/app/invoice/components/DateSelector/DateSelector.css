@@ -1,6 +1,6 @@
 .date-picker input {
   border: none;
-  border-bottom: 2px solid var(--green);
+  border-bottom: 2px solid var(--mid-gray);
   color: var(--dark-gray);
   text-align: center;
   font-weight: 400;

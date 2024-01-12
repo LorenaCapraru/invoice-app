@@ -84,13 +84,13 @@
   }
   .invoice-to {
     text-align: left;
-    margin: 30px 0px;
+    margin: 0px;
   }
   .plain-text {
     text-align: left;
     font-size: 16px;
     font-weight: 500;
-    margin: 30px 0px;
+    margin: 10px 0px;
   }
 
   .invoice-body {
@@ -120,11 +120,11 @@
     justify-content: space-between;
     align-items: baseline;
     margin: 0px 20px;
+    height: 230px;
   }
   .invoice-date {
     background-color: transparent;
     box-shadow: none;
-    height: 80px;
     flex-direction: column;
   }
   .week-start,
@@ -152,7 +152,16 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    /* border-bottom: 2px solid var(--green); */
     cursor: pointer;
+  }
+  .calendar-icon p {
+    margin: 0px;
+  }
+  .plain-text-week {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 10px 0px;
+    color: var(--text-gray);
   }
 }

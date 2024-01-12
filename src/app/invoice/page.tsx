@@ -118,7 +118,6 @@ const Invoice = () => {
                   />
                 </p>
                 <p className="invoice-header-company">TRU GROUP </p>
-                <p>select job</p>
               </div>
             </div>
             <Image
@@ -135,7 +134,7 @@ const Invoice = () => {
               <div className="invoice-date">
                 <div className="week-start">
                   <div className="calendar-icon">
-                    <p>Week Start</p>
+                    <p className="plain-text-week">WEEK START</p>
                     <DateSelector
                       weekStart={weekStart}
                       handleDateChange={handleDateChangeStart}
@@ -144,7 +143,7 @@ const Invoice = () => {
                 </div>
                 <div className="week-end">
                   <div className="calendar-icon">
-                    <p>Week End</p>
+                    <p className="plain-text-week">WEEK END</p>
                     <DateSelector
                       weekStart={weekEnd}
                       handleDateChange={handleDateChangeEnd}
