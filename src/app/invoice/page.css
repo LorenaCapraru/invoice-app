@@ -71,12 +71,12 @@
   }
   .invoice-number {
     border: none;
-    width: 50px;
+    width: 60px;
     text-align: center;
     color: var(--dark-gray);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
-    background-color: var(--gray);
+    background-color: transparent;
   }
   .invoice-main {
     display: flex;

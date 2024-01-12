@@ -18,6 +18,7 @@ const DateSelector: React.FC<DateSelectorProps> = ({
         selected={weekStart}
         onChange={handleDateChange}
         showPopperArrow={true}
+        placeholderText="Select a date"
       />
     </div>
   );
