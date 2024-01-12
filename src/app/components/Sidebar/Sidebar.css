@@ -1,5 +1,4 @@
 .sidebar-main {
-  background-color: var(--white);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   width: 100vw;
   transition: all 0.7s ease-in-out;
@@ -9,6 +8,12 @@
   flex-direction: row;
   position: absolute;
   bottom: -140px;
+}
+.dark {
+  background-color: black;
+}
+.light {
+  background-color: var(--white);
 }
 
 .sidebar-main p {

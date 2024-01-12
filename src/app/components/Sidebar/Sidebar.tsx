@@ -18,7 +18,11 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className={`sidebar-main ${!isSidebarOpen ? "close" : ""}`}>
+      <div
+        className={`sidebar-main ${!isSidebarOpen ? "close" : ""} ${
+          isSliderClicked ? "dark" : "light"
+        }`}
+      >
         <div className="icon-name-wrap-overview">
           <Link href="/">
             <div className="icon-name-wrap-overview">
@@ -91,14 +95,14 @@ const Sidebar = () => {
         <div className="dark-light-mode">
           {isSliderClicked === true ? (
             <Image
-              src="/icons/sun.svg"
+              src="/icons/sun-2.svg"
               alt="close navbar"
               width={25}
               height={25}
             />
           ) : (
             <Image
-              src="/icons/sun-2.svg"
+              src="/icons/sun.svg"
               alt="close navbar"
               width={25}
               height={25}
@@ -112,14 +116,14 @@ const Sidebar = () => {
           </div>
           {isSliderClicked === false ? (
             <Image
-              src="/icons/moon.svg"
+              src="/icons/moon-2.svg"
               alt="close navbar"
               width={25}
               height={25}
             />
           ) : (
             <Image
-              src="/icons/moon-2.svg"
+              src="/icons/moon.svg"
               alt="close navbar"
               width={25}
               height={25}
