@@ -2,7 +2,7 @@
 import Card from "@/app/employees/components/CardEmployees/Card";
 import "./Main.css";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { clientsState, searchState, addClientState } from "@/app/recoil/atoms";
+import { clientsState, searchState, addClientState } from "@/app/recoilData/atoms";
 import Image from "next/image";
 import { useState } from "react";
 import Form from "./components/Form/Form";

@@ -12,7 +12,7 @@ interface FormData {
 }
 
 import { useRecoilState } from "recoil";
-import { addEmployeeState } from "@/app/recoil/atoms";
+import { addEmployeeState } from "@/app/recoilData/atoms";
 
 const Form = () => {
   const [formData, setFormData] = useState<FormData>({

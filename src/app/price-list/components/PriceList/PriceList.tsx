@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState, useEffect } from "react";
 import Image from "next/image";
 import "./PriceList.css";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { pricesState, searchState } from "@/app/recoil/atoms";
+import { pricesState, searchState } from "@/app/recoilData/atoms";
 interface PriceList {
   id: number;
   name: string;

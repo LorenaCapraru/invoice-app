@@ -44,9 +44,23 @@ type Company = {
   sort_code: string;
   account_number: number;
 };
+export interface InvoiceItem {
+  name: string;
+  qty?: number;
+  price?: number;
+}
 export const clientsState = atom<Client[]>({
   key: "clientsState",
   default: clients.clients,
+});
+
+export const checkedRowsState = atom<number[]>({
+  key: "checkedRowsState",
+  default: [],
+});
+export const rowsState = atom<InvoiceItem[]>({
+  key: "rowsState",
+  default: [],
 });
 
 export const pricesState = atom<Price[]>({

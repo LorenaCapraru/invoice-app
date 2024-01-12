@@ -9,14 +9,23 @@ import CompanyCard from "./components/CompanyCard/CompanyCard";
 import SelectClient from "./components/SelectClient/SelectClient";
 import InvoiceItems from "./components/InvoiceItems/InvoiceItems";
 import CompanyData from "./components/CompanyData/CompanyData";
-
+import { useRecoilState } from "recoil";
+import { checkedRowsState, rowsState } from "../recoilData/atoms";
+interface InvoiceItem {
+  name: string;
+  qty?: number;
+  price?: number;
+}
 const Invoice = () => {
-  const [startWeekClick, seStartWeekClick] = useState<boolean | null>(false);
-  const [endWeekClick, seEndWeekClick] = useState<boolean | null>(false);
   const [weekStart, setWeekStart] = useState<Date | null>(null);
   const [weekEnd, setWeekEnd] = useState<Date | null>(null);
   const [clickExport, setClickExport] = useState<boolean | null>(false);
   const [invoiceNumber, setInvoiceNumber] = useState<number | undefined>(0);
+  const [rows, setRows] = useRecoilState<InvoiceItem[]>(rowsState);
+  const [noOfClicks, setNoOfClicks] = useState<number>(0);
+  const [checkedRows, setCheckedRows] =
+    useRecoilState<number[]>(checkedRowsState);
+
   const handleDateChangeStart = (date: Date | null) => {
     setWeekStart(date);
   };
@@ -29,9 +38,21 @@ const Invoice = () => {
   };
 
   const updateInvoiceNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInvoiceNumber(Number(e.target.value));
+    setInvoiceNumber(parseInt(e.target.value, 10));
   };
 
+  const handleNoOfClicks = () => {
+    setRows((prevRows) => [...prevRows, { name: "", qty: 0, price: 0 }]);
+    setNoOfClicks(noOfClicks + 1);
+  };
+
+  const handleDeleteRow = () => {
+    const rowsToDelete = rows.filter((_, index) => checkedRows.includes(index));
+    setRows((prevRows) =>
+      prevRows.filter((_, index) => !checkedRows.includes(index))
+    );
+    setCheckedRows([]);
+  };
   useEffect(() => {
     const generatePDF = async (): Promise<void> => {
       const element: HTMLElement | null =
@@ -74,66 +95,99 @@ const Invoice = () => {
   return (
     <div className="invoice-main">
       <Sidebar />
-      <div className="invoice-body" id="pdfContentToExport">
-        <div className="invoice-header">
-          <Link href="/">
+      <div className="invoice-body">
+        <div className="invoice-no-buttons" id="pdfContentToExport">
+          <div className="invoice-header">
+            <Link href="/">
+              <Image
+                src="./icons/cross.svg"
+                alt="cross to close"
+                width={20}
+                height={15}
+              />
+            </Link>
+            <div className="invoice-name-date">
+              <div>
+                <p className="invoice-header-number">
+                  Invoice
+                  <input
+                    type="number"
+                    defaultValue={0}
+                    className="invoice-number"
+                    onChange={updateInvoiceNumber}
+                  />
+                </p>
+                <p className="invoice-header-company">#001 TRU GROUP </p>
+              </div>
+            </div>
             <Image
-              src="./icons/cross.svg"
+              src="./icons/edit.svg"
               alt="cross to close"
               width={20}
-              height={15}
+              height={20}
             />
-          </Link>
-          <div className="invoice-name-date">
-            <div>
-              <p className="invoice-header-number">
-                Invoice
-                <input
-                  type="number"
-                  defaultValue={0}
-                  className="invoice-number"
-                  onChange={updateInvoiceNumber}
-                />
-              </p>
-              <p className="invoice-header-company">#001 TRU GROUP </p>
-            </div>
           </div>
-          <Image
-            src="./icons/edit.svg"
-            alt="cross to close"
-            width={20}
-            height={20}
-          />
-        </div>
-        <div className="date-client">
-          <div className="invoice-to">
-            <p className="plain-text">BILL TO</p>
-            <SelectClient />
-            <div className="invoice-date">
-              <div className="week-start">
-                <div className="calendar-icon">
-                  <p>Week Start</p>
-                  <DateSelector
-                    weekStart={weekStart}
-                    handleDateChange={handleDateChangeStart}
-                  />
+          <div className="date-client">
+            <div className="invoice-to">
+              <p className="plain-text">BILL TO</p>
+              <SelectClient />
+              <div className="invoice-date">
+                <div className="week-start">
+                  <div className="calendar-icon">
+                    <p>Week Start</p>
+                    <DateSelector
+                      weekStart={weekStart}
+                      handleDateChange={handleDateChangeStart}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="week-end">
-                <div className="calendar-icon">
-                  <p>Week End</p>
-                  <DateSelector
-                    weekStart={weekEnd}
-                    handleDateChange={handleDateChangeEnd}
-                  />
+                <div className="week-end">
+                  <div className="calendar-icon">
+                    <p>Week End</p>
+                    <DateSelector
+                      weekStart={weekEnd}
+                      handleDateChange={handleDateChangeEnd}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
+            <CompanyData />
           </div>
-          <CompanyData />
+          <div>
+            <InvoiceItems />
+          </div>
         </div>
-        <div id="pdfContentToExport">
-          <InvoiceItems handleClickExport={handleClickExport} />
+        <div className="buttons">
+          <div>
+            <button className="add-new-line" onClick={handleNoOfClicks}>
+              <Image
+                src={"./icons/add.svg"}
+                alt="add line"
+                width={20}
+                height={20}
+              />
+              Add new line
+            </button>
+            <button className="add-new-line" onClick={handleDeleteRow}>
+              <Image
+                src={"./icons/delete.svg"}
+                alt="add line"
+                width={20}
+                height={20}
+              />
+              Delete line
+            </button>
+          </div>
+          <button className="export-pdf" onClick={handleClickExport}>
+            <Image
+              src={"./icons/pdf.svg"}
+              alt="add line"
+              width={20}
+              height={20}
+            />
+            Export as PDF
+          </button>
         </div>
       </div>
     </div>

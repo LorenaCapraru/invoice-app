@@ -1,6 +1,6 @@
 import "./CompanyData.css";
 import { RecoilValue, useRecoilState } from "recoil";
-import { companyState } from "@/app/recoil/atoms";
+import { companyState } from "@/app/recoilData/atoms";
 
 type Company = {
   id: number;

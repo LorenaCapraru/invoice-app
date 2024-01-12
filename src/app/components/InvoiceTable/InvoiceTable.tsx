@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import "./InvoiceTable.css";
 import { useRecoilState } from "recoil";
-import { searchState } from "@/app/recoil/atoms";
+import { searchState } from "@/app/recoilData/atoms";
 
 interface Invoice {
   client: string;

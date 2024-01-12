@@ -1,7 +1,7 @@
 import "./Card.css";
 import Image from "next/image";
 import { useRecoilState } from "recoil";
-import { siteState } from "@/app/recoil/atoms";
+import { siteState } from "@/app/recoilData/atoms";
 
 type Client = {
   id: number;

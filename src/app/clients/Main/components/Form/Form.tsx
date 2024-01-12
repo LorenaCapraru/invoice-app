@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Form/Form.css";
 import { useRecoilState } from "recoil";
-import { addClientState } from "@/app/recoil/atoms";
+import { addClientState } from "@/app/recoilData/atoms";
 import Image from "next/image";
 
 interface FormData {

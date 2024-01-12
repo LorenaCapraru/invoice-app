@@ -6,7 +6,7 @@ import {
   addEmployeeState,
   employeeState,
   searchState,
-} from "@/app/recoil/atoms";
+} from "@/app/recoilData/atoms";
 import Image from "next/image";
 import { useState } from "react";
 import Form from "../Form/Form";

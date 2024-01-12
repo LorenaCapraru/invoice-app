@@ -1,6 +1,6 @@
 import "src/app/components/Header/Header.css";
 import { useRecoilState } from "recoil";
-import { searchState } from "@/app/recoil/atoms";
+import { searchState } from "@/app/recoilData/atoms";
 import Image from "next/image";
 import { ChangeEvent } from "react";
 
