@@ -45,24 +45,22 @@ const SelectClient: React.FC = () => {
           }
         />
       )}
-      <div>
-        Job
-        <select
-          id="selectOption"
-          value={selectedOption}
-          onChange={handleSelectChange}
-          className="job-selector"
-        >
-          <option value="" className="option">
-            Select a job
+
+      <select
+        id="selectOption"
+        value={selectedOption}
+        onChange={handleSelectChange}
+        className="job-selector"
+      >
+        <option value="" className="option">
+          Select a job
+        </option>
+        {site.map((el: Site, index: number) => (
+          <option key={index} value={el.id.toString()}>
+            {el.site}
           </option>
-          {site.map((el: Site, index: number) => (
-            <option key={index} value={el.id.toString()}>
-              {el.site}
-            </option>
-          ))}
-        </select>
-      </div>
+        ))}
+      </select>
     </div>
   );
 };

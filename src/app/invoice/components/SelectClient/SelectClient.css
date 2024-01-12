@@ -24,9 +24,10 @@
     border: none;
     background-color: transparent;
     color: var(--dark-gray);
-    text-align: center;
+    text-align: left;
     font-weight: 500;
     font-size: 16px;
     padding: 2px 0px;
+    margin-left: -2px;
   }
 }
