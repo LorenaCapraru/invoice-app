@@ -136,14 +136,15 @@
     align-items: center;
     justify-content: space-between;
     min-width: 280px;
-    font-size: 12px;
+    font-size: 14px;
     gap: 0px;
     color: var(--dark-gray);
   }
   .week-start input,
   .week-end input {
     background-color: transparent;
-    font-size: 12px !important;
+    font-size: 14px !important;
+    padding: 5px;
   }
   .calendar-icon {
     width: 100%;
@@ -151,7 +152,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
+    /* border-bottom: 2px solid var(--green); */
     cursor: pointer;
   }
 }

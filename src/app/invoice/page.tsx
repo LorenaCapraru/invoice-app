@@ -117,7 +117,8 @@ const Invoice = () => {
                     onChange={updateInvoiceNumber}
                   />
                 </p>
-                <p className="invoice-header-company">#001 TRU GROUP </p>
+                <p className="invoice-header-company">TRU GROUP </p>
+                <p>select job</p>
               </div>
             </div>
             <Image
