@@ -53,6 +53,10 @@ export const clientsState = atom<Client[]>({
   key: "clientsState",
   default: clients.clients,
 });
+export const isSliderClickedState = atom<boolean>({
+  key: "isSliderClickedState",
+  default: false,
+});
 
 export const checkedRowsState = atom<number[]>({
   key: "checkedRowsState",
