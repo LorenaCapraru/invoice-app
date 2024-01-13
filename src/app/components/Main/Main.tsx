@@ -5,6 +5,8 @@ import Image from "../../../../node_modules/next/image";
 import InvoiceBarChart from "../InvoiceBarChart/InvoiceBarChart";
 import InvoiceTable from "../InvoiceTable/InvoiceTable";
 import invoicesData from "./invoices.json";
+import { useRecoilState } from "recoil";
+import { isSliderClickedState } from "@/app/recoilData/atoms";
 import "./Main.css";
 
 interface Invoice {
@@ -17,7 +19,8 @@ const Main: React.FC = () => {
   const [pieChartOpen, setPieChartOpen] = useState<boolean>(true);
   const [barChartOpen, setBarChartOpen] = useState<boolean>(true);
   const [chartOptions, setChartOptions] = useState<any>(null);
-
+  const [isSliderClicked, setIsSliderClicked] =
+    useRecoilState<boolean>(isSliderClickedState);
   useEffect(() => {
     const statuses = Array.from(
       new Set(invoicesData.invoices.map((invoice) => invoice.status))
@@ -117,9 +120,13 @@ const Main: React.FC = () => {
   }, []);
 
   return (
-    <div className="main-section">
+    <div className={`main-section  ${isSliderClicked ? "dark" : "light"}`}>
       <h1>Invoices Overview</h1>
-      <div className="main-body">
+      <div
+        className={`main-body ${
+          isSliderClicked ? "dark-sidebar" : "light-sidebar"
+        }`}
+      >
         <div className="charts-icons-wrapper">
           <div
             className="icon-title"

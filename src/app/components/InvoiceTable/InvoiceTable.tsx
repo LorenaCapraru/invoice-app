@@ -4,6 +4,7 @@ import Image from "next/image";
 import "./InvoiceTable.css";
 import { useRecoilState } from "recoil";
 import { searchState } from "@/app/recoilData/atoms";
+import { isSliderClickedState } from "@/app/recoilData/atoms";
 
 interface Invoice {
   client: string;
@@ -20,7 +21,8 @@ interface Props {
 
 const InvoiceTable: React.FC<Props> = ({ invoicesData }) => {
   const [search, setSearch] = useRecoilState(searchState);
-
+  const [isSliderClicked, setIsSliderClicked] =
+    useRecoilState<boolean>(isSliderClickedState);
   const [updatedInvoices, setUpdatedInvoices] = useState<Invoice[]>(
     invoicesData.invoices
   );
@@ -48,7 +50,11 @@ const InvoiceTable: React.FC<Props> = ({ invoicesData }) => {
   };
 
   return (
-    <div className="table-main">
+    <div
+      className={`table-main ${
+        isSliderClicked ? "dark-sidebar" : "light-sidebar"
+      }`}
+    >
       <table className="table">
         <thead>
           <tr>

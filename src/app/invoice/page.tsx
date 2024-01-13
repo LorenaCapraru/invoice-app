@@ -93,9 +93,9 @@ const Invoice = () => {
   }, [clickExport]);
 
   return (
-    <div className="invoice-main">
+    <main className="invoice-main">
       <Sidebar />
-      <div className="invoice-body">
+      <div className="home-body">
         <div className="invoice-no-buttons" id="pdfContentToExport">
           <div className="invoice-header">
             <Link href="/">
@@ -190,7 +190,7 @@ const Invoice = () => {
           </button>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

@@ -38,6 +38,14 @@ main {
     flex-direction: row;
     width: 100vw;
   }
+  .light {
+    background-color: var(--gray);
+    transition: all 0.4s ease;
+  }
+  .dark {
+    background-color: #121112;
+    transition: all 0.4s ease;
+  }
   .home-body {
     display: flex;
     flex-direction: column;

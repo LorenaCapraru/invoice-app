@@ -3,10 +3,13 @@ import "./Sidebar.css";
 import Image from "../../../../node_modules/next/image";
 import { useState } from "react";
 import Link from "../../../../node_modules/next/link";
+import { useRecoilState } from "recoil";
+import { isSliderClickedState } from "@/app/recoilData/atoms";
+
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
-  const [isSliderClicked, setIsSliderClicked] = useState<boolean>(false);
-
+  const [isSliderClicked, setIsSliderClicked] =
+    useRecoilState<boolean>(isSliderClickedState);
   const handleSideBar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -20,7 +23,7 @@ const Sidebar = () => {
     <>
       <div
         className={`sidebar-main ${!isSidebarOpen ? "close" : ""} ${
-          isSliderClicked ? "dark" : "light"
+          isSliderClicked ? "dark-sidebar" : "light-sidebar"
         }`}
       >
         <div className="icon-name-wrap-overview">
