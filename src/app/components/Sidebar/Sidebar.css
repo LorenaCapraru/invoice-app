@@ -1,5 +1,4 @@
 .sidebar-main {
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   width: 100vw;
   transition: all 0.7s ease-in-out;
   display: flex;
@@ -11,10 +10,22 @@
 }
 .dark-sidebar {
   background-color: #0d2136;
+}
+.dark-sidebar p {
   color: white !important;
 }
 .light-sidebar {
   background-color: var(--white);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.light-sidebar p {
+  color: var(--dark-gray) !important;
+}
+.light-sidebar div:hover {
+  background-color: var(--gray);
+}
+.dark-sidebar div:hover {
+  background-color: var(--darker);
 }
 
 .sidebar-main p {

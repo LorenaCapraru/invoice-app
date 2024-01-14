@@ -39,7 +39,7 @@ const Sidebar = () => {
             </div>
           </Link>
 
-          <div
+          <span
             className={`close-sidebar ${!isSidebarOpen ? "icon-rotate" : ""}`}
           >
             <Image
@@ -49,11 +49,11 @@ const Sidebar = () => {
               height={25}
               onClick={handleSideBar}
             />
-          </div>
+          </span>
         </div>
         <Link href="/invoice">
           <div
-            className={` ${
+            className={`icon-name-wrap ${
               isSliderClicked ? "icon-name-wrap-light" : "icon-name-wrap-darker"
             } `}
           >
@@ -107,7 +107,7 @@ const Sidebar = () => {
             </p>
           </div>
         </Link>
-        <div className="dark-light-mode">
+        <span className="dark-light-mode">
           {isSliderClicked === true ? (
             <Image
               src="/icons/sun-2.svg"
@@ -123,12 +123,12 @@ const Sidebar = () => {
               height={25}
             />
           )}
-          <div className="switch">
+          <span className="switch">
             <label className="theme-switch">
               <input type="checkbox" onClick={handleSliderClick} />
-              <div className="slider round"></div>
+              <span className="slider round"></span>
             </label>
-          </div>
+          </span>
           {isSliderClicked === false ? (
             <Image
               src="/icons/moon-2.svg"
@@ -144,7 +144,7 @@ const Sidebar = () => {
               height={25}
             />
           )}
-        </div>
+        </span>
       </div>
     </>
   );
