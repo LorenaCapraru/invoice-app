@@ -7,6 +7,7 @@ import { useRecoilState } from "recoil";
 import {
   checkedRowsState,
   rowsState,
+  isSliderClickedState,
 } from "/Users/lorenacapraru/Documents/GitHub/invoice-app/src/app/recoilData/atoms";
 interface InvoiceItem {
   name: string;
@@ -15,7 +16,8 @@ interface InvoiceItem {
 }
 
 const InvoiceItems = () => {
-  // const [checkedRows, setCheckedRows] = useState<number[]>([]);
+  const [isSliderClicked, setIsSliderClicked] =
+    useRecoilState<boolean>(isSliderClickedState);
   const [selectAll, setSelectAll] = useState<boolean>(false);
   const [checkedRows, setCheckedRows] =
     useRecoilState<number[]>(checkedRowsState);
@@ -32,6 +34,7 @@ const InvoiceItems = () => {
         }
         return row;
       });
+
       return updatedRows;
     });
   };
@@ -84,7 +87,12 @@ const InvoiceItems = () => {
   const repeatedDivs =
     rows &&
     rows.map((row, index) => (
-      <div key={index} className="repeated-row">
+      <div
+        key={index}
+        className={`repeated-row ${
+          isSliderClicked ? "dark-component" : "light-component"
+        }`}
+      >
         {!row.name.includes("Flat") && (
           <div className="empty-header-check-box">
             <input
@@ -150,7 +158,11 @@ const InvoiceItems = () => {
   return (
     <div className="invoice-items-main">
       <p className="plain-text">INVOICE LINE ITEMS</p>
-      <div className="table-invoice-items">
+      <div
+        className={`table-invoice-items ${
+          isSliderClicked ? "dark-component" : "light-component"
+        }`}
+      >
         <div className="empty-header-check-box">
           <input
             type="checkbox"

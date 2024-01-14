@@ -10,7 +10,11 @@ import SelectClient from "./components/SelectClient/SelectClient";
 import InvoiceItems from "./components/InvoiceItems/InvoiceItems";
 import CompanyData from "./components/CompanyData/CompanyData";
 import { useRecoilState } from "recoil";
-import { checkedRowsState, rowsState } from "../recoilData/atoms";
+import {
+  checkedRowsState,
+  rowsState,
+  isSliderClickedState,
+} from "../recoilData/atoms";
 interface InvoiceItem {
   name: string;
   qty?: number;
@@ -25,7 +29,8 @@ const Invoice = () => {
   const [noOfClicks, setNoOfClicks] = useState<number>(0);
   const [checkedRows, setCheckedRows] =
     useRecoilState<number[]>(checkedRowsState);
-
+  const [isSliderClicked, setIsSliderClicked] =
+    useRecoilState<boolean>(isSliderClickedState);
   const handleDateChangeStart = (date: Date | null) => {
     setWeekStart(date);
   };
@@ -93,7 +98,7 @@ const Invoice = () => {
   }, [clickExport]);
 
   return (
-    <main className="invoice-main">
+    <main className={`invoice-main ${isSliderClicked ? "dark" : "light"}`}>
       <Sidebar />
       <div className="home-body">
         <div className="invoice-no-buttons" id="pdfContentToExport">
