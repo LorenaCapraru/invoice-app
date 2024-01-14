@@ -39,9 +39,15 @@ const Main: React.FC = () => {
         formatter: "{a} <br/>{b}:{c} ({d}%)",
       },
       legend: {
-        orient: "horizontal", // Change orient to horizontal
-        top: 10, // Adjust the position if needed
+        orient: "horizontal",
+        top: 40,
+
         data: statuses,
+        textStyle: {
+          color: "#9b9d9e9b",
+          fontSize: "14",
+          fontWeight: "bold",
+        },
       },
       series: [
         {
@@ -79,11 +85,11 @@ const Main: React.FC = () => {
   }, []);
 
   return (
-    <div className={`main-section  ${isSliderClicked ? "dark" : "light"}`}>
+    <div className={`main-section `}>
       <h1>Invoices Overview</h1>
       <div
         className={`main-body ${
-          isSliderClicked ? "dark-sidebar" : "light-sidebar"
+          isSliderClicked ? "dark-component" : "light-component"
         }`}
       >
         <div className="charts-icons-wrapper">
@@ -91,7 +97,7 @@ const Main: React.FC = () => {
             className="icon-title"
             onClick={() => setPieChartOpen(!pieChartOpen)}
           >
-            <p className="invoices-status">Invoices Status</p>
+            <p>Invoices Status</p>
             <Image
               src={
                 pieChartOpen
@@ -108,7 +114,7 @@ const Main: React.FC = () => {
             className="icon-title"
             onClick={() => setBarChartOpen(!barChartOpen)}
           >
-            <p className="monthly-income">Monthly Income</p>
+            <p>Monthly Income</p>
             <Image
               src={
                 barChartOpen

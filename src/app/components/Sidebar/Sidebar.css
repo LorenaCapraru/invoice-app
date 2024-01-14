@@ -9,7 +9,7 @@
   bottom: -140px;
 }
 .dark-sidebar {
-  background-color: #0d2136;
+  background-color: var(--dark-lighter);
 }
 .dark-sidebar p {
   color: white !important;
@@ -216,7 +216,6 @@
   }
 
   .slider:before {
-    /* background-color: #2b2b2b; */
     background-color: var(--green);
     bottom: 4px;
     content: "";
