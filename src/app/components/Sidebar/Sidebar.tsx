@@ -52,14 +52,20 @@ const Sidebar = () => {
           </div>
         </div>
         <Link href="/invoice">
-          <div className="icon-name-wrap">
+          <div
+            className={` ${
+              isSliderClicked ? "icon-name-wrap-light" : "icon-name-wrap-darker"
+            } `}
+          >
             <Image
               src="/icons/invoice.svg"
               alt="close navbar"
               width={25}
               height={25}
             />
-            <p>Invoices</p>
+            <p className={isSliderClicked ? "text-dark" : "text-light"}>
+              Invoices
+            </p>
           </div>
         </Link>
         <Link href="/clients">
@@ -70,7 +76,9 @@ const Sidebar = () => {
               width={25}
               height={25}
             />
-            <p>Clients</p>
+            <p className={isSliderClicked ? "text-dark" : "text-light"}>
+              Clients
+            </p>
           </div>
         </Link>
         <Link href="/employees">
@@ -81,7 +89,9 @@ const Sidebar = () => {
               width={25}
               height={25}
             />
-            <p>Employees</p>
+            <p className={isSliderClicked ? "text-dark" : "text-light"}>
+              Employees
+            </p>
           </div>
         </Link>
         <Link href="/price-list">
@@ -92,7 +102,9 @@ const Sidebar = () => {
               width={25}
               height={25}
             />
-            <p>Price List</p>
+            <p className={isSliderClicked ? "text-dark" : "text-light"}>
+              Price List
+            </p>
           </div>
         </Link>
         <div className="dark-light-mode">

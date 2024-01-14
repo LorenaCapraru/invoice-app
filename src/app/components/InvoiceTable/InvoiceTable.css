@@ -1,6 +1,5 @@
 .table-main {
   margin-top: 30px;
-  /* background-color: var(--white); */
   border-radius: 10px;
   box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
@@ -14,7 +13,7 @@
 
 .table-body {
   font-size: 12px;
-  color: var(--dark-gray);
+  /* color: var(--dark-gray); */
 }
 
 .client-invoiceNo {
@@ -44,25 +43,25 @@
 }
 .td-invoice-no {
   font-size: 10px;
-  color: gray;
+  /* color: gray; */
 }
 
 .status-pending span {
-  color: var(--lighter-blue);
+  /* color: var(--lighter-blue); */
   border: 1px solid var(--lighter-blue);
   border-radius: 20px;
   padding: 5px 10px;
   font-weight: bolder;
 }
 .status-sent span {
-  color: var(--test1);
+  /* color: var(--test1); */
   border: 1px solid var(--test1);
   border-radius: 20px;
   padding: 5px 10px;
   font-weight: bolder;
 }
 .status-paid span {
-  color: var(--green);
+  /* color: var(--green); */
   border: 1px solid var(--green);
   border-radius: 20px;
   padding: 5px 10px;
@@ -71,7 +70,7 @@
 
 .sum {
   font-size: 10px;
-  color: gray;
+  /* color: gray; */
 }
 
 @media (min-width: 768px) {
