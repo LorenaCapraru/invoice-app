@@ -52,7 +52,7 @@ const InvoiceTable: React.FC<Props> = ({ invoicesData }) => {
   return (
     <div
       className={`table-main ${
-        isSliderClicked ? "dark-sidebar" : "light-sidebar"
+        isSliderClicked ? "dark-component" : "light-component"
       }`}
     >
       <table className="table">
@@ -63,7 +63,9 @@ const InvoiceTable: React.FC<Props> = ({ invoicesData }) => {
             <th>Status</th>
           </tr>
         </thead>
-        <tbody className="table-body">
+        <tbody
+          className={isSliderClicked ? "table-body-dark " : "table-body-light "}
+        >
           {invoicesData.invoices
             .filter(
               (el: Invoice) =>
