@@ -5,7 +5,6 @@ import Image from "../../../node_modules/next/image";
 import DateSelector from "./components/DateSelector/DateSelector";
 import { useState, useEffect } from "react";
 import Link from "../../../node_modules/next/link";
-import CompanyCard from "./components/CompanyCard/CompanyCard";
 import SelectClient from "./components/SelectClient/SelectClient";
 import InvoiceItems from "./components/InvoiceItems/InvoiceItems";
 import CompanyData from "./components/CompanyData/CompanyData";
@@ -15,6 +14,7 @@ import {
   rowsState,
   isSliderClickedState,
 } from "../recoilData/atoms";
+
 interface InvoiceItem {
   name: string;
   qty?: number;
