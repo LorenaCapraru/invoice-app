@@ -3,7 +3,7 @@ import React, { ChangeEvent, useState } from "react";
 import Image from "next/image";
 import "./InvoiceItems.css";
 import Tax from "../Tax/Tax";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
   checkedRowsState,
   rowsState,
@@ -16,8 +16,8 @@ interface InvoiceItem {
 }
 
 const InvoiceItems = () => {
-  const [isSliderClicked, setIsSliderClicked] =
-    useRecoilState<boolean>(isSliderClickedState);
+  const isSliderClicked =
+    useRecoilValue<boolean>(isSliderClickedState);
   const [selectAll, setSelectAll] = useState<boolean>(false);
   const [checkedRows, setCheckedRows] =
     useRecoilState<number[]>(checkedRowsState);

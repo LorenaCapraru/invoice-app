@@ -2,9 +2,13 @@
 import Card from "@/app/employees/components/CardEmployees/Card";
 import "./Main.css";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { clientsState, searchState, addClientState } from "@/app/recoilData/atoms";
+import {
+  clientsState,
+  searchState,
+  addClientState,
+  isSliderClickedState,
+} from "@/app/recoilData/atoms";
 import Image from "next/image";
-import { useState } from "react";
 import Form from "./components/Form/Form";
 type Client = {
   id: number;
@@ -17,6 +21,7 @@ const Main = () => {
   const [addClient, setAddClient] = useRecoilState(addClientState);
   const search = useRecoilValue(searchState);
 
+  const isSliderClicked = useRecoilValue<boolean>(isSliderClickedState);
   const clickAddClient = () => {
     return setAddClient(!addClient);
   };
