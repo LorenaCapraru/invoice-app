@@ -8,7 +8,7 @@ import { isSliderClickedState } from "@/app/recoil/atoms";
 export default function Home() {
   const [isSliderClicked, setIsSliderClicked] =
     useRecoilState<boolean>(isSliderClickedState);
-  console.log("HERE", isSliderClicked);
+  console.log("slideer", isSliderClicked);
   return (
     <main className={isSliderClicked ? "dark" : "light"}>
       <Sidebar />
