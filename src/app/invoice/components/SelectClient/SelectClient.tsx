@@ -2,8 +2,8 @@ import React, { ChangeEvent, useState } from "react";
 import CompanyCard from "../CompanyCard/CompanyCard";
 import "./SelectClient.css";
 import { useRecoilState } from "recoil";
-import { clientsState, siteState } from "@/app/recoilData/atoms";
-import { Site } from "@/app/recoilData/atoms";
+import { clientsState, siteState } from "@/app/recoil/atoms";
+import { Site } from "@/app/recoil/atoms";
 
 interface Company {
   id: number;

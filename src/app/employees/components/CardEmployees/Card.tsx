@@ -3,7 +3,7 @@ import "./Card.css";
 import Image from "next/image";
 import { useState } from "react";
 import { useRecoilValue } from "recoil";
-import { isSliderClickedState } from "@/app/recoilData/atoms";
+import { isSliderClickedState } from "@/app/recoil/atoms";
 type Employee = {
   id: number;
   name: string;

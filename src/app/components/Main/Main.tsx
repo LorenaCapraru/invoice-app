@@ -6,7 +6,7 @@ import InvoiceBarChart from "../InvoiceBarChart/InvoiceBarChart";
 import InvoiceTable from "../InvoiceTable/InvoiceTable";
 import invoicesData from "./invoices.json";
 import { useRecoilState } from "recoil";
-import { isSliderClickedState } from "@/app/recoilData/atoms";
+import { isSliderClickedState } from "@/app/recoil/atoms";
 import "./Main.css";
 
 interface Invoice {

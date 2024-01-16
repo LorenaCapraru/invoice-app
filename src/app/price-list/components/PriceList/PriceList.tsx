@@ -6,7 +6,7 @@ import {
   pricesState,
   searchState,
   isSliderClickedState,
-} from "@/app/recoilData/atoms";
+} from "@/app/recoil/atoms";
 interface PriceList {
   id: number;
   name: string;

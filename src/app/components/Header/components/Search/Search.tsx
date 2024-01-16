@@ -1,9 +1,9 @@
 import "src/app/components/Header/Header.css";
 import { useRecoilState } from "recoil";
-import { searchState } from "@/app/recoilData/atoms";
+import { searchState } from "@/app/recoil/atoms";
 import Image from "next/image";
 import { ChangeEvent } from "react";
-import { isSliderClickedState } from "@/app/recoilData/atoms";
+import { isSliderClickedState } from "@/app/recoil/atoms";
 
 const Search = () => {
   const [search, setSearch] = useRecoilState(searchState);

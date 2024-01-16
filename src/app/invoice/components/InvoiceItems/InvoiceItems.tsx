@@ -8,7 +8,7 @@ import {
   checkedRowsState,
   rowsState,
   isSliderClickedState,
-} from "/Users/lorenacapraru/Documents/GitHub/invoice-app/src/app/recoilData/atoms";
+} from "../../../recoil/atoms";
 interface InvoiceItem {
   name: string;
   qty?: number;

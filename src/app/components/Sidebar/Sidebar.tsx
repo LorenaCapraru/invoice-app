@@ -4,7 +4,7 @@ import Image from "../../../../node_modules/next/image";
 import { useState } from "react";
 import Link from "../../../../node_modules/next/link";
 import { useRecoilState } from "recoil";
-import { isSliderClickedState } from "@/app/recoilData/atoms";
+import { isSliderClickedState } from "@/app/recoil/atoms";
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);

@@ -1,7 +1,7 @@
 import "./Card.css";
 import Image from "next/image";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { siteState, isSliderClickedState } from "@/app/recoilData/atoms";
+import { siteState, isSliderClickedState } from "@/app/recoil/atoms";
 
 type Client = {
   id: number;

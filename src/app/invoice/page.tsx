@@ -13,7 +13,7 @@ import {
   checkedRowsState,
   rowsState,
   isSliderClickedState,
-} from "../recoilData/atoms";
+} from "../recoil/atoms";
 
 interface InvoiceItem {
   name: string;

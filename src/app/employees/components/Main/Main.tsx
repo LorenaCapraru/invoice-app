@@ -7,7 +7,7 @@ import {
   employeeState,
   searchState,
   isSliderClickedState,
-} from "@/app/recoilData/atoms";
+} from "@/app/recoil/atoms";
 import Image from "next/image";
 import Form from "../Form/Form";
 type Employee = {
