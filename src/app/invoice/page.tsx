@@ -117,8 +117,10 @@ const Invoice = () => {
                   Invoice
                   <input
                     type="number"
-                    defaultValue={0}
-                    className="invoice-number"
+                    placeholder="0"
+                    className={`invoice-number ${
+                      isSliderClicked ? "dark" : "light"
+                    }`}
                     onChange={updateInvoiceNumber}
                   />
                 </p>

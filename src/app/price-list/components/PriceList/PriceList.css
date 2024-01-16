@@ -2,12 +2,10 @@
   text-align: left;
   margin: 0px 20px;
   border-bottom: 2px solid var(--green);
-  /* max-height: 500px; */
-  overflow-y: auto; /* Add this line to enable vertical scrolling */
+  overflow-y: auto;
 }
 
 .table-invoice-items {
-  background-color: white;
   padding: 20px 10px;
   border-radius: 5px;
   box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.1);
@@ -30,8 +28,6 @@
   gap: 0px;
   padding: 20px 10px;
   text-align: left;
-  background-color: white;
-  color: var(--dark-gray);
   font-size: 12px;
   border-bottom: 2px solid var(--mid-gray);
 }
@@ -78,6 +74,7 @@
   font-weight: 500;
   margin: 30px 0px;
 }
+
 .buttons {
   display: flex;
   flex-direction: row;
@@ -94,11 +91,9 @@
 }
 
 .empty-table {
-  background-color: white;
   text-align: center;
   font-size: 18px;
   padding: 10px;
-  color: var(--text-gray);
   width: 100%;
 }
 
@@ -133,7 +128,8 @@
   text-align: left;
   box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.1);
   padding: 5px 0px;
-  color: var(--dark-gray);
+
+  /* color: white; */
   font-size: 12px;
   font-weight: 600;
   width: 80%;
@@ -143,7 +139,6 @@
   text-align: left;
   box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.1);
   padding: 5px 0px;
-  color: var(--dark-gray);
   font-size: 12px;
   font-weight: 600;
   width: 100%;
@@ -152,7 +147,8 @@
 .qty-b input,
 .price-b input,
 .unit-b select {
-  background-color: var(--white);
+  /* background-color: var(--white); */
+  /* color: white; */
 }
 
 @media (min-width: 768px) {
@@ -163,8 +159,7 @@
     gap: 0px;
     padding: 20px 10px;
     text-align: left;
-    background-color: white;
-    color: var(--dark-gray);
+
     font-size: 14px;
     font-weight: 400;
     border-bottom: 2px solid var(--mid-gray);
@@ -252,20 +247,22 @@
     text-align: left;
     box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.1);
     padding: 5px 0px;
-    color: var(--dark-gray);
+    /* color: var(--dark-gray); */
     font-size: 18px;
     font-weight: 400;
     width: 70px;
+    background-color: transparent;
+    /* color: white; */
   }
   .name-b input {
     border: none;
     text-align: left;
     box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.1);
     padding: 5px 0px;
-    color: var(--dark-gray);
     font-size: 18px;
     font-weight: 400;
     width: 100%;
+    background-color: transparent;
   }
 
   .tax-container {
@@ -281,6 +278,6 @@
     border: none;
     font-size: large;
     font-weight: 500;
-    color: var(--dark-gray);
+    /* color: var(--dark-gray); */
   }
 }

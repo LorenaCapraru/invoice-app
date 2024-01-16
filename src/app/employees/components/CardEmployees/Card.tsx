@@ -35,7 +35,7 @@ const Card = ({ el }: { el: Employee }) => {
         isSliderClicked ? "dark-component" : "light-component"
       }`}
     >
-      <div className="image-container">
+      <div className={`image-container ${isSliderClicked ? "dark" : "light"}`}>
         <div className="copy">
           <Image
             src="/icons/copy.svg"

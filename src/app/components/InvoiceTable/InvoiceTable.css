@@ -61,21 +61,21 @@
 }
 
 .status-pending span {
-  /* color: var(--lighter-blue); */
+  color: var(--lighter-blue);
   border: 1px solid var(--lighter-blue);
   border-radius: 20px;
   padding: 5px 10px;
   font-weight: bolder;
 }
 .status-sent span {
-  /* color: var(--test1); */
+  color: var(--test1);
   border: 1px solid var(--test1);
   border-radius: 20px;
   padding: 5px 10px;
   font-weight: bolder;
 }
 .status-paid span {
-  /* color: var(--green); */
+  color: var(--green);
   border: 1px solid var(--green);
   border-radius: 20px;
   padding: 5px 10px;

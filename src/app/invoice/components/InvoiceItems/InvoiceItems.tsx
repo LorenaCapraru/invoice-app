@@ -16,8 +16,7 @@ interface InvoiceItem {
 }
 
 const InvoiceItems = () => {
-  const isSliderClicked =
-    useRecoilValue<boolean>(isSliderClickedState);
+  const isSliderClicked = useRecoilValue<boolean>(isSliderClickedState);
   const [selectAll, setSelectAll] = useState<boolean>(false);
   const [checkedRows, setCheckedRows] =
     useRecoilState<number[]>(checkedRowsState);
@@ -110,6 +109,7 @@ const InvoiceItems = () => {
             placeholder="Add Item"
             value={row.name}
             onChange={(e) => handleChangeName(index, e)}
+            className={isSliderClicked ? "dark-component" : "light-component"}
           />
         </div>
         {!row.name.includes("Flat") && (
@@ -118,12 +118,15 @@ const InvoiceItems = () => {
               type="number"
               onChange={(e) => handleChangeQty(index, e)}
               placeholder="0"
+              className={isSliderClicked ? "dark-component" : "light-component"}
             />
           </div>
         )}
         {!row.name.includes("Flat") && (
           <div className="unit-b">
-            <select>
+            <select
+              className={isSliderClicked ? "dark-component" : "light-component"}
+            >
               <option>select unit...</option>
               <option>
                 m <sup>{"\u00B2"}</sup>
@@ -140,6 +143,7 @@ const InvoiceItems = () => {
               type="number"
               onChange={(e) => handleChangePrice(index, e)}
               placeholder="0"
+              className={isSliderClicked ? "dark-component" : "light-component"}
             />
           </div>
         )}

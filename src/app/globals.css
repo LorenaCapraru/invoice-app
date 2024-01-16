@@ -46,13 +46,28 @@ main {
   .dark {
     background-color: var(--darker);
     transition: all 0.4s ease;
+    color: white !important;
+  }
+  .dark::placeholder {
     color: white;
+  }
+  .light::placeholder {
+    color: var(--dark-gray);
   }
   .dark-component {
     background-color: var(--dark-lighter);
+    color: white;
   }
   .light-component {
     background-color: var(--white);
+    color: var(--dark-gray);
+  }
+  .light-component::placeholder {
+    color: var(--dark-gray);
+  }
+
+  .dark-component::placeholder {
+    color: white;
   }
   .home-body {
     display: flex;

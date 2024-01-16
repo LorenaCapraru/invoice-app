@@ -2,7 +2,11 @@ import React, { ChangeEvent, useState, useEffect } from "react";
 import Image from "next/image";
 import "./PriceList.css";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { pricesState, searchState } from "@/app/recoilData/atoms";
+import {
+  pricesState,
+  searchState,
+  isSliderClickedState,
+} from "@/app/recoilData/atoms";
 interface PriceList {
   id: number;
   name: string;
@@ -17,7 +21,7 @@ const PriceList = () => {
   const [checkedRows, setCheckedRows] = useState<number[]>([]);
   const [clickExport, setClickExport] = useState<boolean | null>(false);
   const [selectAll, setSelectAll] = useState<boolean>(false);
-
+  const isSliderClicked = useRecoilValue<boolean>(isSliderClickedState);
   const search = useRecoilValue(searchState);
 
   const handleCheckboxChange = (index: number) => {
@@ -142,7 +146,12 @@ const PriceList = () => {
       el.name.toLowerCase().includes(search.toLowerCase())
     )
     .map((row, index) => (
-      <div key={index} className="repeated-row">
+      <div
+        key={index}
+        className={`repeated-row ${
+          isSliderClicked ? "dark-component" : "light-component"
+        }`}
+      >
         <div className="empty-header-check-box">
           <input
             type="checkbox"
@@ -152,17 +161,25 @@ const PriceList = () => {
           />
         </div>
 
-        <div className="name-b">
+        <div
+          className={`name-b ${
+            isSliderClicked ? "dark-component" : "light-component"
+          }`}
+        >
           <input
             type="text"
             placeholder="Add Item"
             value={row.name}
             onChange={(e) => handleChangeName(index, e)}
+            className={isSliderClicked ? "dark-component" : "light-component"}
           />
         </div>
 
         <div className="unit-b">
-          <select defaultValue={row.unit}>
+          <select
+            defaultValue={row.unit}
+            className={isSliderClicked ? "dark-component" : "light-component"}
+          >
             <option value="">select unit...</option>
             <option value="m2">m2</option>
             <option value="lm">lm</option>
@@ -171,12 +188,17 @@ const PriceList = () => {
           </select>
         </div>
 
-        <div className="price-b">
+        <div
+          className={`price-b ${
+            isSliderClicked ? "dark-component" : "light-component"
+          }`}
+        >
           <input
             defaultValue={row.price}
             type="number"
             onChange={(e) => handleChangePrice(index, e)}
             placeholder="0"
+            className={isSliderClicked ? "dark-component" : "light-component"}
           />
         </div>
       </div>
@@ -185,7 +207,11 @@ const PriceList = () => {
     <div className="invoice-items-main">
       <div id="pdfContentToExport">
         <p className="plain-text">PRICE LIST ITEMS</p>
-        <div className="table-invoice-items">
+        <div
+          className={`table-invoice-items ${
+            isSliderClicked ? "dark-component" : "light-component"
+          }`}
+        >
           <div className="empty-header-check-box">
             <input
               type="checkbox"
@@ -201,7 +227,13 @@ const PriceList = () => {
         {repeatedDivs.length > 0 ? (
           repeatedDivs
         ) : (
-          <div className="empty-table">No items in the list</div>
+          <div
+            className={`empty-table ${
+              isSliderClicked ? "dark-component" : "light-component"
+            }`}
+          >
+            No items in the list
+          </div>
         )}
       </div>
       <div className="buttons">
