@@ -1,7 +1,7 @@
 import "./Card.css";
 import Image from "next/image";
-import { useRecoilState } from "recoil";
-import { siteState } from "@/app/recoilData/atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { siteState, isSliderClickedState } from "@/app/recoilData/atoms";
 
 type Client = {
   id: number;
@@ -21,8 +21,13 @@ const Card = ({ el }: { el: Client }) => {
   };
   const [site, SetSite] = useRecoilState<Site[]>(siteState);
 
+  const isSliderClicked = useRecoilValue<boolean>(isSliderClickedState);
   return (
-    <div className="card-main">
+    <div
+      className={`card-main ${
+        isSliderClicked ? "dark-components" : "light-components"
+      }`}
+    >
       <div className="card-details">
         <p className="initials-client">{takeInitials(el.name)}</p>
         <div className="card-info">

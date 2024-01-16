@@ -6,9 +6,9 @@ import {
   addEmployeeState,
   employeeState,
   searchState,
+  isSliderClickedState,
 } from "@/app/recoilData/atoms";
 import Image from "next/image";
-import { useState } from "react";
 import Form from "../Form/Form";
 type Employee = {
   id: number;

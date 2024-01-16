@@ -1,7 +1,9 @@
+"use client";
 import "./Card.css";
 import Image from "next/image";
 import { useState } from "react";
-
+import { useRecoilValue } from "recoil";
+import { isSliderClickedState } from "@/app/recoilData/atoms";
 type Employee = {
   id: number;
   name: string;
@@ -15,6 +17,7 @@ type Employee = {
 
 const Card = ({ el }: { el: Employee }) => {
   const [ellipsisClick, setEllipsisClick] = useState<boolean>(false);
+  const isSliderClicked = useRecoilValue<boolean>(isSliderClickedState);
 
   const handleCopyClick = () => {
     const detailsToCopy = `Name: ${el.name}\nDOB: ${el.dob}\nEmail: ${el.email}\nUTR: ${el.UTR}\nNINO: ${el.NINO}\nAddress: ${el.address}\nPhone: ${el.phone_no}`;
@@ -27,7 +30,11 @@ const Card = ({ el }: { el: Employee }) => {
     setEllipsisClick(!ellipsisClick);
   };
   return (
-    <div className="card-container">
+    <div
+      className={`card-container ${
+        isSliderClicked ? "dark-component" : "light-component"
+      }`}
+    >
       <div className="image-container">
         <div className="copy">
           <Image

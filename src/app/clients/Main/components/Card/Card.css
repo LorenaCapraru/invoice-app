@@ -4,7 +4,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
   padding: 0px 2%;
   border-radius: 10px;
   cursor: pointer;
@@ -22,8 +21,8 @@
 }
 
 .initials-client {
-  color: var(--white);
-  background-color: var(--lighter-blue);
+  /* color: var(--white);
+  background-color: var(--lighter-blue); */
   font-size: 30px;
   border-radius: 50%;
   padding: 20px;
@@ -44,7 +43,7 @@
   font-size: 20px;
 }
 .card-address {
-  color: var(--text-gray);
+  /* color: var(--text-gray); */
 }
 .card-info {
   display: flex;
@@ -55,5 +54,5 @@
 .card-site {
   font-weight: 500;
   font-size: large;
-  color: var(--text-gray);
+  /* color: var(--text-gray); */
 }

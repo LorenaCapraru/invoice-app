@@ -11,7 +11,7 @@ const Clients = () => {
   return (
     <main className={isSliderClicked ? "dark" : "light"}>
       <Sidebar />
-      <div className={`home-body `}>
+      <div className="home-body">
         <Header />
         <Main />
       </div>
