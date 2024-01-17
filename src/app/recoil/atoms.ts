@@ -93,3 +93,26 @@ export const addClientState = atom<boolean>({
   key: "addClientState",
   default: false,
 });
+
+//firebase
+export interface SingInState {
+  email: string;
+  password: string;
+  errors: {
+    email: string;
+    password: string;
+  };
+}
+
+export interface SignUpState {
+  email: string;
+  password: string;
+  name: string;
+  surname: string;
+  errors: {
+    email: string;
+    password: string;
+    name: string;
+    surname: string;
+  };
+}
