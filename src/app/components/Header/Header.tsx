@@ -5,12 +5,16 @@ import Search from "./components/Search/Search";
 import { useRecoilState } from "recoil";
 import { useEffect } from "react";
 import { auth } from "@/app/firebase/firebase";
+import { signOutUser } from "@/app/firebase/auth";
+import { useRouter } from "next/navigation";
+
 import {
   userNameState,
   userPictureURLState,
   currentUserState,
   CurrentUser,
   isUserLoggedInState,
+  imagePopUpState,
 } from "@/app/recoil/atoms";
 
 const Header = () => {
@@ -21,14 +25,27 @@ const Header = () => {
   const [currentUser, setCurrentUser] = useRecoilState<CurrentUser | undefined>(
     currentUserState
   );
+  const [imagePopUp, setImagePopUp] = useRecoilState<boolean>(imagePopUpState);
   const [isUserLoggedIn, setUserLoggedIn] =
     useRecoilState<boolean>(isUserLoggedInState);
+  const handleLogoImageClick = () => {
+    setImagePopUp(!imagePopUp);
+  };
+  const router = useRouter();
 
+  const handleLogOutOnClick = async () => {
+    await signOutUser()
+      .then((result) => {
+        result ? router.push("/") : console.log("The logout was unsuccessful");
+      })
+      .catch((error) => {
+        console.log("The logout was unsuccessful with error:", error);
+      });
+  };
   useEffect(() => {
     auth.onAuthStateChanged(function (user) {
       if (user) {
         setUserLoggedIn(true);
-
         if (user && user.email) {
           let name = "";
           let surname = "";
@@ -60,14 +77,20 @@ const Header = () => {
       <div className="header-main">
         <Search />
         <div className="search-user">
-          Hi, {userName?.split(" ")[0]}
+          Hi, {currentUser?.name}
           <Image
-            src={userPictureURL}
+            src={currentUser?.image || "public/icons/clients.svg"}
             alt="user icon"
-            width={30}
-            height={30}
+            width={50}
+            height={50}
             className="user-icon"
+            onClick={handleLogoImageClick}
           />
+          {imagePopUp && (
+            <div className="sign-out" onClick={handleLogOutOnClick}>
+              Sign out
+            </div>
+          )}
         </div>
       </div>
     </div>

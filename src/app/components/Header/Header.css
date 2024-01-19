@@ -17,8 +17,21 @@
   flex-direction: row;
   gap: 20px;
   align-items: center;
+  position: relative;
 }
-
+.sign-out {
+  position: absolute;
+  top: 60px;
+  background-color: var(--white);
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.7);
+}
+.sign-out:hover {
+  border-bottom: 3px solid var(--green);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
 .search-bar-light {
   position: relative;
   transition: all 1s;
@@ -147,14 +160,16 @@
     justify-content: space-between;
     width: 100%;
     font-size: 20px;
+    height: 70px;
+  }
+  .user-icon:hover {
+    border: 5px solid var(--green);
+    transition: 0.2s all ease-in-out;
+    cursor: pointer;
   }
   .search-icon {
     width: 30px;
     height: 25px;
-  }
-  .user-icon {
-    width: 40px;
-    height: 40px;
   }
 
   .search-bar-light {

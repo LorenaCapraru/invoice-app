@@ -127,6 +127,10 @@ export const isPopupConfirmOpenState = atom<boolean>({
   default: false,
 });
 
+export const imagePopUpState = atom<boolean>({
+  key: "imagePopUpState",
+  default: false,
+});
 export const popupConfirmTextState = atom<string>({
   key: "popupConfirmTextState",
   default: "",
