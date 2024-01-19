@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import "./InvoiceTable.css";
 import { useRecoilState } from "recoil";
-import { searchState } from "@/app/recoil/atoms";
+import { searchState, currentUserState, CurrentUser } from "@/app/recoil/atoms";
 import { isSliderClickedState } from "@/app/recoil/atoms";
 
 interface Invoice {

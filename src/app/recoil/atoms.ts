@@ -101,7 +101,7 @@ export const isUserLoggedInState = atom<boolean>({
 });
 export interface CurrentUser {
   id: string;
-  image: string;
+  image: string | null;
   name: string;
   surname: string;
   email: string;
