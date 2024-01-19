@@ -95,24 +95,30 @@ export const addClientState = atom<boolean>({
 });
 
 //firebase
-export interface SingInState {
-  email: string;
-  password: string;
-  errors: {
-    email: string;
-    password: string;
-  };
-}
-
-export interface SignUpState {
-  email: string;
-  password: string;
+export const isUserLoggedInState = atom<boolean>({
+  key: "isUserLoggedInState",
+  default: false,
+});
+export interface CurrentUser {
+  id: string;
+  image: string;
   name: string;
   surname: string;
-  errors: {
-    email: string;
-    password: string;
-    name: string;
-    surname: string;
-  };
+  email: string;
+  type: string;
 }
+
+export const currentUserState = atom<CurrentUser | undefined>({
+  key: "currentUserState",
+  default: undefined,
+});
+
+export const isPopupConfirmOpenState = atom<boolean>({
+  key: "isPopupConfirmOpenState",
+  default: false,
+});
+
+export const popupConfirmTextState = atom<string>({
+  key: "popupConfirmTextState",
+  default: "",
+});
