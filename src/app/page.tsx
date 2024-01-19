@@ -2,15 +2,16 @@
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Main from "./components/Main/Main";
-import { useRecoilState } from "recoil";
-import { isSliderClickedState } from "@/app/recoil/atoms";
-import { signOutUser, auth } from "./firebase/auth"; // Adjust the path accordingly
+import { useRecoilState, useRecoilValue } from "recoil";
+import { isSliderClickedState, isUserLoggedInState } from "@/app/recoil/atoms";
+import SignIn from "./components/SignIn/SignIn";
 
 export default function Home() {
   const [isSliderClicked, setIsSliderClicked] =
     useRecoilState<boolean>(isSliderClickedState);
+  const isUserLoggedIn = useRecoilValue<boolean>(isUserLoggedInState);
 
-  return (
+  return isUserLoggedIn ? (
     <main className={isSliderClicked ? "dark" : "light"}>
       <Sidebar />
       <div className={`home-body `}>
@@ -18,5 +19,7 @@ export default function Home() {
         <Main />
       </div>
     </main>
+  ) : (
+    <SignIn />
   );
 }
