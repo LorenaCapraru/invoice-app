@@ -2,11 +2,15 @@ import {
   CurrentUser,
   isPopupConfirmOpenState,
   popupConfirmTextState,
+  isUserLoggedInState,
+  userNameState,
+  userPictureURLState,
 } from "@/app/recoil/atoms";
 import { signUpWithGoogle } from "../../firebase/auth";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useSetRecoilState } from "recoil";
+import { useSetRecoilState, useRecoilState } from "recoil";
+import "./SignIn.css";
 
 export default function SignIn() {
   const router = useRouter();
@@ -14,6 +18,12 @@ export default function SignIn() {
     isPopupConfirmOpenState
   );
   const setPopupConfirmText = useSetRecoilState<string>(popupConfirmTextState);
+  const [isUserLoggedIn, setUserLoggedIn] =
+    useRecoilState<boolean>(isUserLoggedInState);
+  const [userName, setUserName] = useRecoilState<string | null>(userNameState);
+  const [userPictureURL, setUserPictureURL] = useRecoilState<string | null>(
+    userPictureURLState
+  );
 
   const handleGoogleSignUp = async () => {
     try {
@@ -28,8 +38,12 @@ export default function SignIn() {
           userSurname = nameParts[1];
         }
       }
+      setUserLoggedIn(!isUserLoggedIn);
+      setUserPictureURL(userCredential.user?.photoURL);
+      setUserName(userCredential.user?.displayName);
 
-      console.log("Google Sign Up successful:", userCredential.user?.email);
+      console.log("Google Sign Up successful:", userCredential.user?.photoURL);
+
       router.push("/");
       setPopupConfirmText("You have been successfully logged in!");
       setIsPopupConfirmOpen(true);
@@ -39,28 +53,20 @@ export default function SignIn() {
   };
 
   return (
-    <div>
-      <div className="connect-container">
-        <p>Be connect with</p>
-
-        <div>
+    <main className="sign-in-main">
+      <div className="signin-container">
+        <h1>Welcome to Invoice Tracker Application</h1>
+        <p>Sign in to manage your invoices.</p>
+        <p className="login-text" onClick={handleGoogleSignUp}>
           <Image
             src="/icons/google.svg"
             alt="Google icon"
-            width={40}
-            height={40}
-            onClick={handleGoogleSignUp}
-            className="icon"
-            style={{
-              border: "1px solid black",
-              borderRadius: "50%",
-              padding: "5px",
-              background: "white",
-              filter: "invert(100%)",
-            }}
+            width={30}
+            height={30}
           />
-        </div>
+          <span> CONTINUE WITH GOOGLE</span>
+        </p>
       </div>
-    </div>
+    </main>
   );
 }

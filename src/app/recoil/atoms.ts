@@ -113,6 +113,15 @@ export const currentUserState = atom<CurrentUser | undefined>({
   default: undefined,
 });
 
+export const userNameState = atom<string | null>({
+  key: "userNameState",
+  default: "",
+});
+export const userPictureURLState = atom<string | null>({
+  key: "userPictureURLState",
+  default: "",
+});
+
 export const isPopupConfirmOpenState = atom<boolean>({
   key: "isPopupConfirmOpenState",
   default: false,
