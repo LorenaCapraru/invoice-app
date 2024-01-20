@@ -1,4 +1,4 @@
-import "src/app/components/Header/Header.css";
+import "/Users/lorenacapraru/Documents/GitHub/invoice-app/src/app/overview/components/Header/Header.css";
 import { useRecoilState } from "recoil";
 import { searchState } from "@/app/recoil/atoms";
 import Image from "next/image";

@@ -6,7 +6,7 @@ import {
   userNameState,
   userPictureURLState,
 } from "@/app/recoil/atoms";
-import { signUpWithGoogle } from "../../firebase/auth";
+import { signUpWithGoogle } from "../../../firebase/auth";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useSetRecoilState, useRecoilState } from "recoil";
@@ -44,7 +44,7 @@ export default function SignIn() {
 
       console.log("Google Sign Up successful:", userCredential.user?.photoURL);
 
-      router.push("/");
+      router.push("/overview");
       setPopupConfirmText("You have been successfully logged in!");
       setIsPopupConfirmOpen(true);
     } catch (error: any) {

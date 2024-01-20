@@ -1,5 +1,5 @@
 "use client";
-import Sidebar from "../components/Sidebar/Sidebar";
+import Sidebar from "../overview/components/Sidebar/Sidebar";
 import "./page.css";
 import Image from "../../../node_modules/next/image";
 import DateSelector from "./components/DateSelector/DateSelector";
@@ -13,7 +13,10 @@ import {
   checkedRowsState,
   rowsState,
   isSliderClickedState,
+  CurrentUser,
+  currentUserState,
 } from "../recoil/atoms";
+import SignIn from "../overview/components/SignIn/SignIn";
 
 interface InvoiceItem {
   name: string;
@@ -27,6 +30,9 @@ const Invoice = () => {
   const [invoiceNumber, setInvoiceNumber] = useState<number | undefined>(0);
   const [rows, setRows] = useRecoilState<InvoiceItem[]>(rowsState);
   const [noOfClicks, setNoOfClicks] = useState<number>(0);
+  const [currentUser, setCurrentUser] = useRecoilState<CurrentUser | undefined>(
+    currentUserState
+  );
   const [checkedRows, setCheckedRows] =
     useRecoilState<number[]>(checkedRowsState);
   const [isSliderClicked, setIsSliderClicked] =

@@ -1,6 +1,6 @@
 "use client";
-import Sidebar from "../components/Sidebar/Sidebar";
-import Header from "../components/Header/Header";
+import Sidebar from "../overview/components/Sidebar/Sidebar";
+import Header from "../overview/components/Header/Header";
 import Main from "./Main/Main";
 import { useRecoilValue, useRecoilState } from "recoil";
 import {
@@ -9,7 +9,7 @@ import {
   isSliderClickedState,
   isUserLoggedInState,
 } from "../recoil/atoms";
-import SignIn from "../components/SignIn/SignIn";
+import SignIn from "../overview/components/SignIn/SignIn";
 import "./page.css";
 
 const PriceList = () => {

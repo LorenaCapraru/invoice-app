@@ -1,6 +1,6 @@
 "use client";
 import "./Header.css";
-import Image from "../../../../node_modules/next/image";
+import Image from "next/image";
 import Search from "./components/Search/Search";
 import { useRecoilState } from "recoil";
 import { useEffect } from "react";
@@ -33,17 +33,19 @@ const Header = () => {
   };
   const router = useRouter();
 
-  const handleLogOutOnClick = async () => {
-    await signOutUser()
-      .then((result) => {
-        result ? router.push("/") : console.log("The logout was unsuccessful");
-      })
-      .catch((error) => {
-        console.log("The logout was unsuccessful with error:", error);
-      });
+  const handleSignOut = async () => {
+    try {
+      await auth.signOut();
+      router.push("/");
+      setImagePopUp(!imagePopUp);
+      setUserLoggedIn(false);
+      setCurrentUser(undefined);
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
   };
   useEffect(() => {
-    auth.onAuthStateChanged(function (user) {
+    const unsubscribe = auth.onAuthStateChanged(function (user) {
       if (user) {
         setUserLoggedIn(true);
         if (user && user.email) {
@@ -68,8 +70,12 @@ const Header = () => {
       } else {
         setUserLoggedIn(false);
         console.log("there is no user");
+        // Redirect to the sign-in page if not logged in
+        router.push("/");
       }
     });
+
+    return () => unsubscribe(); // Cleanup on unmount
   }, []);
 
   return (
@@ -86,8 +92,8 @@ const Header = () => {
             className="user-icon"
             onClick={handleLogoImageClick}
           />
-          {imagePopUp && (
-            <div className="sign-out" onClick={handleLogOutOnClick}>
+          {isUserLoggedIn && imagePopUp && (
+            <div className="sign-out" onClick={handleSignOut}>
               Sign out
             </div>
           )}

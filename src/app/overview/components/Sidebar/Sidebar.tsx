@@ -1,8 +1,8 @@
 "use client";
 import "./Sidebar.css";
-import Image from "../../../../node_modules/next/image";
+import Image from "next/image";
 import { useState } from "react";
-import Link from "../../../../node_modules/next/link";
+import Link from "next/link";
 import { useRecoilState } from "recoil";
 import { isSliderClickedState } from "@/app/recoil/atoms";
 
@@ -27,7 +27,7 @@ const Sidebar = () => {
         }`}
       >
         <div className="icon-name-wrap-overview">
-          <Link href="/">
+          <Link href="/overview">
             <div className="icon-name-wrap-overview">
               <Image
                 src="/icons/bars.svg"

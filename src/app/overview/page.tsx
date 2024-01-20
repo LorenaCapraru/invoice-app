@@ -1,15 +1,12 @@
 "use client";
-import Header from "./overview/components/Header/Header";
-import Sidebar from "./overview/components/Sidebar/Sidebar";
-import Main from "./overview/components/Main/Main";
+
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { isSliderClickedState, isUserLoggedInState } from "@/app/recoil/atoms";
-import SignIn from "./overview/components/SignIn/SignIn";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { CurrentUser, currentUserState } from "@/app/recoil/atoms";
-import { signUpWithGoogle } from "../app/firebase/auth";
-import { userInfo } from "os";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Main from "./components/Main/Main";
+import Header from "./components/Header/Header";
+import SignIn from "./components/SignIn/SignIn";
 
 export default function Home() {
   const [isSliderClicked, setIsSliderClicked] =
@@ -20,5 +17,13 @@ export default function Home() {
     currentUserState
   );
 
-  return <SignIn />;
+  return (
+    <main className={isSliderClicked ? "dark" : "light"}>
+      <Sidebar />
+      <div className={`home-body `}>
+        <Header />
+        <Main />
+      </div>
+    </main>
+  );
 }
