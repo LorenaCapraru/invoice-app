@@ -44,39 +44,7 @@ const Header = () => {
       console.error("Error signing out:", error);
     }
   };
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(function (user) {
-      if (user) {
-        setUserLoggedIn(true);
-        if (user && user.email) {
-          let name = "";
-          let surname = "";
-          if (user.displayName !== null) {
-            const nameParts = user.displayName.split(" ");
-            name = nameParts[0];
-            surname = nameParts[1];
-          }
 
-          const input: CurrentUser = {
-            id: user.uid,
-            image: user?.photoURL,
-            name: name,
-            surname: surname,
-            email: user.email,
-            type: "",
-          };
-          setCurrentUser(input);
-        }
-      } else {
-        setUserLoggedIn(false);
-        console.log("there is no user");
-        // Redirect to the sign-in page if not logged in
-        router.push("/");
-      }
-    });
-
-    return () => unsubscribe(); // Cleanup on unmount
-  }, []);
 
   return (
     <div className="header-wrapper">

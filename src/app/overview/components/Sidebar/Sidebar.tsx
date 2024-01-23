@@ -5,6 +5,19 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRecoilState } from "recoil";
 import { isSliderClickedState } from "@/app/recoil/atoms";
+import { useEffect } from "react";
+import { auth } from "@/app/firebase/firebase";
+import { signOutUser } from "@/app/firebase/auth";
+import { useRouter } from "next/navigation";
+
+import {
+  userNameState,
+  userPictureURLState,
+  currentUserState,
+  CurrentUser,
+  isUserLoggedInState,
+  imagePopUpState,
+} from "@/app/recoil/atoms";
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
@@ -13,11 +26,50 @@ const Sidebar = () => {
   const handleSideBar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-
+  const [isUserLoggedIn, setUserLoggedIn] =
+    useRecoilState<boolean>(isUserLoggedInState);
+  const [currentUser, setCurrentUser] = useRecoilState<CurrentUser | undefined>(
+    currentUserState
+  );
   const handleSliderClick = () => {
     setIsSliderClicked(!isSliderClicked);
   };
+  const router = useRouter();
+
   console.log("slider", isSliderClicked);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(function (user) {
+      if (user) {
+        setUserLoggedIn(true);
+        if (user && user.email) {
+          let name = "";
+          let surname = "";
+          if (user.displayName !== null) {
+            const nameParts = user.displayName.split(" ");
+            name = nameParts[0];
+            surname = nameParts[1];
+          }
+
+          const input: CurrentUser = {
+            id: user.uid,
+            image: user?.photoURL,
+            name: name,
+            surname: surname,
+            email: user.email,
+            type: "",
+          };
+          setCurrentUser(input);
+        }
+      } else {
+        setUserLoggedIn(false);
+        console.log("there is no user");
+        router.push("/");
+      }
+    });
+
+    return () => unsubscribe(); 
+  }, []);
 
   return (
     <>
