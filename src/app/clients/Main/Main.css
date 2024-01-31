@@ -57,8 +57,6 @@
   transform: translate(-50%, -50%);
   width: 500px;
 
-  background-color: white;
-  box-shadow: 0px 0px 50px -21px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   z-index: 1;
   padding: 60px;

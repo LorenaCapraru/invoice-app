@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Form/Form.css";
-import { useRecoilState } from "recoil";
-import { addClientState } from "@/app/recoil/atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { addClientState, isSliderClickedState } from "@/app/recoil/atoms";
 import Image from "next/image";
 
 interface FormData {
@@ -27,11 +27,13 @@ const Form: React.FC = () => {
     console.log("Form Data:", formData);
   };
   const [addClient, setAddClient] = useRecoilState(addClientState);
+  const isSliderClicked = useRecoilValue<boolean>(isSliderClickedState);
+
   const clickAddClient = () => {
     return setAddClient(!addClient);
   };
   return (
-    <form onSubmit={handleSubmit} >
+    <form onSubmit={handleSubmit}>
       <div className="input">
         <label htmlFor="nameInput">Name: </label>
         <input

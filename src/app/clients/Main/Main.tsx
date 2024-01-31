@@ -33,7 +33,11 @@ const Main = () => {
         Add new Client
       </button>
       {addClient === true && (
-        <div className="add-client-form">
+        <div
+          className={`add-client-form ${
+            isSliderClicked ? "dark-component" : "light-component"
+          }`}
+        >
           <Form />
         </div>
       )}

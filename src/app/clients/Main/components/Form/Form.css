@@ -23,8 +23,8 @@ form {
   width: 100%;
   text-align: center;
   margin: 0px 15px;
-  background-color: white;
-  color: var(--text-gray);
+  /* background-color: white; */
+  /* color: var(--text-gray); */
   letter-spacing: 2px;
 }
 
