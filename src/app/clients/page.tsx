@@ -9,7 +9,7 @@ import {
   currentUserState,
   CurrentUser,
 } from "../recoil/atoms";
-import SignIn from "../overview/components/SignIn/SignIn";
+
 
 const Clients = () => {
   const isSliderClicked = useRecoilValue<boolean>(isSliderClickedState);

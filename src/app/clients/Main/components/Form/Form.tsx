@@ -3,7 +3,6 @@ import "../Form/Form.css";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { addClientState, isSliderClickedState } from "@/app/recoil/atoms";
 import Image from "next/image";
-
 interface FormData {
   name: string;
   address: string;
